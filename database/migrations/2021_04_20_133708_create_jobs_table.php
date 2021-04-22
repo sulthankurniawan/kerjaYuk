@@ -16,12 +16,13 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('id_job');
             $table->string('alamat');
             $table->string('posisi_loker');
             $table->string('deskripsi');
-            $table->string('tingkat_jabata');
-            $table->string('kualifikasi_pendidikan');
-            $table->string('kualifikasi_pengalaman');
+            $table->string('tingkat_jabatan');
+            $table->string('pendidikan');
+            $table->string('pengalaman');
             $table->string('gaji');
             $table->string('tunjangan');
         });
