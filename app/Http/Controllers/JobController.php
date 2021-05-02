@@ -41,6 +41,7 @@ class JobController extends Controller
         $job->pengalaman = request('pengalaman');
         $job->gaji = request('gaji');
         $job->tunjangan = request('tunjangan');
+        $job->status = request('status');
 
         $job->save();
 
