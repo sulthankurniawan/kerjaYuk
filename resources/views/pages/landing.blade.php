@@ -42,8 +42,8 @@ KerjaYuk | Home
                 <div id="job-items" class="owl-carousel job-carousel">
                     <div data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="300">
                         <div class="job-card card h-100 d-flex flex-column">
-                            <img class="card-img-top mx-md-auto d-md-block" src="images/globalpay.png"
-                                alt="Company Logo">
+                            <img class="card-img-top mx-md-auto d-md-block"
+                                src="{{ url("kerjayuk-template/images/globalpay.png") }}" alt="Company Logo">
                             <div class="job-body h-100 d-flex flex-column mt-2">
                                 <h3 class="job-title mb-0">UI/UX Designer</h3>
                                 <p class="job-company mb-2">Global Pay Indonesia</p>
