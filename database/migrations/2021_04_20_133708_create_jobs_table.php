@@ -25,6 +25,7 @@ class CreateJobsTable extends Migration
             $table->string('pengalaman');
             $table->string('gaji');
             $table->string('tunjangan');
+            $table->string('status');
         });
     }
 
