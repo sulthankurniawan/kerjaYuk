@@ -17,7 +17,7 @@ use App\Http\Controllers\PizzaController;
 
 // WELCOMEPAGE ROUTES DELETED WHEN NOT NEEDED
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.landing');
 });
 
 // EXAMPLES DELETED SOON
