@@ -16,6 +16,11 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('whistleblower_id');
+            $table->string('request_reported_id');
+            $table->string('user_reported_id');
+            $table->string('category');
+            $table->string('description');
         });
     }
 
