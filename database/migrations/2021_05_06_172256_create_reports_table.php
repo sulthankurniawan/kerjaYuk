@@ -17,7 +17,7 @@ class CreateReportsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('whistleblower_id');
-            $table->string('request_reported_id');
+            $table->string('vacancy_reported_id');
             $table->string('user_reported_id');
             $table->string('category');
             $table->string('description');
