@@ -9,18 +9,19 @@
     <link rel="stylesheet" href="{{ url("kerjayuk-template/styles/main.css") }}">
     <link rel="stylesheet" href="{{ url("kerjayuk-template/libraries/owl-carousel/css/owl.carousel.min.css") }}">
     <link rel="stylesheet" href="{{ url("kerjayuk-template/libraries/aos/css/aos.css") }}" />
-
-    <script src="https://kit.fontawesome.com/eff0ae10a6.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <title>@yield('title')</title>
 </head>
 
 <body>
     <!-- Navbar -->
-    <div class="nav-container h-100 w-100">
+    <div class="nav-container h-100 w-100 nav-logged">
         <div class="container">
-            <nav class="row navbar navbar-expand-lg navbar-light">
-                <a href="{{ url("/") }}" class="navbar-brand">
+            <nav class="row navbar navbar-expand-lg navbar-light nav-logged">
+                <a href="index.html" class="navbar-brand">
                     <h3>KerjaYuk</h3>
                 </a>
                 <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
@@ -34,18 +35,19 @@
                         <li class="nav-item mx-md-2">
                             <a href="#" class="nav-link">Cari Pekerjaan</a>
                         </li>
+                        <li class="nav-item mx-md-2">
+                            <span class="nav-link profile">Halo, Arya</span>
+                        </li>
                     </ul>
                     <!-- Mobile Button -->
                     <form action=""
                         class="nav-button d-flex flex-column align-items-start form-inline d-sm-block d-lg-none">
-                        <button class="btn btn-default btn-secondary btn-block">Masuk</button>
-                        <button class="btn btn-fill text-white btn-block">Daftar</button>
+                        <button class="btn btn-fill text-white btn-block">Keluar</button>
                     </form>
 
                     <!-- Desktop Button -->
-                    <form action="" class="form-inline d-none d-lg-block">
-                        <button class="btn btn-default btn-no-fill">Masuk</button>
-                        <button class="btn btn-fill text-white">Daftar</button>
+                    <form action="" class="form-inline d-none d-lg-block"> <button
+                            class="btn btn-fill text-white">Keluar</button>
                     </form>
                 </div>
             </nav>
@@ -55,7 +57,6 @@
 
     @yield('content')
 
-    <!-- Footer -->
     <footer class="footer-2-3 container-xxl mx-auto position-relative p-0">
         <div class="list-footer">
             <div class="row gap-md-0 gap-3">
