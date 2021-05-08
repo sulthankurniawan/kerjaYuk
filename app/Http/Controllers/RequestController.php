@@ -48,4 +48,6 @@ class RequestController extends Controller
 
         return redirect('/');
     }
+
+    // add few more functions
 }
