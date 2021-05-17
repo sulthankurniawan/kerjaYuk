@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('layouts.home')
 
 @section('title')
 KerjaYuk | Home
@@ -46,8 +46,8 @@ KerjaYuk | Home
                     data-aos-delay="300">
                     <div class="job-card card card-body h-100 w-100 d-flex flex-column position-relative">
                         <div class="tag position-absolute">New</div>
-                        <img class="card-img-top mx-auto d-md-block"
-                            src="{{ url("kerjayuk-template/images/globalpay.png") }}" alt="Company Logo">
+                        <img class="card-img-top mx-auto d-md-block" src="{{ url("img/company/globalpay.png") }}"
+                            alt="Company Logo">
                         <div class="job-body h-100 d-flex flex-column mt-2">
                             <a class="job-title mb-0 stretched-link" href="#">UI/UX Designer</a>
                             <p class="job-company mb-2">Global Pay Indonesia</p>
@@ -62,8 +62,8 @@ KerjaYuk | Home
                 <div class="col h-100" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
                     data-aos-delay="600">
                     <div class="job-card card card-body h-100 w-100">
-                        <img class="card-img-top mx-auto d-md-block"
-                            src="{{ url("kerjayuk-template/images/dataon.png") }}" alt="Company Logo" />
+                        <img class="card-img-top mx-auto d-md-block" src="{{ url("img/company/dataon.png") }}"
+                            alt="Company Logo" />
                         <div class="job-body h-100 d-flex flex-column mt-2">
                             <a class="job-title mb-0 stretched-link" href="#">Software Developer</a>
                             <p class="job-company mb-2">Dataon Company</p>
@@ -78,8 +78,8 @@ KerjaYuk | Home
                 <div class="col h-100" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
                     data-aos-delay="900">
                     <div class="job-card card card-body h-100 w-100">
-                        <img class="card-img-top mx-auto d-md-block"
-                            src="{{ url("kerjayuk-template/images/logo-sociolla.jpg") }}" alt="Company Logo" />
+                        <img class="card-img-top mx-auto d-md-block" src="{{ url("img/company/logo-sociolla.jpg") }}"
+                            alt="Company Logo" />
                         <div class="job-body h-100 d-flex flex-column mt-2">
                             <a class="job-title mb-0 stretched-link" href="#">Back End Developer</a>
                             <p class="job-company mb-2">Social Bella Indonesia</p>
@@ -94,8 +94,8 @@ KerjaYuk | Home
                 <div class="col h-100" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
                     data-aos-delay="1200">
                     <div class="job-card card card-body h-100 w-100">
-                        <img class="card-img-top mx-auto d-md-block"
-                            src="{{ url("kerjayuk-template/images/telkom.png") }}" alt="Company Logo" />
+                        <img class="card-img-top mx-auto d-md-block" src="{{ url("img/company/telkom.png") }}"
+                            alt="Company Logo" />
                         <div class="job-body h-100 d-flex flex-column mt-2">
                             <a class="job-title mb-0 stretched-link" href="#">Business Analyst</a>
                             <p class="job-company mb-2">Telkom Indonesia</p>
@@ -121,29 +121,28 @@ KerjaYuk | Home
                 <div class="col-sm-6 col-md-3 d-flex align-items-center justify-content-center h-100 w-100"
                     data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="300">
                     <div>
-                        <img src="{{ url("kerjayuk-template/images/cashbac-removebg-preview.png") }}" alt="Cashbac Logo"
-                            width="200" height="200">
+                        <img src="{{ url("img/company/cashbac-removebg-preview.png") }}" alt="Cashbac Logo" width="200"
+                            height="200">
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 d-flex align-items-center justify-content-center h-100 w-100"
                     data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="600">
                     <div>
-                        <img src="{{ url("kerjayuk-template/images/logo-sociolla-removebg-preview.png") }}"
-                            alt="Cashbac Logo" width="200" height="200">
+                        <img src="{{ url("img/company/logo-sociolla-removebg-preview.png") }}" alt="Cashbac Logo"
+                            width="200" height="200">
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 d-flex align-items-center justify-content-center h-100 w-100"
                     data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="900">
                     <div>
-                        <img src="{{ url("kerjayuk-template/images/globalpay-removebg-preview.png") }}"
-                            alt="Cashbac Logo" width="200" height="200">
+                        <img src="{{ url("img/company/globalpay-removebg-preview.png") }}" alt="Cashbac Logo"
+                            width="200" height="200">
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 d-flex align-items-center justify-content-center h-100 w-100"
                     data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="1200">
                     <div>
-                        <img src="{{ url("kerjayuk-template/images/telkom.png") }}" alt="Cashbac Logo" width="130"
-                            height="130">
+                        <img src="{{ url("img/company/telkom.png") }}" alt="Cashbac Logo" width="130" height="130">
                     </div>
                 </div>
             </div>

@@ -20,14 +20,14 @@
                 <!-- Mobile Button -->
                 <form action=""
                     class="nav-button d-flex flex-column align-items-start form-inline d-sm-block d-lg-none">
-                    <button class="btn btn-default btn-secondary btn-block">Masuk</button>
-                    <button class="btn btn-fill text-white btn-block">Daftar</button>
+                    <button class="btn btn-default btn-grey btn-block">Masuk</button>
+                    <button class="btn btn-red text-white btn-block">Daftar</button>
                 </form>
 
                 <!-- Desktop Button -->
                 <form action="" class="form-inline d-none d-lg-block">
                     <button class="btn btn-default btn-no-fill">Masuk</button>
-                    <button class="btn btn-fill text-white">Daftar</button>
+                    <button class="btn btn-red text-white">Daftar</button>
                 </form>
             </div>
         </nav>
