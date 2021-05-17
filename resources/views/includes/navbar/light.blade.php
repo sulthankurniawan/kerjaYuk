@@ -1,8 +1,8 @@
 <!-- Navbar -->
-<div class="nav-container h-100 w-100 nav-logged">
+<div class="nav-container h-100 w-100 nav-fill">
     <div class="container">
-        <nav class="row navbar navbar-expand-lg navbar-light nav-logged">
-            <a href="index.html" class="navbar-brand">
+        <nav class="row navbar navbar-expand-lg navbar-light nav-fill">
+            <a href="{{ url("/") }}" class="navbar-brand">
                 <h3>KerjaYuk</h3>
             </a>
             <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
@@ -23,12 +23,12 @@
                 <!-- Mobile Button -->
                 <form action=""
                     class="nav-button d-flex flex-column align-items-start form-inline d-sm-block d-lg-none">
-                    <button class="btn btn-fill text-white btn-block">Keluar</button>
+                    <button class="btn btn-red text-white btn-block">Keluar</button>
                 </form>
 
                 <!-- Desktop Button -->
                 <form action="" class="form-inline d-none d-lg-block"> <button
-                        class="btn btn-fill text-white">Keluar</button>
+                        class="btn btn-red text-white">Keluar</button>
                 </form>
             </div>
         </nav>

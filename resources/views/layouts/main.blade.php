@@ -7,13 +7,11 @@
 
     @include('includes.styles')
 
-    <script src="https://kit.fontawesome.com/eff0ae10a6.js" crossorigin="anonymous"></script>
-
     <title>@yield('title')</title>
 </head>
 
 <body>
-    @include('includes.guest.navbar')
+    @include('includes.navbar.light')
 
     @yield('content')
 
