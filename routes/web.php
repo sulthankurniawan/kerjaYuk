@@ -17,7 +17,11 @@ use App\Http\Controllers\PizzaController;
 
 // WELCOMEPAGE ROUTES DELETED WHEN NOT NEEDED
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.seeker');
+});
+
+Route::get('/jobs/report/{id}', function () {
+    return view('jobs.report');
 });
 
 // EXAMPLES DELETED SOON
