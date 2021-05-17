@@ -20,18 +20,27 @@ body {
         }
     }
 
-    &.nav-logged {
+    &.nav-fill {
         background-color: #fff;
     }
 }
 
-.btn-fill {
+.btn-red {
     font: 500 0.875rem/1.25rem Poppins, sans-serif;
     border: 1px solid #f55151;
     background-color: #f55151;
     border-radius: 999px;
     padding: 0.75rem 1.5rem;
     transition: 0.3s;
+
+    &:hover {
+        background-color: #ff8378;
+        border: 1px solid #ff8378;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(225,83,97,0.5);
+    }
 }
 
 .btn-green {
@@ -46,24 +55,23 @@ body {
         background-color: #5fa33a;
         color: #fff;
     }
-}
 
-.btn-fill:hover {
-    background-color: #ff8378;
-    border: 1px solid #ff8378;
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(60,153,110,0.5);
+    }
 }
 
 .btn-no-fill {
     font: 500 0.875rem/1.25rem Poppins, sans-serif;
     color: #e8f1ff;
     padding: 0.75rem 2rem;
+
+    &:hover {
+        color: #ffffff;
+    }
 }
 
-.btn-no-fill:hover {
-    color: #ffffff;
-}
-
-.btn-secondary {
+.btn-grey {
     font: 500 0.875rem/1.25rem Poppins, sans-serif;
     border: 1px solid #e5e9f2;
     background-color: #e5e9f2;
@@ -71,12 +79,16 @@ body {
     border-radius: 999px;
     padding: 0.75rem 1.5rem;
     transition: 0.3s;
-}
 
-.btn-secondary:hover {
-    background-color: #dce0eb;
-    color: #34364a;
-    border: 1px solid #e5e9f2;
+    &:hover {
+        background-color: #dce0eb;
+        color: #34364a;
+        border: 1px solid #e5e9f2;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(130,138,145,0.5);
+    }
 }
 
 .navbar-light {
@@ -106,7 +118,7 @@ body {
         }
     }
 
-    &.nav-logged {
+    &.nav-fill {
         .navbar-nav {
             .nav-link {
                 color: #16272f;
@@ -127,7 +139,7 @@ body {
 header {
     box-sizing: border-box;
     position: relative;
-    background-image: url("../images/header.png");
+    background-image: url("../img/illustration/header.png");
     background-size: cover;
     background-position-x: center;
     padding: 270px 0 200px;
@@ -388,6 +400,8 @@ footer {
     }
 
     .nav-container {
+        background-color: #fff;
+
         .navbar {
             padding-top: .75rem;
             padding-bottom: .75rem;
