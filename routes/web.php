@@ -15,13 +15,9 @@ use App\Http\Controllers\PizzaController;
 |
 */
 
-// WELCOMEPAGE ROUTES DELETED WHEN NOT NEEDED
+// WELCOMEPAGE ROUTES
 Route::get('/', function () {
     return view('dashboard.seeker');
-});
-
-Route::get('/jobs/report/{id}', function () {
-    return view('jobs.report');
 });
 
 // EXAMPLES DELETED SOON
@@ -31,20 +27,15 @@ Route::get('/pizzas/{id}', [PizzaController::class, 'show'])->name('pizzas.show'
 Route::post('/pizzas', [PizzaController::class, 'store'])->name('pizzas.store');
 Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->name('pizzas.destroy')->middleware('auth');
 
-// Auth::routes([
-//     'register' => false
-// ]);
-
 // HOME ROUTES
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // GET HOMEPAGE DUMMY
-Route::get('/home-company', [App\Http\Controllers\HomeController::class, 'homeCompany'])->name('home')->middleware('company'); // GET HOMEPAGE COMPANY (AUTH AS COMPANY)
-Route::get('/home-seeker', [App\Http\Controllers\HomeController::class, 'homeSeeker'])->name('home')->middleware('seeker'); // GET HOMEPAGE SEEKER (AUTH AS SEEKER)
-Route::get('/home-admin', [App\Http\Controllers\HomeController::class, 'homeAdmin'])->name('home')->middleware('admin'); // GET HOMEPAGE ADMIN (AUTH AS ADMIN)
+Route::get('/', [App\Http\Controllers\HomeController::class, 'homeSeeker'])->name('home'); // GET HOMEPAGE
+Route::get('/company', [App\Http\Controllers\HomeController::class, 'homeCompany'])->name('home')->middleware('company'); // GET HOMEPAGE COMPANY (AUTH AS COMPANY)
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'homeAdmin'])->name('home')->middleware('admin'); // GET HOMEPAGE ADMIN (AUTH AS ADMIN)
 
 // JOB ROUTES
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index'); // GET ALL JOB RECORD
 Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('jobs.create')->middleware('company'); // GET FORM CREATE JOB (AUTH AS COMPANY)
-Route::get('/jobs/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show')->middleware('company'); // GET JOB BASED ON ID (AUTH AS COMPANY)
+Route::get('/jobs/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show')->middleware('auth'); // GET JOB BASED ON ID (AUTH)
 Route::post('/jobs', [App\Http\Controllers\JobController::class, 'store'])->name('jobs.store')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY)
 Route::delete('/jobs/{id}', [App\Http\Controllers\JobController::class, 'destroy'])->name('jobs.destroy')->middleware('company'); // DELETE JOB RECORD BASED ON ID (AUTH AS COMPANY)
 
