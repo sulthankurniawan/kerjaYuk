@@ -16,9 +16,9 @@
                     <li class="nav-item mx-md-2">
                         <a href="#" class="nav-link">Cari Pekerjaan</a>
                     </li>
-                    <li class="nav-item mx-md-2">
+                    {{-- <li class="nav-item mx-md-2">
                         <span class="nav-link profile">Halo, Arya</span>
-                    </li>
+                    </li> --}}
                 </ul>
                 <!-- Mobile Button -->
                 <form action=""

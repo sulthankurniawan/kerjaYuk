@@ -39,7 +39,7 @@ body {
     }
 
     &:focus {
-        box-shadow: 0 0 0 0.25rem rgba(225,83,97,0.5);
+        box-shadow: 0 0 0 0.25rem rgba(225, 83, 97, 0.5);
     }
 }
 
@@ -57,7 +57,7 @@ body {
     }
 
     &:focus {
-        box-shadow: 0 0 0 0.25rem rgba(60,153,110,0.5);
+        box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
     }
 }
 
@@ -87,7 +87,7 @@ body {
     }
 
     &:focus {
-        box-shadow: 0 0 0 0.25rem rgba(130,138,145,0.5);
+        box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
     }
 }
 
@@ -642,6 +642,47 @@ footer {
     .section-company,
     .section-form-report {
         padding-bottom: 7rem;
+    }
+
+    /*login page*/
+    #forgot-pass {
+        color: #b80000;
+        font-size: 10pt;
+        margin-top: 7px;
+        text-align: right;
+    }
+
+    /*register company*/
+    input[type="text"] {
+        border: 0;
+        border-bottom: 2px solid #bbb;
+        color: #bbb;
+        padding: 8px 0;
+        width: 100%;
+        max-width: 15em;
+        font-size: 20px;
+    }
+
+    input[type="text"]:focus {
+        color: #3719e9;
+        border-color: #3377d6;
+        outline: 0;
+    }
+
+    input[type="password"] {
+        border: 0;
+        border-bottom: 2px solid #bbb;
+        color: #bbb;
+        padding: 8px 0;
+        width: 100%;
+        max-width: 15em;
+        font-size: 20px;
+    }
+
+    input[type="password"]:focus {
+        color: #3719e9;
+        border-color: #3377d6;
+        outline: 0;
     }
 }
 
