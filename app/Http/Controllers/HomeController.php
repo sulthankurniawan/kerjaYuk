@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Job;
 
 class HomeController extends Controller
 {
@@ -11,18 +12,38 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-        return view('home');
+        $jobs = Job::latest()->limit(10)->get();
+
+        return view('dashboard.seeker', [
+            'job' => $jobs,
+        ]);
+    }
+
+    public function seeker()
+    {
+        
+    }
+
+    public function company()
+    {
+
+    }
+
+    public function admin()
+    {
+        
     }
 }

@@ -16,19 +16,19 @@ use App\Http\Controllers\PizzaController;
 */
 
 // WELCOMEPAGE ROUTES
-Route::get('/', function () {
-    return view('dashboard.seeker');
-});
+// Route::get('/', function () {
+//     return view('dashboard.seeker');
+// });
 
 // EXAMPLES DELETED SOON
-Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index')->middleware('auth');
-Route::get('/pizzas/create', [PizzaController::class, 'create'])->name('pizzas.create');
-Route::get('/pizzas/{id}', [PizzaController::class, 'show'])->name('pizzas.show')->middleware('auth');
-Route::post('/pizzas', [PizzaController::class, 'store'])->name('pizzas.store');
-Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->name('pizzas.destroy')->middleware('auth');
+// Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index')->middleware('auth');
+// Route::get('/pizzas/create', [PizzaController::class, 'create'])->name('pizzas.create');
+// Route::get('/pizzas/{id}', [PizzaController::class, 'show'])->name('pizzas.show')->middleware('auth');
+// Route::post('/pizzas', [PizzaController::class, 'store'])->name('pizzas.store');
+// Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->name('pizzas.destroy')->middleware('auth');
 
 // HOME ROUTES
-Route::get('/', [App\Http\Controllers\HomeController::class, 'homeSeeker'])->name('home'); // GET HOMEPAGE
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET HOMEPAGE
 Route::get('/company', [App\Http\Controllers\HomeController::class, 'homeCompany'])->name('home')->middleware('company'); // GET HOMEPAGE COMPANY (AUTH AS COMPANY)
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'homeAdmin'])->name('home')->middleware('admin'); // GET HOMEPAGE ADMIN (AUTH AS ADMIN)
 
