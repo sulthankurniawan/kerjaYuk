@@ -9,15 +9,15 @@ KerjaYuk | Login
 <main>
     <section class="section-login">
         <div class="container">
-            <div class="col-md-4 offset-md-4 mt-5">
+            <div class="col-md-4 offset-md-4 px-0">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-transparent">
                         <h3 class="text-left">Masuk</h3>
                         <p class="text-inactive">Sangat mudah dan cepat. Kami tidak akan mengunggah apapun tanpa
                             izin
                             dari anda</p>
                     </div>
-                    <form action="" method="">
+                    <form action="" method="post">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for=""><strong>Email</strong></label>

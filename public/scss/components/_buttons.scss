@@ -1,0 +1,77 @@
+@import "../abstract/colors";
+
+button,
+.btn {
+    font: 500 0.875rem/1.25rem Poppins, sans-serif;
+    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    transition: 0.3s;
+}
+
+.btn-no-fill {
+    color: $white;
+    padding: 0.75rem 2rem;
+
+    &:hover {
+        color: $white;
+    }
+}
+
+.btn-red {
+    border: 1px solid $button-red;
+    background-color: $button-red;
+    color: $white;
+
+    &:hover {
+        color: $white;
+        background-color: $button-red-hovered;
+        border: 1px solid $button-red-hovered;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(225, 83, 97, 0.5);
+    }
+}
+
+.btn-green {
+    border: 1px solid $button-green;
+    background-color: $button-green;
+    color: $white;
+
+    &:hover {
+        background-color: $button-green-hovered;
+        color: $white;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
+    }
+}
+
+.btn-grey {
+    border: 1px solid $button-light-grey;
+    background-color: $button-light-grey;
+    color: $black-lighten;
+
+    &:hover {
+        background-color: $button-light-grey-hovered;
+        color: $black-lighten;
+        border: 1px solid $button-light-grey-hovered;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+    }
+}
+
+.btn-orange {
+    border: 1px solid $button-orange;
+    background-color: $button-orange;
+    color: $white;
+
+    &:hover {
+        color: $white;
+        background-color: $button-orange-hovered;
+        border: 1px solid $button-orange-hovered;
+    }
+}
