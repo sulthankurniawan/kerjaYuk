@@ -19,6 +19,7 @@ class CreateRequestsTable extends Migration
             $table->string('id_user');
             $table->string('id_job');
             $table->string('lampiran');
+            $table->string('status');
         });
     }
 

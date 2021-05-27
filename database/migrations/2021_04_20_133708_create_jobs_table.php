@@ -17,9 +17,9 @@ class CreateJobsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('id_user');
-            $table->string('posisi_loker');
+            $table->string('nama');
             $table->string('deskripsi');
-            $table->string('tingkat_jabatan');
+            $table->string('jabatan');
             $table->string('pendidikan');
             $table->string('pengalaman');
             $table->string('gaji');

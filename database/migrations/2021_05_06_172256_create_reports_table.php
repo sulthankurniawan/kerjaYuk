@@ -16,11 +16,12 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('whistleblower_id');
-            $table->string('vacancy_reported_id');
-            $table->string('user_reported_id');
+            $table->string('id_whistleblower');
+            $table->string('id_job_reported');
+            $table->string('id_user_reported');
             $table->string('category');
             $table->string('description');
+            $table->string('status');
         });
     }
 
