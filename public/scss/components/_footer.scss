@@ -1,0 +1,96 @@
+.section-footer {
+    background-color: #454545;
+    color: #fff;
+}
+
+footer {
+    border-top: 0;
+    background-color: #454545;
+    color: #fff;
+}
+
+.footer-2-3 {
+    .list-space {
+        margin-bottom: 1.25rem;
+    }
+
+    .footer-text-title {
+        font: 600 1.5rem Poppins, sans-serif;
+        margin-bottom: 1.5rem;
+    }
+
+    .list-menu {
+        color: #fff;
+
+        &:hover {
+            color: #ffffff;
+        }
+    }
+
+    hr.hr {
+        margin: 0;
+        border: 0;
+        border-top: 1px solid rgba(46, 46, 90, 1);
+    }
+
+    .border-color {
+        color: #707092;
+    }
+
+    .footer-link {
+        color: #fff;
+
+        &:hover {
+            color: #ffffff;
+        }
+    }
+
+    .footer-info-space {
+        padding-top: 3rem;
+    }
+
+    .list-footer {
+        padding: 5rem 1rem 3rem 1rem;
+
+        @include extra-small {
+            padding: 5rem 2rem 3rem 2rem;
+        }
+
+        @include small {
+            padding: 5rem 2rem 3rem 2rem;
+        }
+
+        @include medium {
+            padding: 5rem 4rem 6rem 4rem;
+        }
+
+        @include large {
+            padding: 5rem 6rem 6rem 6rem;
+        }
+    }
+
+    .info-footer {
+        padding: 0 1rem 3rem;
+
+        @include extra-small {
+            padding: 0 2rem 3rem;
+        }
+
+        @include small {
+            padding: 0 2rem 3rem;
+        }
+
+        @include medium {
+            padding: 0 4rem 3rem;
+        }
+
+        @include large {
+            padding: 0 6rem 3rem;
+        }
+    }
+}
+
+.footer-2-3 .social-media-c:hover circle,
+.footer-2-3 .social-media-p:hover path {
+    fill: #ffffff;
+}

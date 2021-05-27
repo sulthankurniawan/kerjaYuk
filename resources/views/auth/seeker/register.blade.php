@@ -7,11 +7,11 @@ Seeker | Login
 @section('content')
 <!--Main-->
 <main>
-    <section>
+    <section class="section-register-seeker">
         <div class="container">
-            <div class="col-md-4 offset-md-4 mt-5">
+            <div class="col-md-4 offset-md-4">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-transparent">
                         <h3 class="text-left">Mendaftar</h3>
                         <p class="text-inactive">Daftar gratis dan dapatkan pekerjaan yang sesuai dengan mudah dan
                             cepat kemudian melamar pekerjaan yang diinginkan</p>
@@ -34,8 +34,8 @@ Seeker | Login
                             <input type="password" name="password" class="form-control" placeholder="Password">
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-red text-white primary btn-block">Daftar Sekarang</button>
+                    <div class="card-footer bg-transparent">
+                        <button type="submit" class="btn btn-danger primary btn-block">Daftar Sekarang</button>
                         <p class="text-center">Sudah memiliki akun? <a href="#">Masuk</a></p>
                         <p class="text-inactive">Dengan memilih "Daftar sekarang" saya telah membaca dan menyetujui
                             persyaratan penggunaan KerjaYuk.com dan kebijakan privasi</p>
@@ -44,7 +44,7 @@ Seeker | Login
                 </div>
             </div>
         </div>
-    </section>
+        </div>
 </main>
 <!-- End Main -->
 @endsection
