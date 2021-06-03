@@ -16,10 +16,10 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('id_user');
-            $table->string('id_job');
-            $table->string('lampiran');
-            $table->string('status');
+            $table->string('id_user')->nullable();
+            $table->string('id_job')->nullable();
+            $table->string('lampiran')->nullable();
+            $table->string('status')->nullable();
         });
     }
 

@@ -32,6 +32,23 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
 Route::get('/company', [App\Http\Controllers\HomeController::class, 'homeCompany'])->name('home')->middleware('company'); // GET HOMEPAGE COMPANY (AUTH AS COMPANY)
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'homeAdmin'])->name('home')->middleware('admin'); // GET HOMEPAGE ADMIN (AUTH AS ADMIN)
 
+// REGISTER ROUTES
+Route::get('/register-seeker', [App\Http\Controllers\Auth\RegisterController::class, 'seeker'])->name('auth.register.seeker'); // GET HOMEPAGE
+Route::get('/register-company', [App\Http\Controllers\Auth\RegisterController::class, 'company'])->name('auth.register.company'); // GET HOMEPAGE
+Route::post('/register-seeker', [App\Http\Controllers\Auth\RegisterController::class, 'createSeeker'])->name('auth.register.createSeeker'); // GET HOMEPAGE
+Route::post('/register-company', [App\Http\Controllers\Auth\RegisterController::class, 'createSeeker'])->name('auth.register.createSeeker'); // GET HOMEPAGE
+
+// LOGIN ROUTES
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('auth.login.index'); // GET LOGIN PAGE
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('auth.login.login'); // LOGIN
+
+Route::group(['middleware' => 'auth'], function () {
+ 
+    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+ 
+});
+
 // JOB ROUTES
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index'); // GET ALL JOB RECORD
 Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('jobs.create')->middleware('company'); // GET FORM CREATE JOB (AUTH AS COMPANY)

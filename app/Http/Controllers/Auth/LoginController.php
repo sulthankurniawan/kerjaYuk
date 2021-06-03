@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -38,25 +39,44 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectTo()
+    public function index()
     {
-        switch(Auth::user()->role){
-            case 'admin':
-                $this->redirectTo = '/admin';
-                return $this->redirectTo;
-                break;
-            case 'seeker':
-                $this->redirectTo = '/seeker';
-                return $this->redirectTo;
-                break;
-            case 'company':
-                $this->redirectTo = '/company';
-                return $this->redirectTo;
-                break;
-            default:
-                $this->redirectTo = '/login';
-                return $this->redirectTo;
+        // if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
+        //     //Login Success
+        //     return redirect('/');
+        // }
+        return view('auth.login');
+    }
+
+    public function login()
+    {
+        $data = [
+            'email'     => request('email'),
+            'password'  => request('password'),
+        ];
+  
+        Auth::attempt($data);
+  
+        if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
+            //Login Success
+            switch(Auth::user()->role){
+                case 'admin':
+                    return redirect('/admin');
+                case 'seeker':
+                    return redirect('/');
+                case 'company':
+                   return redirect('/company');
+            }
+  
+        } else { // false
+            //Login Fail
+            return redirect('/login')->with('mssg', 'Email atau Password salah');
         }
-        // return $next($request);
+    }
+
+    public function logout()
+    {
+        Auth::logout(); // menghapus session yang aktif
+        return redirect('/');
     }
 }

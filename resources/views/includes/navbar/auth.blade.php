@@ -20,15 +20,6 @@
                         <span class="nav-link profile">Halo, Arya</span>
                     </li> --}}
                 </ul>
-                <!-- Mobile Button -->
-                <form action="" class="nav-button d-flex flex-column align-items-start form-inline d-sm-block d-lg-none">
-                    <button class="btn btn-red text-white btn-block">Keluar</button>
-                </form>
-
-                <!-- Desktop Button -->
-                <form action="" class="form-inline d-none d-lg-block"> 
-                    <button class="btn btn-red text-white">Keluar</button>
-                </form>
             </div>
         </nav>
     </div>

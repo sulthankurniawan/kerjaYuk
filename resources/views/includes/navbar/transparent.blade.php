@@ -18,16 +18,17 @@
                     </li>
                 </ul>
                 <!-- Mobile Button -->
-                <form action=""
-                    class="nav-button d-flex flex-column align-items-start form-inline d-sm-block d-lg-none">
-                    <button class="btn btn-default btn-grey btn-block">Masuk</button>
-                    <button class="btn btn-red text-white btn-block">Daftar</button>
+                <form action="" class="nav-button d-flex flex-column align-items-start form-inline d-sm-block d-lg-none">
+                    <a href="/login" class="btn btn-default btn-grey btn-block">Masuk</a>
+                    <a href="/register-seeker" class="btn btn-red text-white btn-block">Daftar Sebagai Seeker</a>
+                    <a href="/register-company" class="btn btn-warning text-white btn-block">Daftar Sebagai Company</a>
                 </form>
 
                 <!-- Desktop Button -->
                 <form action="" class="form-inline d-none d-lg-block">
-                    <button class="btn btn-default btn-no-fill">Masuk</button>
-                    <button class="btn btn-red text-white">Daftar</button>
+                    <a href="/login" class="btn btn-default btn-no-fill">Masuk</a>
+                    <a href="/register-seeker" class="btn btn-red text-white">Daftar Sebagai Seeker</a>
+                    <a href="/register-company" class="btn btn-warning text-white">Daftar Sebagai Company</a>
                 </form>
             </div>
         </nav>

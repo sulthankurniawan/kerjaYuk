@@ -41,27 +41,37 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function seeker()
+    {
+        return view('auth.register.seeker');
+    }
+
+    public function company()
+    {
+        return view('auth.register.company');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'nama_perusahaan' => ['string', 'max:255'],
-            'jenis_industri' => ['string', 'max:255'],
-            'tentang_perusahaan' => ['string'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['string', 'max:12'],
-            'role' => ['string'],
-            'status' => ['string'],
-            'credibility' => ['string'],
-        ]);
-    }
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'nama_perusahaan' => ['string', 'max:255'],
+    //         'jenis_industri' => ['string', 'max:255'],
+    //         'tentang_perusahaan' => ['string'],
+    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
+    //         'phone' => ['string', 'max:12'],
+    //         'role' => ['string'],
+    //         'status' => ['string'],
+    //         'credibility' => ['string'],
+    //     ]);
+    // }
 
     /**
      * Create a new user instance after a valid registration.
@@ -69,19 +79,61 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    // protected function createSeeker(array $data)
+    protected function createSeeker()
     {
-        return User::create([
-            'name' => $data['name'],
-            'nama_perusahaan' => $data['nama_perusahaan'],
-            'jenis_industri' => $data['jenis_industri'],
-            'tentang_perusahaan' => $data['tentang_perusahaan'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'phone' => $data['phone'],
-            'role' => $data['role'],
-            'status' => $data['status'],
-            'credibility' => $data['credibility']
-        ]);
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'phone' => $data['phone'],
+        //     'role' => 'seeker',
+        //     'status' => $data['status']
+        // ]);
+
+        $user = new User();
+
+        $user->name = request('name');
+        $user->email = request('email');
+        $user->password = Hash::make(request('password'));
+        $user->phone = request('phone');
+        $user->role = 'seeker';
+        $user->status = request('status');
+
+        $user->save();
+
+        return redirect('/login')->with('mssg', 'Pengguna telah terdaftar sebagai pencari lowongan');
+    }
+
+    // protected function createCompany(array $data)
+    protected function createCompany()
+    {
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'nama_perusahaan' => $data['nama_perusahaan'],
+        //     'jenis_industri' => $data['jenis_industri'],
+        //     'tentang_perusahaan' => $data['tentang_perusahaan'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'phone' => $data['phone'],
+        //     'role' => 'company',
+        //     'status' => $data['status']
+        // ]);
+
+        $user = new User();
+
+        $user->name = request('name');
+        $user->nama_perusahaan = request('nama_perusahaan');
+        $user->jenis_industri = request('jenis_industri');
+        $user->tentang_perusahaan = request('tentang_perusahaan');
+        $user->email = request('email');
+        $user->password = Hash::make(request('password'));
+        $user->phone = request('phone');
+        $user->role = 'company';
+        $user->status = request('status');
+
+        $user->save();
+
+        return redirect('/login')->with('mssg', 'Pengguna telah terdaftar sebagai pencari lowongan');
     }
 }

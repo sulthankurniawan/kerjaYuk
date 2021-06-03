@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $jobs = Job::latest()->limit(10)->get();
 
-        return view('dashboard.seeker', [
+        return view('welcome', [
             'job' => $jobs,
         ]);
     }

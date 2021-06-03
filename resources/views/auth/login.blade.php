@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.auth')
 
 @section('title')
 KerjaYuk | Login
@@ -17,7 +17,7 @@ KerjaYuk | Login
                             izin
                             dari anda</p>
                     </div>
-                    <form action="" method="post">
+                    <form action="/login" method="POST">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -28,12 +28,17 @@ KerjaYuk | Login
                                 <label for=""><strong>Password</strong></label>
                                 <input type="password" name="password" class="form-control" placeholder="Password">
                             </div>
-                            <div class="form-check mb-3">
+                            <!-- <div class="form-check mb-3">
                                 <label class="form-check-label">
                                     <p><label for="checkbox"><input type="checkbox" name="setcookie" value="true"
                                                 id="remember" /> Remember Me</label></p>
                                 </label>
-                            </div>
+                            </div> -->
+
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ session('mssg') }}</strong>
+                            </span>
+
                             <a href="#">
                                 <legend id="forgot-pass">Lupa Kata Sandi?</legend>
                             </a>
@@ -41,7 +46,7 @@ KerjaYuk | Login
                         <div class="card-footer">
                             <button type="submit"
                                 class="btn btn-red text-white primary btn-block d-lg-center-flex mb-2 mb-md-0">Masuk</button>
-                            <p class="text-center">Pengguna baru? <a href="#">Buat akun</a>
+                            <p class="text-center">Pengguna baru? <a href="/register-seeker">Buat akun</a>
                                 sekarang!</p>
                             <p class="text-inactive">Dengan memilih "Masuk" saya telah membaca dan menyetujui
                                 persyaratan penggunaan KerjaYuk.com dan kebijakan privasi</p>
