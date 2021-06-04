@@ -719,48 +719,6 @@ section .owl-next i {
   }
 }
 
-.section-detail-job .nav-tabs .nav-item .nav-link {
-  border: 0;
-  color: #BBBBBB;
-}
-
-.section-detail-job .nav-tabs .nav-item .nav-link.active {
-  color: #16272f;
-  border-bottom: 2px solid #f55151;
-}
-
-.section-detail-job .profile-picture {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-
-.section-detail-job .attachment-items {
-  position: relative;
-  overflow: hidden;
-}
-
-.section-detail-job .attachment-items::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  border-width: 0 16px 16px 0;
-  border-style: solid;
-  border-color: #DDDEDF #DDDEDF #f55151 #f55151;
-  background: #f55151;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
-  display: block;
-  width: 0;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
 .section-forget-password {
   background-color: #F55151;
 }
@@ -782,6 +740,48 @@ section .owl-next i {
   background-clip: border-box;
   border: 1px solid #e5e9f2;
   border-radius: 15px;
+}
+
+.section-detail-job .nav-tabs .nav-item .nav-link {
+  border: 0;
+  color: #BBBBBB;
+}
+
+.section-detail-job .nav-tabs .nav-item .nav-link.active {
+  color: #16272f;
+  border-bottom: 2px solid #f55151;
+}
+
+.attachment-items {
+  position: relative;
+  overflow: hidden;
+}
+
+.attachment-items::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-width: 0 16px 16px 0;
+  border-style: solid;
+  border-color: #DDDEDF #DDDEDF #f55151 #f55151;
+  background: #f55151;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+  display: block;
+  width: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 @media screen and (min-width: 992px) {
