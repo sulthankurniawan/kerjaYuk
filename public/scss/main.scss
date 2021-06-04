@@ -181,51 +181,6 @@ section {
 
 }
 
-.section-detail-job {
-    .nav-tabs {
-        .nav-item {
-            .nav-link {
-                border: 0;
-                color: #BBBBBB;
-
-                &.active {
-                    color: #16272f;
-                    border-bottom: 2px solid #f55151;
-                }
-            }
-        }
-    }
-
-    .profile-picture {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-
-        object-fit: cover;
-        object-position: center;
-    }
-
-    .attachment-items {
-        position: relative;
-        overflow: hidden;
-
-        &::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            border-width: 0 16px 16px 0;
-            border-style: solid;
-            border-color: #DDDEDF #DDDEDF #f55151 #f55151;
-            background: #f55151;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
-            display: block;
-            width: 0;
-            transform: rotate(90deg);
-        }
-    }
-}
-
 .section-forget-password {
     background-color: $red;
     .card {
@@ -243,6 +198,52 @@ section {
         border: 1px solid #e5e9f2;
         border-radius: 15px;
     }
+}
+
+.section-detail-job {
+    .nav-tabs {
+        .nav-item {
+            .nav-link {
+                border: 0;
+                color: #BBBBBB;
+
+                &.active {
+                    color: #16272f;
+                    border-bottom: 2px solid #f55151;
+                }
+            }
+        }
+    }
+
+}
+
+.attachment-items {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-width: 0 16px 16px 0;
+        border-style: solid;
+        border-color: #DDDEDF #DDDEDF #f55151 #f55151;
+        background: #f55151;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+        display: block;
+        width: 0;
+        transform: rotate(90deg);
+    }
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    object-fit: cover;
+    object-position: center;
 }
 
 @include large {
