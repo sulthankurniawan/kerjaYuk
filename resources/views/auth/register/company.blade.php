@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.main')
 
 @section('title')
 Company | Register
@@ -24,11 +24,11 @@ Company | Register
                         </div>
                         <div class="form-group">
                             <label for=""><strong>Perusahaan</strong></label>
-                            <input type="text" name="nama_perusahaan" class="form-control" placeholder="Perusahaan">
+                            <input type="text" name="company" class="form-control" placeholder="Perusahaan">
                         </div>
                         <div class="form-group">
                             <label for=""><strong>Industri</strong></label>
-                            <input type="text" name="jenis_industri" class="form-control" placeholder="Industri">
+                            <input type="text" name="industry" class="form-control" placeholder="Industri">
                         </div>
                         <div class="form-group">
                             <label for=""><strong>Email</strong></label>
@@ -40,7 +40,8 @@ Company | Register
                         </div>
                         <div class="form-group">
                             <label for=""><strong>Deskripsi Perusahaan</strong></label>
-                            <input type="textarea" name="tentang_perusahaan" class="form-control" placeholder="Tentang Perusahaan">
+                            <textarea name="about_company" class="form-control" id="about_perusahaan" rows="8"
+                            placeholder="Tuliskan informasi perusahaan..."></textarea>
                         </div>
                         <div class="form-group">
                             <label for=""><strong>Kata Sandi</strong></label>

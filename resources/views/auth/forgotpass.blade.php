@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.main')
 
 @section('title')
 Kerjayuk | Forgot Password

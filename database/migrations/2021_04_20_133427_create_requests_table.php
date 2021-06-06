@@ -16,9 +16,10 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('id_user')->nullable();
-            $table->string('id_job')->nullable();
-            $table->string('lampiran')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('job_id')->nullable();
+            $table->string('link')->nullable();
+            $table->string('pitch')->nullable();
             $table->string('status')->nullable();
         });
     }

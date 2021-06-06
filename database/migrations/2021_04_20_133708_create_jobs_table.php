@@ -16,14 +16,23 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('id_user')->nullable();
-            $table->string('nama')->nullable();
-            $table->string('deskripsi')->nullable();
-            $table->string('jabatan')->nullable();
-            $table->string('pendidikan')->nullable();
-            $table->string('pengalaman')->nullable();
-            $table->string('gaji')->nullable();
-            $table->string('tunjangan')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('location')->nullable();
+            $table->string('type')->nullable();
+            $table->string('min_salary')->nullable();
+            $table->string('max_salary')->nullable();
+            $table->string('workhour_start')->nullable();
+            $table->string('workhour_end')->nullable();
+            $table->string('workday_start')->nullable();
+            $table->string('workday_end')->nullable();
+            $table->string('job_state')->nullable();
+            $table->string('education')->nullable();
+            $table->json('major')->nullable();
+            $table->string('experience')->nullable();
+            $table->string('responsibility')->nullable();
+            $table->string('submission')->nullable();
+            $table->string('other')->nullable();
             $table->string('status')->nullable();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Job;
+use App\Models\Request as Job_Request;
 
 class HomeController extends Controller
 {
@@ -34,7 +35,12 @@ class HomeController extends Controller
 
     public function seeker()
     {
-        
+        $jobs = Job::latest()->limit(10)->get();
+        $request = Job_Request::latest()->get();
+
+        return view('dashboard.seeker', [
+            'job' => $jobs,
+        ]);
     }
 
     public function company()
