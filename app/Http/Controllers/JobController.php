@@ -24,7 +24,7 @@ class JobController extends Controller
 
         $job = Job::findOrFail($id);
 
-        return view('jobs.show', ['job' => $job]);
+        return view('jobs.company.show', ['job' => $job]);
     }
 
     public function create() {
@@ -47,7 +47,7 @@ class JobController extends Controller
         $job->workday_end = request('workday_end');
         $job->job_state = request('job_state');
         $job->education = request('education');
-        $job->major = request('major');
+        $job->majors = request('majors');
         $job->experience = request('experience');
         $job->responsibility = request('responsibility');
         $job->submission = request('submission');

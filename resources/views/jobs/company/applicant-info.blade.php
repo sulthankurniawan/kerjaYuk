@@ -15,8 +15,7 @@ KerjaYuk | Info Pendaftar
 
             <div class="card card-body border-0">
                 <div class="card-header text-center border-bottom-0 px-0 mb-3">
-                    <img src="{{ url("img/illustration/avatars/user-1.jpg") }}" alt="Foto Profil"
-                        class="image-cover profile-picture">
+                    <!-- <img src="{{ url("img/illustration/avatars/user-1.jpg") }}" alt="Foto Profil" class="image-cover profile-picture"> -->
                 </div>
                 <form action="" method="">
                     <div class="form-group">

@@ -28,7 +28,7 @@ class CreateJobsTable extends Migration
             $table->string('workday_end')->nullable();
             $table->string('job_state')->nullable();
             $table->string('education')->nullable();
-            $table->json('major')->nullable();
+            $table->json('majors')->nullable();
             $table->string('experience')->nullable();
             $table->string('responsibility')->nullable();
             $table->string('submission')->nullable();

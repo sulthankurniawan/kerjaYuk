@@ -11,25 +11,25 @@ KerjaYuk | Detail Job
         <div class="container">
             <div class="card card-body border-0">
                 <div class="card-header text-center border-bottom-0 px-0">
-                    <h4 class="text-title mb-3">Edit Informasi Lowongan</h4>
-                    <img src="{{ url("img/illustration/company/logo-sociolla.jpg") }}" alt="Company Logo" width="150">
+                    <h4 class="text-title mb-3">Informasi Lowongan</h4>
+                    <!-- <img src="{{ url("img/illustration/company/logo-sociolla.jpg") }}" alt="Company Logo" width="150"> -->
                 </div>
-                <form action="" method="">
+                <form action="/jobs" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="pekerjaan">Nama Pekerjaan:</label>
-                        <input type="text" class="form-control" id="pekerjaan" placeholder="Nama Pekerjaan"
-                            name="pekerjaan">
+                        <input type="text" class="form-control" id="pekerjaan" placeholder="Nama Pekerjaan" name="name">
                     </div>
                     <div class="form-group">
                         <label for="lokasi">Lokasi:</label>
-                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="lokasi">
+                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location">
                     </div>
                     <div class="form-group">
                         <label for="jenis_pekerjaan">Jenis Pekerjaan:</label>
-                        <select class="form-control" id="jenis_pekerjaan">
-                            <option>Part-Time</option>
-                            <option>Internship</option>
-                            <option>Full-Time</option>
+                        <select class="form-control" id="jenis_pekerjaan" name="type">
+                            <option>Penuh Waktu</option>
+                            <option>Paruh Waktu</option>
+                            <option>Magang</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -37,11 +37,11 @@ KerjaYuk | Detail Job
                         <div class="form-row">
                             <div class="col-6">
                                 <input type="number" class="form-control" id="min_gaji" placeholder="Minimum"
-                                    name="min_gaji">
+                                    name="min_salary">
                             </div>
                             <div class="col-6">
                                 <input type="number" class="form-control" id="end_kerja" placeholder="Maximum"
-                                    name="max_gaji">
+                                    name="max_salary">
                             </div>
                         </div>
                     </div>
@@ -50,11 +50,11 @@ KerjaYuk | Detail Job
                         <div class="form-row">
                             <div class="col-6">
                                 <input type="time" class="form-control" id="start_kerja" placeholder="Mulai"
-                                    name="start_kerja">
+                                    name="workhour_start">
                             </div>
                             <div class="col-6">
                                 <input type="time" class="form-control" id="max_gaji" placeholder="Selesai"
-                                    name="end_kerja">
+                                    name="workhour_end">
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ KerjaYuk | Detail Job
                         <label for="start_hari_kerja">Hari Kerja:</label>
                         <div class="form-row">
                             <div class="col-6">
-                                <select class="form-control" id="start_hari_kerja">
+                                <select class="form-control" id="start_hari_kerja" name="workday_start">
                                     <option>Senin</option>
                                     <option>Selasa</option>
                                     <option>Rabu</option>
@@ -73,7 +73,7 @@ KerjaYuk | Detail Job
                                 </select>
                             </div>
                             <div class="col-6">
-                                <select class="form-control" id="end_hari_kerja" aria-placeholder="Yay">
+                                <select class="form-control" id="end_hari_kerja" aria-placeholder="Yay" name="workday_end">
                                     <option>Senin</option>
                                     <option>Selasa</option>
                                     <option>Rabu</option>
@@ -86,44 +86,103 @@ KerjaYuk | Detail Job
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="tingkat_pekerjaan">Tingkat Pekerjaan:</label>
-                        <select class="form-control" id="tingkat_pekerjaan">
-                            <option>Pegawai</option>
-                            <option>Others</option>
+                        <label for="status_pekerjaan">Status Pekerjaan:</label>
+                        <select class="form-control" id="status_pekerjaan" name="job_state">
+                            <option>Pegawai Tetap</option>
+                            <option>Pegawai Kontrak</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="kualifikasi">Kualifikasi:</label>
-                        <select class="form-control" id="kualifikasi">
+                        <label for="kualifikasi">Kualifikasi Edukasi:</label>
+                        <select class="form-control" id="kualifikasi" name="education">
+                            <option>SD</option>
+                            <option>SMP</option>
+                            <option>SMA</option>
+                            <option>D1</option>
+                            <option>D2</option>
+                            <option>D3</option>
+                            <option>D4</option>
                             <option>S1</option>
-                            <option>Others</option>
+                            <option>S2</option>
+                            <option>S3</option>
+                            <option>Tidak Ada</option>
+                            <option>Lainnya</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <fieldset>
+                            <label for="major">Kualifikasi Prodi:</label><br />
+                            <input type="checkbox" name="majors[]" value="Teknik Telekomunikasi">Teknik Telekomunikasi<br />
+                            <input type="checkbox" name="majors[]" value="Teknik Elektro">Teknik Elektro<br />
+                            <input type="checkbox" name="majors[]" value="Teknik Fisika">Teknik Fisika<br />
+                            <input type="checkbox" name="majors[]" value="Teknik Komputer">Teknik Komputer<br />
+                            <input type="checkbox" name="majors[]" value="Teknik Biomedis">Teknik Biomedis<br />
+
+                            <input type="checkbox" name="majors[]" value="Informatika">Informatika<br />
+                            <input type="checkbox" name="majors[]" value="Teknologi Informasi">Teknologi Informasi<br />
+                            <input type="checkbox" name="majors[]" value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak<br />
+                            <input type="checkbox" name="majors[]" value="Data Sains">Data Sains<br />
+
+                            <input type="checkbox" name="majors[]" value="Teknik Industri">Teknik Industri<br />
+                            <input type="checkbox" name="majors[]" value="Sistem Informasi">Sistem Informasi<br />
+                            <input type="checkbox" name="majors[]" value="Teknik Logistik">Teknik Logistik<br />
+
+                            <input type="checkbox" name="majors[]" value="ICT Business">ICT Business<br />
+                            <input type="checkbox" name="majors[]" value="Manajemen Bisnis Telekomunikasi & Informatika">Manajemen Bisnis Telekomunikasi & Informatika<br />
+                            <input type="checkbox" name="majors[]" value="Akuntansi">Akuntansi<br />
+                            <input type="checkbox" name="majors[]" value="Manajemen">Manajemen<br />
+
+                            <input type="checkbox" name="majors[]" value="Administrasi Bisnis">Administrasi Bisnis<br />
+                            <input type="checkbox" name="majors[]" value="Ilmu Komunikasi">Ilmu Komunikasi<br />
+                            <input type="checkbox" name="majors[]" value="Digital Public Relation">Digital Public Relation<br />
+
+                            <input type="checkbox" name="majors[]" value="Desain Komunikasi Visual">Desain Komunikasi Visual<br />
+                            <input type="checkbox" name="majors[]" value="Product Innovation & Management">Product Innovation & Management<br />
+                            <input type="checkbox" name="majors[]" value="Desain Interior">Desain Interior<br />
+                            <input type="checkbox" name="majors[]" value="Kriya (Fashion and Textile Design)">Kriya (Fashion and Textile Design)<br />
+                            <input type="checkbox" name="majors[]" value="Visual Arts (Seni Rupa)">Visual Arts (Seni Rupa)<br />
+
+                            <input type="checkbox" name="majors[]" value="Manajemen Informatika">Manajemen Informatika<br />
+                            <input type="checkbox" name="majors[]" value="Komputerisasi Akuntansi">Komputerisasi Akuntansi<br />
+                            <input type="checkbox" name="majors[]" value="Manajemen Pemasaran">Manajemen Pemasaran<br />
+                            <input type="checkbox" name="majors[]" value="Perhotelan">Perhotelan<br />
+                            <input type="checkbox" name="majors[]" value="Teknologi Rekayasa Multimedia">Teknologi Rekayasa Multimedia<br />
+
+                            <input type="checkbox" name="majors[]" value="Tidak Ada">Tidak Ada<br />
+                            <input type="checkbox" name="majors[]" value="Lainnya">Lainnya<br />
+                        </fieldset>
+                    </div>
+
                     <div class="form-group">
                         <label for="pengalaman">Pengalaman Kerja:</label>
-                        <select class="form-control" id="pengalaman">
+                        <select class="form-control" id="pengalaman" name="experience">
+                            <option>Baru Lulus</option>
+                            <option>Pernah Magang Pekerjaan Serupa</option>
+                            <option>1 Tahun</option>
                             <option>3 Tahun</option>
-                            <option>Others</option>
+                            <option>5 Tahun</option>
+                            <option>10 Tahun</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="informasi_perusahaan">Informasi Perusahaan:</label>
-                        <input type="text" class="form-control" id="informasi_perusahaan"
-                            placeholder="Informasi Perusahaan" name="informasi_perusahaan">
                     </div>
                     <div class="form-group">
                         <label for="tanggung_jawab">Tanggung Jawab:</label>
                         <textarea class="form-control" id="tanggung_jawab" rows="8"
-                            placeholder="Tuliskan tanggung jawab pekerjaan..."></textarea>
+                            placeholder="Tuliskan tanggung jawab pekerjaan..." name="responsibility"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="about_perusahaan">Tentang Perusahaan:</label>
-                        <textarea class="form-control" id="about_perusahaan" rows="8"
-                            placeholder="Tuliskan informasi perusahaan..."></textarea>
+                        <label for="pengumpulan">Berkas Pendaftaran yang Diperlukan:</label>
+                        <textarea class="form-control" id="pengumpulan" rows="4"
+                            placeholder="Jika ingin melamar kirim CV, Resume, dan Portofolio melalui google drive pada form lamaran kerja" name="submission"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="lainnya">Informasi Lain:</label>
+                        <textarea class="form-control" id="lainnya" rows="4"
+                            placeholder="Tuliskan informasi lainnya jika diperlukan" name="other"></textarea>
                     </div>
                     <button type="submit" class="btn btn-orange btn-block mb-2 mb-md-0">Edit
                         Informasi</button>
-                    <button type="submit" class="btn btn-orange text-white btn-block mb-2 mb-md-0">Tutup
+                    <button type="submit" class="btn btn-danger text-white btn-block mb-2 mb-md-0">Tutup
                         Lowongan</button>
                 </form>
 

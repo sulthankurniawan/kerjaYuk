@@ -20,12 +20,37 @@ Seeker | Login
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for=""><strong>Nama</strong></label>
-                                <input type="text" name="name" class="form-control" placeholder="Nama" required>
+                                <label for=""><strong>Nama Depan</strong></label>
+                                <input type="text" name="first_name" class="form-control" placeholder="Nama Depan" required>
+                            </div>
+                            <div class="form-group">
+                                <label for=""><strong>Nama Belakang</strong></label>
+                                <input type="text" name="last_name" class="form-control" placeholder="Nama Belakang" required>
                             </div>
                             <div class="form-group">
                                 <label for=""><strong>Email</strong></label>
                                 <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edukasi"><strong>Edukasi Terakhir</strong></label>
+                                <select class="form-control" id="edukasi" name="education">
+                                    <option>SD</option>
+                                    <option>SMP</option>
+                                    <option>SMA</option>
+                                    <option>D1</option>
+                                    <option>D2</option>
+                                    <option>D3</option>
+                                    <option>D4</option>
+                                    <option>S1</option>
+                                    <option>S2</option>
+                                    <option>S3</option>
+                                    <option>Tidak Ada</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for=""><strong>Sekolah / Universitas / Institusi</strong></label>
+                                <input type="text" name="institution" class="form-control" placeholder="Telkom University" required>
                             </div>
                             <div class="form-group">
                                 <label for=""><strong>Prodi</strong></label>

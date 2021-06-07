@@ -21,7 +21,7 @@
                         <a class="nav-link" href="/history"> Riwayat Lamaran </a>
                     </li>
                     <li class="nav-item mx-md-2">
-                        <a class="nav-link" href="/profile/<?= Auth::user()->id ?>"> Profil <?= Auth::user()->name ?> </a>
+                        <a class="nav-link" href="/profile/<?= Auth::user()->id ?>"> Profil <?= Auth::user()->first_name ?> </a>
                     </li>
                     @endauth
                 </ul>

@@ -17,7 +17,7 @@ use App\Http\Controllers\PizzaController;
 
 // WELCOMEPAGE ROUTES
 // Route::get('/', function () {
-//     return view('dashboard.seeker');
+//     return view('jobs.company.detail');
 // });
 
 // EXAMPLES DELETED SOON

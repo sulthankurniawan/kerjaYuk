@@ -19,12 +19,16 @@ Company | Register
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for=""><strong>Nama Pribadi</strong></label>
-                            <input type="text" name="name" class="form-control" placeholder="Nama Pribadi">
+                            <label for=""><strong>Nama Depan Pribadi</strong></label>
+                            <input type="text" name="first_name" class="form-control" placeholder="Nama Depan Pribadi">
                         </div>
                         <div class="form-group">
-                            <label for=""><strong>Perusahaan</strong></label>
-                            <input type="text" name="company" class="form-control" placeholder="Perusahaan">
+                            <label for=""><strong>Nama Belakang Pribadi</strong></label>
+                            <input type="text" name="last_name" class="form-control" placeholder="Nama Belakang Pribadi">
+                        </div>
+                        <div class="form-group">
+                            <label for=""><strong>Nama Perusahaan</strong></label>
+                            <input type="text" name="company" class="form-control" placeholder="Nama Perusahaan">
                         </div>
                         <div class="form-group">
                             <label for=""><strong>Industri</strong></label>

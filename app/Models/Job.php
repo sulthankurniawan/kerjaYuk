@@ -10,6 +10,6 @@ class Job extends Model
     use HasFactory;
 
     protected $casts = [
-        'major' => 'array'
+        'majors' => 'array'
     ];
 }

@@ -69,8 +69,11 @@ class RegisterController extends Controller
     {
         $user = new User();
 
-        $user->name = request('name');
+        $user->first_name = request('first_name');
+        $user->last_name = request('last_name');
         $user->email = request('email');
+        $user->education = request('education');
+        $user->institution = request('institution');
         $user->major = request('major');
         $user->password = Hash::make(request('password'));
         $user->phone = request('phone');
@@ -87,7 +90,8 @@ class RegisterController extends Controller
     {
         $user = new User();
 
-        $user->name = request('name');
+        $user->first_name = request('first_name');
+        $user->last_name = request('last_name');
         $user->company = request('company');
         $user->industry = request('industry');
         $user->about_company = request('about_company');
