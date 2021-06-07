@@ -246,6 +246,136 @@ section {
     object-position: center;
 }
 
+.section-job-detail-seeker-v2 {
+    .card {
+        border-radius: 15px;
+
+        @include extra-small {
+            padding: 20px;
+        }
+
+        @include small {
+            padding: 20px;
+        }
+
+        @include medium {
+            padding: 30px;
+        }
+
+        .wrapper {
+            @include extra-small {
+                margin-bottom: 30px;
+            }
+
+            @include small {
+                margin-bottom: 40px;
+            }
+            
+            @include large {
+                margin-bottom: 70px;
+            }
+
+            .logo-wrapper {
+                width: 70px;
+                height: 70px;
+                border-radius: 10px;
+            }
+        }
+
+        .content {
+            .list-feature {
+                i {
+                    font-size: 2rem;
+                }
+
+                border-radius: 10px;
+            }
+        
+            .feature-1 {
+                background: conic-gradient(from 90deg at 0% 100%, #88888B 0%, #7B8FFE 39%, #0481CC 47%, #D80DE9 100%);
+                backdrop-filter: blur(6px);
+            }
+        
+            .feature-2 {
+                background: conic-gradient(from 90deg at 90% 120%, #FD4B4B 0%, #EFCE1C 100%);
+                backdrop-filter: blur(6px);
+            }
+        
+            .feature-3 {
+                background: conic-gradient(from 90deg at 50% 130%, #2559D6 0%, #7DFB7D 100%);
+                backdrop-filter: blur(6px);
+            }
+
+            .title-desc {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    margin-left: auto;
+                    margin-right: auto;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    bottom: -9px;
+                    height: 0px;
+                    width: 10%;
+                    border-bottom: 4px solid $red;
+                }
+            }
+
+            .list-tanggung-jawab {
+                @include extra-small {
+                    max-width: 100%;
+                }
+
+                @include small {
+                    max-width: 100%;
+                }
+
+                @include medium {
+                    max-width: 75%;
+                }
+            }
+        }
+    }
+}
+
+.section-find-job {
+    padding-top: 0px;
+
+    .form-control{
+        border-radius: 10px;
+        box-shadow: 7px 7px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-outline-light {
+        border-radius: 30px;
+        margin-right: 10px;
+        border-width: 2px;
+    }
+    
+    .card-body{
+        box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.2);
+        padding: 3rem;
+    }
+    
+    .checkbox{
+        margin-left: 60px;
+        padding: 0.25rem;
+    }
+    
+    .filter-link {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .results {
+        .card {
+            border-radius: 0px;
+        }
+    }
+}
+
 @include large {
     .section-login,
     .section-register-seeker,

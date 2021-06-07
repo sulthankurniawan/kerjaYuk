@@ -2,7 +2,7 @@
 
 button,
 .btn {
-    font: 500 0.875rem/1.25rem Poppins, sans-serif;
+    font: 500 1rem Poppins, sans-serif;
     border-radius: 999px;
     padding: 0.75rem 1.5rem;
     transition: 0.3s;
@@ -73,5 +73,13 @@ button,
         color: $white;
         background-color: $button-orange-hovered;
         border: 1px solid $button-orange-hovered;
+    }
+}
+
+.link-red {
+    color: $red;
+
+    &:hover {
+        color: $button-red-hovered;
     }
 }
