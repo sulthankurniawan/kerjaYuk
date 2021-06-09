@@ -28,25 +28,27 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    // }
 
     public function index()
     {
-        // if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
-        //     //Login Success
-        //     return redirect('/');
-        // }
-        return view('auth.login');
+        if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
+            //Login Success
+            return redirect('/');
+        }
+        else {
+            return view('auth.login');
+        }
     }
 
     public function login()

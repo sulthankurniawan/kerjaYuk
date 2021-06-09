@@ -16,9 +16,9 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('id_whistleblower')->nullable();
-            $table->string('id_job_reported')->nullable();
-            $table->string('id_user_reported')->nullable();
+            $table->string('whistleblower_id')->nullable();
+            $table->string('reported_job_id')->nullable();
+            $table->string('reported_user_id')->nullable();
             $table->string('category')->nullable();
             $table->string('description')->nullable();
             $table->string('status')->nullable();

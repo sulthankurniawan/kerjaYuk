@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\PizzaController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +13,9 @@ use App\Http\Controllers\PizzaController;
 |
 */
 
-// WELCOMEPAGE ROUTES
+// TESTING ROUTES
 // Route::get('/', function () {
-//     return view('jobs.company.detail');
+//     return view('jobs.seeker.detail');
 // });
 
 // EXAMPLES DELETED SOON
@@ -27,35 +25,35 @@ use App\Http\Controllers\PizzaController;
 // Route::post('/pizzas', [PizzaController::class, 'store'])->name('pizzas.store');
 // Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->name('pizzas.destroy')->middleware('auth');
 
-// HOME ROUTES
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET HOMEPAGE
-Route::get('/home-seeker', [App\Http\Controllers\HomeController::class, 'seeker'])->name('seeker')->middleware('seeker'); // GET HOMEPAGE SEEKER
-Route::get('/home-company', [App\Http\Controllers\HomeController::class, 'company'])->name('company')->middleware('company'); // GET HOMEPAGE COMPANY (AUTH AS COMPANY)
-Route::get('/home-admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin')->middleware('admin'); // GET HOMEPAGE ADMIN (AUTH AS ADMIN)
-
-// REGISTER ROUTES
-Route::get('/register-seeker', [App\Http\Controllers\Auth\RegisterController::class, 'seeker'])->name('auth.register.seeker'); // GET HOMEPAGE
-Route::get('/register-company', [App\Http\Controllers\Auth\RegisterController::class, 'company'])->name('auth.register.company'); // GET HOMEPAGE
-Route::post('/register-seeker', [App\Http\Controllers\Auth\RegisterController::class, 'createSeeker'])->name('auth.register.createSeeker'); // GET HOMEPAGE
-Route::post('/register-company', [App\Http\Controllers\Auth\RegisterController::class, 'createCompany'])->name('auth.register.createSeeker'); // GET HOMEPAGE
+// WELCOMEPAGE ROUTES
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET WELCOMEPAGE
 
 // LOGIN-LOGOUT ROUTES
-Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('auth.login.index'); // GET LOGIN PAGE
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('auth.login.logout'); // LOGOUT
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('auth.login.login'); // LOGIN
-
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login'); // GET LOGIN PAGE
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']); // LOGOUT
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']); // LOGIN
 // Route::group(['middleware' => 'auth'], function () {
- 
 //     Route::get('/home', [HomeController::class, 'index'])->name('home');
 //     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
- 
 // });
+
+// HOME ROUTES
+Route::get('/home-seeker', [App\Http\Controllers\HomeController::class, 'seeker'])->name('home.seeker')->middleware('seeker'); // GET HOMEPAGE SEEKER
+Route::get('/home-company', [App\Http\Controllers\HomeController::class, 'company'])->name('home.company')->middleware('company'); // GET HOMEPAGE COMPANY (AUTH AS COMPANY)
+Route::get('/home-admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('home.admin')->middleware('admin'); // GET HOMEPAGE ADMIN (AUTH AS ADMIN)
+
+// REGISTER ROUTES
+Route::get('/register-seeker', [App\Http\Controllers\Auth\RegisterController::class, 'seeker'])->name('register.seeker'); // GET HOMEPAGE
+Route::get('/register-company', [App\Http\Controllers\Auth\RegisterController::class, 'company'])->name('register.company'); // GET HOMEPAGE
+Route::post('/register-seeker', [App\Http\Controllers\Auth\RegisterController::class, 'createSeeker'])->name('register.createSeeker'); // GET HOMEPAGE
+Route::post('/register-company', [App\Http\Controllers\Auth\RegisterController::class, 'createCompany'])->name('register.createSeeker'); // GET HOMEPAGE
 
 // JOB ROUTES
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index'); // GET ALL JOB RECORD
 Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('jobs.create')->middleware('company'); // GET FORM CREATE JOB (AUTH AS COMPANY)
 Route::get('/jobs/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show')->middleware('auth'); // GET JOB BASED ON ID (AUTH)
 Route::post('/jobs', [App\Http\Controllers\JobController::class, 'store'])->name('jobs.store')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY)
+Route::post('/jobs/{id}', [App\Http\Controllers\JobController::class, 'edit'])->name('jobs.edit')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY)
 Route::delete('/jobs/{id}', [App\Http\Controllers\JobController::class, 'destroy'])->name('jobs.destroy')->middleware('company'); // DELETE JOB RECORD BASED ON ID (AUTH AS COMPANY)
 
 // REQUEST ROUTES

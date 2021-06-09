@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.main')
 
 @section('title')
 KerjaYuk | Home
@@ -108,45 +108,6 @@ KerjaYuk | Home
         </div>
     </section>
 
-    <section class="section-company">
-        <div class="container">
-            <div data-aos="fade-in" data-aos-duration="600" data-aos-once="true">
-                <h3 class="text-center font-weight-600">Perusahaan Ternama</h3>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-3 d-flex align-items-center justify-content-center h-100 w-100"
-                    data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="300">
-                    <div>
-                        <img src="{{ url("img/illustration/company/cashbac-removebg-preview.png") }}" alt="Cashbac Logo"
-                            width="200" height="200">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3 d-flex align-items-center justify-content-center h-100 w-100"
-                    data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="600">
-                    <div>
-                        <img src="{{ url("img/illustration/company/logo-sociolla-removebg-preview.png") }}"
-                            alt="Cashbac Logo" width="200" height="200">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3 d-flex align-items-center justify-content-center h-100 w-100"
-                    data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="900">
-                    <div>
-                        <img src="{{ url("img/illustration/company/globalpay-removebg-preview.png") }}"
-                            alt="Cashbac Logo" width="200" height="200">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3 d-flex align-items-center justify-content-center h-100 w-100"
-                    data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="1200">
-                    <div>
-                        <img src="{{ url("img/illustration/company/telkom.png") }}" alt="Cashbac Logo" width="130"
-                            height="130">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
     <section class="section-job-category">
         <div class="container">
             <div data-aos="fade-in" data-aos-duration="600" data-aos-once="true">
@@ -198,44 +159,12 @@ KerjaYuk | Home
                         <a class="font-weight-500 text-center stretched-link" href="#">Management Consultation</a>
                     </div>
                 </div>
-                <!-- <div data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="600">
-                    <div class="category-card border-0 p-0 d-flex flex-column align-items-center">
-                        <div class="category-icon mb-2 d-flex justify-content-center align-items-center"
-                            style="background-color: #FE9C09;">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <a class="text-center title" href="#">IT & Software</a>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="900">
-                    <div class="category-card border-0 p-0 d-flex flex-column align-items-center">
-                        <div class="category-icon mb-2 d-flex justify-content-center align-items-center"
-                            style="background-color: #FE9C09;">
-                            <i class="fas fa-mail-bulk"></i>
-                        </div>
-                        <a class="text-center title" href="#">Sales & Marketing</a>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="1200">
-                    <div class="category-card border-0 p-0 d-flex flex-column align-items-center">
-                        <div class="category-icon mb-2 d-flex justify-content-center align-items-center"
-                            style="background-color: #FE9C09;">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <a class="text-center title" href="#">Media Creative</a>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-duration="600" data-aos-once="true" data-aos-delay="1500">
-                    <div class="category-card border-0 p-0 d-flex flex-column align-items-center">
-                        <div class="category-icon mb-2 d-flex justify-content-center align-items-center"
-                            style="background-color: #FE9C09;">
-                            <i class="far fa-handshake"></i>
-                        </div>
-                        <a class="text-center title" href="#">Management Consultation</a>
-                    </div>
-                </div> -->
             </div>
     </section>
+
+    
+
+    
 </main>
 <!-- End Main -->
 @endsection

@@ -21,13 +21,13 @@ class Company
             return redirect()->route('login');
         }
         if (Auth::user()->role == 'seeker') {
-            return redirect()->route('seeker');
+            return redirect()->route('index');
         }
         if (Auth::user()->role == 'company') {
             return $next($request);
         }
         if (Auth::user()->role == 'admin') {
-            return redirect()->route('admin');
+            return redirect()->route('index');
         }
     }
 }

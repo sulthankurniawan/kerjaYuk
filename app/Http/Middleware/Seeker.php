@@ -24,10 +24,10 @@ class Seeker
             return $next($request);
         }
         if (Auth::user()->role == 'company') {
-            return redirect()->route('company');
+            return redirect()->route('index');
         }
         if (Auth::user()->role == 'admin') {
-            return redirect()->route('admin');
+            return redirect()->route('index');
         }
     }
 }

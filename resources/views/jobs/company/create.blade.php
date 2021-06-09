@@ -25,6 +25,26 @@ KerjaYuk | Create Job
                         <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location">
                     </div>
                     <div class="form-group">
+                        <label for="area">Area (Kota / Kabupaten):</label>
+                        <select class="form-control" id="area" name="area">
+                            <option>Kota Jakarta Barat</option>
+                            <option>Kota Jakarta Pusat</option>
+                            <option>Kota Jakarta Selatan</option>
+                            <option>Kota Jakarta Timur</option>
+                            <option>Kota Jakarta Utara</option>
+                            <option>Kota Bandung</option>
+                            <option>Kota Banjar</option>
+                            <option>Kota Bekasi</option>
+                            <option>Kota Bogor</option>
+                            <option>Kota Cimahi</option>
+                            <option>Kota Cirebon</option>
+                            <option>Kota Depok</option>
+                            <option>Kota Sukabumi</option>
+                            <option>Kota Tasikmalaya</option>
+                            <option>Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="jenis_pekerjaan">Jenis Pekerjaan:</label>
                         <select class="form-control" id="jenis_pekerjaan" name="type">
                             <option>Penuh Waktu</option>

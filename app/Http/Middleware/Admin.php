@@ -21,10 +21,10 @@ class Admin
             return redirect()->route('login');
         }
         if (Auth::user()->role == 'seeker') {
-            return redirect()->route('seeker');
+            return redirect()->route('index');
         }
         if (Auth::user()->role == 'company') {
-            return redirect()->route('company');
+            return redirect()->route('index');
         }
         if (Auth::user()->role == 'admin') {
             return $next($request);

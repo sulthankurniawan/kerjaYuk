@@ -7,7 +7,7 @@ KerjaYuk | Find Job
 @section('content')
 <main>
     <section class="section-find-job">
-        <div class="w3-panel py-4" style="background-color: #B80000;">
+        <div class="w3-panel py-4" style="background-color: #f55151;">
             <form class="container">
                 <div class="row mb-3">
                     <div class="col">
@@ -24,11 +24,11 @@ KerjaYuk | Find Job
                     <div class="col">
                         <input type="search" class="form-control" placeholder="Semua Spesialisasi Pekerjaan">
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-search"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg>
+                    <button type="button" class="btn btn-outline-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
                 </div>
                 <div class="row">
                     <div class="col d-flex align-items-center">
@@ -49,14 +49,14 @@ KerjaYuk | Find Job
             <p>1-10 Pekerjaan yang cocok</p>
             <h3 class="mt-4 mb-5">IT Software</h3>
 
-
+            @foreach($jobs as $job)
             <div class="card w-95">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                             <img src="{{ url("img/illustration/company/ovo.png") }}" alt="OVO Logo"
                                 style="padding-left: 25px; padding-bottom: 30px;">
-                        </div>
+                        </div> -->
                         <div class="col-sm-6">
                             <h5 class="card-title">Sr UI/UX Designer</h5>
                             <p class="card-text">PT Visionet Internasional</p>
@@ -75,33 +75,7 @@ KerjaYuk | Find Job
                     </div>
                 </div>
             </div>
-
-            <div class="card w-95">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <img src="{{ url("img/illustration/company/ovo.png") }}" alt="OVO Logo"
-                                style="padding-left: 25px; padding-bottom: 30px;">
-                        </div>
-                        <div class="col-sm-6">
-                            <h5 class="card-title">Sr UI/UX Designer</h5>
-                            <p class="card-text">PT Visionet Internasional</p>
-                            <p class="card-text" style="font-size: 14px; color: rgba(0, 0, 0, 0.65);">Rp 5.000.000 -
-                                Rp
-                                8.000.000</p>
-                            <p class="card-text"><b>Jakarta Barat, Indonesia</b></p>
-                        </div>
-                        <div class="col-sm-3" style="padding-top: 30px; align-items: center;">
-                            <p class="card-text" style="font-size: 12px; color: rgba(0, 0, 0, 0.65);">11 jam yang
-                                lalu</p>
-                            <p class="card-text" style="font-size: 12px; color: rgba(0, 0, 0, 0.65);">Apply sebelum
-                                tanggal
-                                30 April 2021</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
 
         </div>
     </section>

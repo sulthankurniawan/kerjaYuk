@@ -19,6 +19,9 @@ class CreateJobsTable extends Migration
             $table->string('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('location')->nullable();
+            $table->string('area')->nullable();
+            $table->string('location_link')->nullable();
+            $table->string('career')->nullable();
             $table->string('type')->nullable();
             $table->string('min_salary')->nullable();
             $table->string('max_salary')->nullable();
@@ -47,3 +50,5 @@ class CreateJobsTable extends Migration
         Schema::dropIfExists('jobs');
     }
 }
+
+
