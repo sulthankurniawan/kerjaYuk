@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // TESTING ROUTES
 // Route::get('/', function () {
-//     return view('jobs.seeker.detail');
+//     return view('dashboard.company');
 // });
 
 // EXAMPLES DELETED SOON
@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 // WELCOMEPAGE ROUTES
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET WELCOMEPAGE
+Route::get('/cari', [App\Http\Controllers\HomeController::class, 'welcomeCompany'])->name('cari'); // GET WELCOMEPAGE
 
 // LOGIN-LOGOUT ROUTES
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login'); // GET LOGIN PAGE

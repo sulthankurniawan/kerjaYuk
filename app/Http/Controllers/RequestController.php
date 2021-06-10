@@ -3,18 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Request as Job_Request;
 
 class RequestController extends Controller
 {
     public function index() {
-        // get data from db
+        // get requests by user id
 
-        $requests = Job_Request::latest()->get();
+        $requests = DB::table('requests')
+                        ->join('users', 'users.id', '=', 'requests.user_id')
+                        ->join('jobs', 'jobs.id', '=', 'requests.user_id')
+                        ->select('jobs.*', 'users.company')
+                        ->where('requests.user_id', '=', Auth::user()->id)
+                        ->get();
 
-        return view('requests.index', [
-            'requests' => $requests,
-        ]);
+        return view('requests.display', ['requests' => $requests]);
+    }
+
+    public function create() {
+        return view('requests.create');
     }
 
     public function show($id) {
@@ -47,12 +56,8 @@ class RequestController extends Controller
         elseif ($request->wishlist == '1') {
             $request->wishlist = '0';
             $request->update();
-            return redirect('{{ route(requests.show, $id) }}')->with('mssg', 'Pelamar telah dikeluarkan dari wishlist')
+            return redirect('{{ route(requests.show, $id) }}')->with('mssg', 'Pelamar telah dikeluarkan dari wishlist');
         } 
-    }
-
-    public function create() {
-        return view('requests.create');
     }
 
     public function store() {
@@ -66,7 +71,7 @@ class RequestController extends Controller
         $request->pitch = request('pitch');
         $request->respond = request('respond');
         $request->wishlist = '0';
-        $request-> = 'active';
+        $request->status = 'active';
 
         $request->save();
 

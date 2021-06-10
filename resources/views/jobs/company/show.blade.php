@@ -18,11 +18,11 @@ KerjaYuk | Detail Job
                     @csrf
                     <div class="form-group">
                         <label for="pekerjaan">Nama Pekerjaan:</label>
-                        <input type="text" class="form-control" id="pekerjaan" placeholder="Nama Pekerjaan" name="name" value="{{ $job->name }}">
+                        <input type="text" class="form-control" id="pekerjaan" placeholder="Nama Pekerjaan" name="name" value="{{ $job->name }}" reqiored>
                     </div>
                     <div class="form-group">
                         <label for="lokasi">Lokasi:</label>
-                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location" value="{{ $job->location }}">
+                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location" value="{{ $job->location }}" required>
                     </div>
                     <div class="form-group">
                         <label for="area">Area (Kota / Kabupaten):</label>
@@ -46,7 +46,7 @@ KerjaYuk | Detail Job
                     </div>
                     <div class="form-group">
                         <label for="location_link">Link Lokasi (Google Maps)</label>
-                        <input type="text" class="form-control" id="location_link" placeholder="Link lokasi" name="location_link">
+                        <input type="text" class="form-control" id="location_link" placeholder="Link lokasi" name="location_link" required>
                     </div>
                     <div class="form-group">
                         <label for="career">Jenis Karir:</label>
@@ -82,10 +82,10 @@ KerjaYuk | Detail Job
                         <label for="min_gaji">Gaji:</label>
                         <div class="form-row">
                             <div class="col-6">
-                                <input type="number" class="form-control" id="min_gaji" placeholder="Minimum" name="min_salary" value="{{ $job->min_salary }}">
+                                <input type="number" class="form-control" id="min_gaji" placeholder="Minimum" name="min_salary" value="{{ $job->min_salary }}" required>
                             </div>
                             <div class="col-6">
-                                <input type="number" class="form-control" id="end_kerja" placeholder="Maximum" name="max_salary" value="{{ $job->max_salary }}">
+                                <input type="number" class="form-control" id="end_kerja" placeholder="Maximum" name="max_salary" value="{{ $job->max_salary }}" required>
                             </div>
                         </div>
                     </div>
@@ -93,10 +93,10 @@ KerjaYuk | Detail Job
                         <label for="start_kerja">Jam Kerja:</label>
                         <div class="form-row">
                             <div class="col-6">
-                                <input type="time" class="form-control" id="start_kerja" placeholder="Mulai" name="workhour_start" value="{{ $job->workhour_start }}">
+                                <input type="time" class="form-control" id="start_kerja" placeholder="Mulai" name="workhour_start" value="{{ $job->workhour_start }}" required>
                             </div>
                             <div class="col-6">
-                                <input type="time" class="form-control" id="max_gaji" placeholder="Selesai" name="workhour_end" value="{{ $job->workhour_end }}">
+                                <input type="time" class="form-control" id="max_gaji" placeholder="Selesai" name="workhour_end" value="{{ $job->workhour_end }}" required>
                             </div>
                         </div>
                     </div>
@@ -191,7 +191,6 @@ KerjaYuk | Detail Job
                             <input type="checkbox" name="majors[]" value="Perhotelan" <?= (in_array('Perhotelan', $job->majors)) ? 'checked' : ''; ?>>Perhotelan<br />
                             <input type="checkbox" name="majors[]" value="Teknologi Rekayasa Multimedia" <?= (in_array('Teknologi Rekayasa Multimedia', $job->majors)) ? 'checked' : ''; ?>>Teknologi Rekayasa Multimedia<br />
 
-                            <input type="checkbox" name="majors[]" value="Tidak Ada" <?= (in_array('Tidak Ada', $job->majors)) ? 'checked' : ''; ?>>Tidak Ada<br />
                             <input type="checkbox" name="majors[]" value="Lainnya" <?= (in_array('Lainnya', $job->majors)) ? 'checked' : ''; ?>>Lainnya<br />
                         </fieldset>
                     </div>
@@ -222,6 +221,18 @@ KerjaYuk | Detail Job
                         <textarea class="form-control" id="lainnya" rows="4"
                             placeholder="Tuliskan informasi lainnya jika diperlukan" name="other">{{ $job->other }}</textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="lokasi">Batas Pendaftaran:</label>
+                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location" value="{{$job->expiration}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pengalaman">Penampilan Lowongan:</label>
+                        <select class="form-control" id="pengalaman" name="experience">
+                            <option <?= ($job->emergence == 'Tampilkan') ? 'selected' : ''; ?>>Tampilkan</option>
+                            <option <?= ($job->emergence == 'Sembunyikan') ? 'selected' : ''; ?>>Sembunyikan</option>
+                        </select>
+                    </div>
+
                     <button type="submit" class="btn btn-orange btn-block mb-2 mb-md-0">Edit
                         Informasi</button>
                 </form>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Job;
 use App\Models\Request as Job_Request;
 
@@ -26,26 +28,42 @@ class HomeController extends Controller
 
     public function index()
     {
-        $jobs = Job::latest()->limit(10)->get();
+        // get 10 newest jobs
+        $jobs = DB::table('jobs')
+                    ->join('users', 'users.id', '=', 'jobs.user_id')
+                    ->select('jobs.*', 'users.company')
+                    ->limit(10)
+                    ->get();
 
         return view('welcome', [
-            'job' => $jobs,
+            'jobs' => $jobs,
         ]);
+    }
+
+    public function welcomeCompany()
+    {
+        return view('welcome-company');
     }
 
     public function seeker()
     {
-        $jobs = Job::latest()->limit(10)->get();
-        $request = Job_Request::latest()->get();
+        // get 10 newest jobs
+        $jobs = DB::table('jobs')
+                    ->join('users', 'users.id', '=', 'jobs.user_id')
+                    ->select('jobs.*', 'users.company')
+                    ->limit(10)
+                    ->get();
+
+        
 
         return view('dashboard.seeker', [
-            'job' => $jobs,
+            'jobs' => $jobs,
         ]);
     }
 
     public function company()
     {
-
+        return view('dashboard.company');
     }
 
     public function admin()

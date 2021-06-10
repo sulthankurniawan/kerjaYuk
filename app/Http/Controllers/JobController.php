@@ -3,21 +3,65 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job;
-use App\Models\Request as Job_Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Job;
+use App\Models\Request as Job_Request;
 
 class JobController extends Controller
 {
-    public function index() {
+    public function index($number = null) {
         // get data from db
 
-        $jobs = Job::latest()->get();
+        if ($number == null) {
+            $jobs = Job::latest()->get();
+            $career = '';
+        }
+        else {
+            switch($number){
+                case '1':
+                    $career = 'Agriculture, Food and Natural Resources';
+                case '2':
+                    $career = 'Architecture and Construction';
+                case '3':
+                    $career = 'Arts, Audio/Video Technology and Communications';
+                case '4':
+                    $career = 'Business Management and Administration';
+                case '5':
+                    $career = 'Education and Training';
+                case '6':
+                    $career = 'Finance';
+                case '7':
+                    $career = 'Government and Public Administration';
+                case '8':
+                    $career = 'Health Science';
+                case '9':
+                    $career = 'Hospitality and Tourism';
+                case '10':
+                    $career = 'Human Services';
+                case '11':
+                    $career = 'Information Technology & Software';
+                case '12':
+                    $career = 'Law, Public Safety, Corrections and Security';
+                case '13':
+                    $career = 'Manufacturing';
+                case '14':
+                    $career = 'Marketing, Sales and Service';
+                case '15':
+                    $career = 'Science, Technology, Engineering and Mathematics';
+                case '16':
+                    $career = 'Transportation, Distribution and Logistics';
+                case '17':
+                    $career = 'Others';
+            }
+
+            $jobs = DB::table('jobs')->where('career', '=', $career)->latest()->get();
+        }
 
         return view('jobs.seeker.find', [
             'jobs' => $jobs,
+            'career' => $career,
         ]);
     }
 
@@ -63,6 +107,8 @@ class JobController extends Controller
         $job->responsibility = request('responsibility');
         $job->submission = request('submission');
         $job->other = request('other');
+        $job->expiration = request('expiration');
+        $job->emergence = request('emergence');
         $job->status = 'active';
 
         $job->save();
@@ -94,10 +140,28 @@ class JobController extends Controller
         $job->responsibility = request('responsibility');
         $job->submission = request('submission');
         $job->other = request('other');
+        $job->expiration = request('expiration');
+        $job->emergence = request('emergence');
 
         $job->update();
 
         return redirect('/home-company')->with('mssg', 'Informasi lowongan telah diubah');
+    }
+
+    public function suspension($id) {
+
+        $job = Job::findOrFail($id);
+
+        if ($job->status == 'active') {
+            $job->status = 'suspended';
+            $job->update();
+            return redirect('{{ route() }}')->with('mssg', '');
+        }
+        elseif ($request->wishlist == 'suspended') {
+            $request->wishlist = 'active';
+            $request->update();
+            return redirect('{{ route() }}')->with('mssg', '');
+        } 
     }
 
     public function destroy($id) {
@@ -107,3 +171,4 @@ class JobController extends Controller
         return redirect('/');
     }
 }
+

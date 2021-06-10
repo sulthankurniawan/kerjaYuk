@@ -99,7 +99,7 @@ Seeker | Login
                                 <input type="password" name="password" class="form-control" placeholder="Password" required>
                             </div>
                             <div class="form-group">
-                                <label for=""><strong>Nomor Telepon</strong></label>
+                                <label for=""><strong>Nomor Telepon (gunakan kode negara [+62])</strong></label>
                                 <input type="phone" name="phone" class="form-control" placeholder="Phone" required>
                             </div>
                         </div>

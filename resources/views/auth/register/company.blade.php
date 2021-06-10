@@ -39,8 +39,8 @@ Company | Register
                             <input type="text" name="email" class="form-control" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <label for=""><strong>Nomor Telepon</strong></label>
-                            <input id="cc" type="phone" name="phone" placeholder="1234 5678 9010" />
+                            <label for=""><strong>Nomor Telepon (gunakan kode negara [+62])</strong></label>
+                            <input id="cc" type="phone" name="phone" placeholder="+6281234567890" />
                         </div>
                         <div class="form-group">
                             <label for=""><strong>Deskripsi Perusahaan</strong></label>

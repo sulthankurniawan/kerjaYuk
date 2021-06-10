@@ -13,7 +13,7 @@ KerjaYuk | Home
             <h1 class="text-header mb-3 mb-sm-3 mb-md-4">
                 Cari pekerjaan impian anda bersama <span>KerjaYuk</span>
             </h1>
-            <div class="d-flex justify-content-center">
+            <!-- <div class="d-flex justify-content-center">
                 <form class="search-box">
                     <label class="sr-only" for="inlineFormInputGroup">Jabatan atau perusahaan</label>
                     <div class="input-group mb-3">
@@ -26,7 +26,7 @@ KerjaYuk | Home
                         Advanced Job Search
                     </a>
                 </form>
-            </div>
+            </div> -->
         </div>
     </div>
 </header>
@@ -40,70 +40,24 @@ KerjaYuk | Home
         </div>
         <div class="position-relative d-flex justify-content-center">
             <div id="job-items" class="owl-carousel job-carousel row">
+
+                @foreach ($jobs as $job)
                 <div class="col h-100" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
                     data-aos-delay="300">
                     <div class="job-card card card-body h-100 w-100 d-flex flex-column position-relative">
-                        <div class="tag position-absolute">New</div>
-                        <img class="card-img-top mx-auto d-md-block"
-                            src="{{ url("img/illustration/company/globalpay.png") }}" alt="Company Logo">
                         <div class="job-body h-100 d-flex flex-column mt-2">
-                            <a class="job-title mb-0 stretched-link" href="#">UI/UX Designer</a>
-                            <p class="job-company mb-2">Global Pay Indonesia</p>
-                            <p class="job-locations">Central Jakarta, Jakarta</p>
+                            <a class="job-title mb-0 stretched-link" href="#">{{$job->name}}</a>
+                            <p class="job-company mb-2">{{$job->company}}</p>
+                            <p class="job-locations">{{$job->location}}</p>
                             <div class="job-footer mt-auto">
-                                <span class="job-date mb-2 d-block">A day ago</span>
+                                <span class="job-date mb-2 d-block">{{$job->updated_at}}</span>
                                 <a href="#"></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col h-100" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
-                    data-aos-delay="600">
-                    <div class="job-card card card-body h-100 w-100">
-                        <img class="card-img-top mx-auto d-md-block"
-                            src="{{ url("img/illustration/company/dataon.png") }}" />
-                        <div class="job-body h-100 d-flex flex-column mt-2">
-                            <a class="job-title mb-0 stretched-link" href="#">Software Developer</a>
-                            <p class="job-company mb-2">Dataon Company</p>
-                            <p class="job-locations">Tangerang, Banten</p>
-                            <div class="job-footer mt-auto">
-                                <span class="job-date mb-2 d-block">A day ago</span>
-                                <a href="#"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col h-100" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
-                    data-aos-delay="900">
-                    <div class="job-card card card-body h-100 w-100">
-                        <img class="card-img-top mx-auto d-md-block"
-                            src="{{ url("img/illustration/company/logo-sociolla.jpg") }}" />
-                        <div class="job-body h-100 d-flex flex-column mt-2">
-                            <a class="job-title mb-0 stretched-link" href="#">Back End Developer</a>
-                            <p class="job-company mb-2">Social Bella Indonesia</p>
-                            <p class="job-locations">Tangerang, Banten</p>
-                            <div class="job-footer mt-auto">
-                                <span class="job-date mb-2 d-block">A day ago</span>
-                                <a href="#"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col h-100" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
-                    data-aos-delay="1200">
-                    <div class="job-card card card-body h-100 w-100">
-                        <img class="card-img-top mx-auto d-md-block"
-                            src="{{ url("img/illustration/company/telkom.png") }}" />
-                        <div class="job-body h-100 d-flex flex-column mt-2">
-                            <a class="job-title mb-0 stretched-link" href="#">Business Analyst</a>
-                            <p class="job-company mb-2">Telkom Indonesia</p>
-                            <p class="job-locations">Tangerang, Banten</p>
-                            <div class="job-footer mt-auto">
-                                <span class="job-date mb-2 d-block">A day ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
     </section>
@@ -111,7 +65,7 @@ KerjaYuk | Home
     <section class="section-job-category">
         <div class="container">
             <div data-aos="fade-in" data-aos-duration="600" data-aos-once="true">
-                <h3 class="text-center font-weight-600">Temukan pekerjaan yang sesuai dengan minat Anda</h3>
+                <h3 class="text-center font-weight-600">Temukan pekerjaan yang sesuai dengan karir Anda</h3>
             </div>
             <div id="category-items" class="category-carousel owl-carousel px-4 row mx-0">
                 <div class="col h-100" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"

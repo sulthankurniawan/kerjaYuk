@@ -36,6 +36,8 @@ class CreateJobsTable extends Migration
             $table->string('responsibility')->nullable();
             $table->string('submission')->nullable();
             $table->string('other')->nullable();
+            $table->date('expiration')->nullable();
+            $table->string('emergence')->nullable();
             $table->string('status')->nullable();
         });
     }

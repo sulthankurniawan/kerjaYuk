@@ -11,18 +11,29 @@ KerjaYuk | Find Job
             <form class="container">
                 <div class="row mb-3">
                     <div class="col">
-                        <input type="search" class="form-control" placeholder="Nama pekerjaan atau perusahaan...">
+                        <input type="search" class="form-control" placeholder="Nama pekerjaan atau perusahaan">
                     </div>
                     <div class="col">
                         <select class="form-control" id="sel1">
-                            <option>Bandung</option>
-                            <option>Bekasi</option>
-                            <option>Jakarta</option>
-                            <option>Surabaya</option>
+                            <option>Kota Jakarta Barat</option>
+                            <option>Kota Jakarta Pusat</option>
+                            <option>Kota Jakarta Selatan</option>
+                            <option>Kota Jakarta Timur</option>
+                            <option>Kota Jakarta Utara</option>
+                            <option>Kota Bandung</option>
+                            <option>Kota Banjar</option>
+                            <option>Kota Bekasi</option>
+                            <option>Kota Bogor</option>
+                            <option>Kota Cimahi</option>
+                            <option>Kota Cirebon</option>
+                            <option>Kota Depok</option>
+                            <option>Kota Sukabumi</option>
+                            <option>Kota Tasikmalaya</option>
+                            <option>Lainnya</option>
                         </select>
                     </div>
                     <div class="col">
-                        <input type="search" class="form-control" placeholder="Semua Spesialisasi Pekerjaan">
+                        <input type="search" class="form-control" placeholder="Spesialisasi Karir">
                     </div>
                     <button type="button" class="btn btn-outline-light">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" class="bi bi-search" viewBox="0 0 16 16">
@@ -32,10 +43,10 @@ KerjaYuk | Find Job
                 </div>
                 <div class="row">
                     <div class="col d-flex align-items-center">
-                        <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#myModal2">
+                        <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#salary">
                             Gaji
                         </button>
-                        <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#myModal">
+                        <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#type">
                             Jenis Pekerjaan
                         </button>
                         <h3 class="text-white mb-0 d-inline-block">|</h3>
@@ -81,7 +92,7 @@ KerjaYuk | Find Job
     </section>
 </main>
 
-<div class="modal fade" id="myModal2" role="dialog">
+<div class="modal fade" id="salary" role="dialog">
     <div class="modal-dialog">
 
         <div class="modal-content">
@@ -112,7 +123,7 @@ KerjaYuk | Find Job
     </div>
 </div>
 
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="type" role="dialog">
     <div class="modal-dialog">
 
         <div class="modal-content">

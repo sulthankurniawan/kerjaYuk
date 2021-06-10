@@ -18,11 +18,11 @@ KerjaYuk | Create Job
                     @csrf
                     <div class="form-group">
                         <label for="pekerjaan">Nama Pekerjaan:</label>
-                        <input type="text" class="form-control" id="pekerjaan" placeholder="Nama Pekerjaan" name="name">
+                        <input type="text" class="form-control" id="pekerjaan" placeholder="Nama Pekerjaan" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="lokasi">Lokasi:</label>
-                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location">
+                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location" required>
                     </div>
                     <div class="form-group">
                         <label for="area">Area (Kota / Kabupaten):</label>
@@ -46,7 +46,7 @@ KerjaYuk | Create Job
                     </div>
                     <div class="form-group">
                         <label for="location_link">Link Lokasi (Google Maps)</label>
-                        <input type="text" class="form-control" id="location_link" placeholder="Link lokasi" name="location_link">
+                        <input type="text" class="form-control" id="location_link" placeholder="Link lokasi" name="location_link" required>
                     </div>
                     <div class="form-group">
                         <label for="career">Jenis Karir:</label>
@@ -83,11 +83,11 @@ KerjaYuk | Create Job
                         <div class="form-row">
                             <div class="col-6">
                                 <input type="number" class="form-control" id="min_gaji" placeholder="Minimum"
-                                    name="min_salary">
+                                    name="min_salary" required>
                             </div>
                             <div class="col-6">
                                 <input type="number" class="form-control" id="end_kerja" placeholder="Maximum"
-                                    name="max_salary">
+                                    name="max_salary" required>
                             </div>
                         </div>
                     </div>
@@ -96,11 +96,11 @@ KerjaYuk | Create Job
                         <div class="form-row">
                             <div class="col-6">
                                 <input type="time" class="form-control" id="start_kerja" placeholder="Mulai"
-                                    name="workhour_start">
+                                    name="workhour_start" required>
                             </div>
                             <div class="col-6">
                                 <input type="time" class="form-control" id="max_gaji" placeholder="Selesai"
-                                    name="workhour_end">
+                                    name="workhour_end" required>
                             </div>
                         </div>
                     </div>
@@ -195,7 +195,6 @@ KerjaYuk | Create Job
                             <input type="checkbox" name="majors[]" value="Perhotelan">Perhotelan<br />
                             <input type="checkbox" name="majors[]" value="Teknologi Rekayasa Multimedia">Teknologi Rekayasa Multimedia<br />
 
-                            <input type="checkbox" name="majors[]" value="Tidak Ada">Tidak Ada<br />
                             <input type="checkbox" name="majors[]" value="Lainnya">Lainnya<br />
                         </fieldset>
                     </div>
@@ -226,7 +225,18 @@ KerjaYuk | Create Job
                         <textarea class="form-control" id="lainnya" rows="4"
                             placeholder="Tuliskan informasi lainnya jika diperlukan" name="other"></textarea>
                     </div>
-
+                    <div class="form-group">
+                        <label for="lokasi">Batas Pendaftaran:</label>
+                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pengalaman">Penampilan Lowongan:</label>
+                        <select class="form-control" id="pengalaman" name="experience">
+                            <option>Tampilkan</option>
+                            <option>Sembunyikan</option>
+                        </select>
+                    </div>
+                
                     <button type="submit" class="btn btn-orange text-white btn-block mb-2 mb-md-0">Pasang Lowongan</button>
                 </form>
             </div>
