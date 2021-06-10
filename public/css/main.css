@@ -296,6 +296,10 @@ header::after {
   bottom: 0;
 }
 
+.header-company {
+  background-image: url("../img/illustration/background/company-background.jpg");
+}
+
 @media screen and (max-width: 575px) {
   .nav-container {
     background-color: #FFFFFF;
@@ -933,6 +937,15 @@ section .owl-next i {
 
 .section-find-job .results .card {
   border-radius: 0px;
+}
+
+.section-home-company .daftar-pekerjaan {
+  padding-top: 0px;
+}
+
+.section-home-company .daftar-pekerjaan .card {
+  border-radius: 12px;
+  padding: 20px;
 }
 
 @media screen and (min-width: 992px) {
