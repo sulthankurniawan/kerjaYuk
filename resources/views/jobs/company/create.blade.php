@@ -45,6 +45,32 @@ KerjaYuk | Create Job
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="location_link">Link Lokasi (Google Maps)</label>
+                        <input type="text" class="form-control" id="location_link" placeholder="Link lokasi" name="location_link">
+                    </div>
+                    <div class="form-group">
+                        <label for="career">Jenis Karir:</label>
+                        <select class="form-control" id="career" name="career">
+                            <option>Agriculture, Food and Natural Resources</option>
+                            <option>Architecture and Construction</option>
+                            <option>Arts, Audio/Video Technology and Communications</option>
+                            <option>Business Management and Administration</option>
+                            <option>Education and Training</option>
+                            <option>Finance</option>
+                            <option>Government and Public Administration</option>
+                            <option>Health Science</option>
+                            <option>Hospitality and Tourism</option>
+                            <option>Human Services</option>
+                            <option>Information Technology & Software</option>
+                            <option>Law, Public Safety, Corrections and Security</option>
+                            <option>Manufacturing</option>
+                            <option>Marketing, Sales and Service</option>
+                            <option>Science, Technology, Engineering and Mathematics</option>
+                            <option>Transportation, Distribution and Logistics</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="jenis_pekerjaan">Jenis Pekerjaan:</label>
                         <select class="form-control" id="jenis_pekerjaan" name="type">
                             <option>Penuh Waktu</option>

@@ -25,6 +25,52 @@ KerjaYuk | Detail Job
                         <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location" value="{{ $job->location }}">
                     </div>
                     <div class="form-group">
+                        <label for="area">Area (Kota / Kabupaten):</label>
+                        <select class="form-control" id="area" name="area">
+                            <option <?= ($job->area == 'Kota Jakarta Barat') ? 'selected' : ''; ?>>Kota Jakarta Barat</option>
+                            <option <?= ($job->area == 'Kota Jakarta Pusat') ? 'selected' : ''; ?>>Kota Jakarta Pusat</option>
+                            <option <?= ($job->area == 'Kota Jakarta Selatan') ? 'selected' : ''; ?>>Kota Jakarta Selatan</option>
+                            <option <?= ($job->area == 'Kota Jakarta Timur') ? 'selected' : ''; ?>>Kota Jakarta Timur</option>
+                            <option <?= ($job->area == 'Kota Jakarta Utara') ? 'selected' : ''; ?>>Kota Jakarta Utara</option>
+                            <option <?= ($job->area == 'Kota Bandung') ? 'selected' : ''; ?>>Kota Bandung</option>
+                            <option <?= ($job->area == 'Kota Banjar') ? 'selected' : ''; ?>>Kota Banjar</option>
+                            <option <?= ($job->area == 'Kota Bekasi') ? 'selected' : ''; ?>>Kota Bekasi</option>
+                            <option <?= ($job->area == 'Kota Bogor') ? 'selected' : ''; ?>>Kota Bogor</option>
+                            <option <?= ($job->area == 'Kota Cimahi') ? 'selected' : ''; ?>>Kota Cimahi</option>
+                            <option <?= ($job->area == 'Kota Cirebon') ? 'selected' : ''; ?>>Kota Cirebon</option>
+                            <option <?= ($job->area == 'Kota Depok') ? 'selected' : ''; ?>>Kota Depok</option>
+                            <option <?= ($job->area == 'Kota Sukabumi') ? 'selected' : ''; ?>>Kota Sukabumi</option>
+                            <option <?= ($job->area == 'Kota Tasikmalaya') ? 'selected' : ''; ?>>Kota Tasikmalaya</option>
+                            <option <?= ($job->area == 'Lainnya') ? 'selected' : ''; ?>>Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location_link">Link Lokasi (Google Maps)</label>
+                        <input type="text" class="form-control" id="location_link" placeholder="Link lokasi" name="location_link">
+                    </div>
+                    <div class="form-group">
+                        <label for="career">Jenis Karir:</label>
+                        <select class="form-control" id="career" name="career">
+                            <option <?= ($job->career == 'Architecture and Construction') ? 'selected' : ''; ?>>Architecture and Construction</option>
+                            <option <?= ($job->career == 'Agriculture, Food and Natural Resources') ? 'selected' : ''; ?>>Agriculture, Food and Natural Resources</option>
+                            <option <?= ($job->career == 'Arts, Audio/Video Technology and Communications') ? 'selected' : ''; ?>>Arts, Audio/Video Technology and Communications</option>
+                            <option <?= ($job->career == 'Business Management and Administration') ? 'selected' : ''; ?>>Business Management and Administration</option>
+                            <option <?= ($job->career == 'Education and Training') ? 'selected' : ''; ?>>Education and Training</option>
+                            <option <?= ($job->career == 'Finance') ? 'selected' : ''; ?>>Finance</option>
+                            <option <?= ($job->career == 'Government and Public Administration') ? 'selected' : ''; ?>>Government and Public Administration</option>
+                            <option <?= ($job->career == 'Health Science') ? 'selected' : ''; ?>>Health Science</option>
+                            <option <?= ($job->career == 'Hospitality and Tourism') ? 'selected' : ''; ?>>Hospitality and Tourism</option>
+                            <option <?= ($job->career == 'Human Services') ? 'selected' : ''; ?>>Human Services</option>
+                            <option <?= ($job->career == 'Information Technology & Software') ? 'selected' : ''; ?>>Information Technology & Software</option>
+                            <option <?= ($job->career == 'Law, Public Safety, Corrections and Security') ? 'selected' : ''; ?>>Law, Public Safety, Corrections and Security</option>
+                            <option <?= ($job->career == 'Manufacturing') ? 'selected' : ''; ?>>Manufacturing</option>
+                            <option <?= ($job->career == 'Marketing, Sales and Service') ? 'selected' : ''; ?>>Marketing, Sales and Service</option>
+                            <option <?= ($job->career == 'Science, Technology, Engineering and Mathematics') ? 'selected' : ''; ?>>Science, Technology, Engineering and Mathematics</option>
+                            <option <?= ($job->career == 'Transportation, Distribution and Logistics') ? 'selected' : ''; ?>>Transportation, Distribution and Logistics</option>
+                            <option <?= ($job->career == 'Others') ? 'selected' : ''; ?>>Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="jenis_pekerjaan">Jenis Pekerjaan:</label>
                         <select class="form-control" id="jenis_pekerjaan" name="type">
                             <option <?= ($job->type == 'Penuh Waktu') ? 'selected' : ''; ?>>Penuh Waktu</option>
