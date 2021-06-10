@@ -183,10 +183,12 @@ section {
 
 .section-forget-password {
     background-color: $red;
+
     .card {
         // margin-bottom: 1.5rem;
         // margin-top: 90px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        position: relative;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
@@ -270,7 +272,7 @@ section {
             @include small {
                 margin-bottom: 40px;
             }
-            
+
             @include large {
                 margin-bottom: 70px;
             }
@@ -290,17 +292,17 @@ section {
 
                 border-radius: 10px;
             }
-        
+
             .feature-1 {
                 background: conic-gradient(from 90deg at 0% 100%, #88888B 0%, #7B8FFE 39%, #0481CC 47%, #D80DE9 100%);
                 backdrop-filter: blur(6px);
             }
-        
+
             .feature-2 {
                 background: conic-gradient(from 90deg at 90% 120%, #FD4B4B 0%, #EFCE1C 100%);
                 backdrop-filter: blur(6px);
             }
-        
+
             .feature-3 {
                 background: conic-gradient(from 90deg at 50% 130%, #2559D6 0%, #7DFB7D 100%);
                 backdrop-filter: blur(6px);
@@ -342,27 +344,27 @@ section {
 .section-find-job {
     padding-top: 0px;
 
-    .form-control{
+    .form-control {
         border-radius: 10px;
         box-shadow: 7px 7px 50px rgba(0, 0, 0, 0.2);
     }
-    
+
     .btn-outline-light {
         border-radius: 30px;
         margin-right: 10px;
         border-width: 2px;
     }
-    
-    .card-body{
+
+    .card-body {
         box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.2);
         padding: 3rem;
     }
-    
-    .checkbox{
+
+    .checkbox {
         margin-left: 60px;
         padding: 0.25rem;
     }
-    
+
     .filter-link {
         &:hover {
             text-decoration: underline;
@@ -376,7 +378,19 @@ section {
     }
 }
 
+.section-home-company {
+    .daftar-pekerjaan {
+        padding-top: 0px;
+
+        .card {
+            border-radius: 12px;
+            padding: 20px;
+        }
+    }
+}
+
 @include large {
+
     .section-login,
     .section-register-seeker,
     .section-register-company {
