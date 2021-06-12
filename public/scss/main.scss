@@ -389,6 +389,59 @@ section {
     }
 }
 
+.section-profile-seeker,
+.section-form-profile-seeker {
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .avatar {
+        padding: 50px 0;
+        background-color: $red;
+
+        .img-wrapper {
+            border-radius: 100%;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+        }
+    }
+
+    .button-controls-mobile {
+        @include extra-small {
+            .btn-green {
+                width: 100%;
+            }
+        }
+
+        @include small {
+            .btn-green {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.section-profile-seeker {
+    .information {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+.section-form-profile-seeker {
+    .profile-information {
+        padding: 50px 0;
+
+        .card {
+            border-radius: 12px;
+            padding: 20px;
+        }
+    }
+}
+
 @include large {
 
     .section-login,
