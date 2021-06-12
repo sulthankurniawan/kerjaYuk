@@ -948,6 +948,58 @@ section .owl-next i {
   padding: 20px;
 }
 
+.section-profile-seeker,
+.section-form-profile-seeker {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.section-profile-seeker .avatar,
+.section-form-profile-seeker .avatar {
+  padding: 50px 0;
+  background-color: #F55151;
+}
+
+.section-profile-seeker .avatar .img-wrapper,
+.section-form-profile-seeker .avatar .img-wrapper {
+  border-radius: 100%;
+}
+
+.section-profile-seeker .avatar img,
+.section-form-profile-seeker .avatar img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+@media screen and (max-width: 575px) {
+  .section-profile-seeker .button-controls-mobile .btn-green,
+  .section-form-profile-seeker .button-controls-mobile .btn-green {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .section-profile-seeker .button-controls-mobile .btn-green,
+  .section-form-profile-seeker .button-controls-mobile .btn-green {
+    width: 100%;
+  }
+}
+
+.section-profile-seeker .information {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.section-form-profile-seeker .profile-information {
+  padding: 50px 0;
+}
+
+.section-form-profile-seeker .profile-information .card {
+  border-radius: 12px;
+  padding: 20px;
+}
+
 @media screen and (min-width: 992px) {
   .section-login,
   .section-register-seeker,
