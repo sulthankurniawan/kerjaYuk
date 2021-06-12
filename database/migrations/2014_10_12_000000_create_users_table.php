@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('education')->nullable();
             $table->string('institution')->nullable();
             $table->string('major')->nullable();
+            $table->string('min_expectation_salary')->nullable();
+            $table->string('max_expectation_salary')->nullable();
 
             $table->string('company')->nullable();
             $table->string('industry')->nullable();

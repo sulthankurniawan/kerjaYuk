@@ -9,10 +9,10 @@ KerjaYuk | Profile
     <section class="section-form-profile-seeker">
         <div class="avatar">
             <div class="container d-flex flex-column align-items-center">
-                <div class="img-wrapper bg-white mb-2 p-3">
+                <!-- <div class="img-wrapper bg-white mb-2 p-3">
                     <img src="{{ url("img/illustration/avatars/user-1.jpg") }}" alt="User Profile">
                 </div>
-                <a href="#" class="text-white">Ubah foto profil</a>
+                <a href="#" class="text-white">Ubah foto profil</a> -->
             </div>
         </div>
         <div class="profile-information">
