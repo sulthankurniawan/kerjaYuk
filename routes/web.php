@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // TESTING ROUTES
-Route::get('/', function () {
-    return view('users.seeker.edit_penghasilan');
-});
+// Route::get('/', function () {
+//     return view('users.seeker.edit_penghasilan');
+// });
 
 // EXAMPLES DELETED SOON
 // Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index')->middleware('auth');
@@ -26,7 +26,7 @@ Route::get('/', function () {
 // Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->name('pizzas.destroy')->middleware('auth');
 
 // WELCOMEPAGE ROUTES
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET WELCOMEPAGE
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET WELCOMEPAGE
 Route::get('/cari', [App\Http\Controllers\HomeController::class, 'welcomeCompany'])->name('cari'); // GET WELCOMEPAGE
 
 // LOGIN-LOGOUT ROUTES
