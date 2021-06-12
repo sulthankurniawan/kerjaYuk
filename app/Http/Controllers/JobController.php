@@ -13,56 +13,77 @@ class JobController extends Controller
 {
     public function index($number = null) {
         // get data from db
+        $jobs = Job::latest()->get();
+    
+        return view('jobs.seeker.find', [
+            'jobs' => $jobs,
+            'career' => '',
+        ]);
+    }
 
-        if ($number == null) {
-            $jobs = Job::latest()->get();
-            $career = '';
+    public function getByCareer($number) {
+
+        switch($number){
+            case '1':
+                $career = 'Agriculture, Food and Natural Resources';
+                break;
+            case '2':
+                $career = 'Architecture and Construction';
+                break;
+            case '3':
+                $career = 'Arts, Audio/Video Technology and Communications';
+                break;
+            case '4':
+                $career = 'Business Management and Administration';
+                break;
+            case '5':
+                $career = 'Education and Training';
+                break;
+            case '6':
+                $career = 'Finance';
+                break;
+            case '7':
+                $career = 'Government and Public Administration';
+                break;
+            case '8':
+                $career = 'Health Science';
+                break;
+            case '9':
+                $career = 'Hospitality and Tourism';
+                break;
+            case '10':
+                $career = 'Human Services';
+                break;
+            case '11':
+                $career = 'Information Technology & Software';
+                break;
+            case '12':
+                $career = 'Law, Public Safety, Corrections and Security';
+                break;
+            case '13':
+                $career = 'Manufacturing';
+                break;
+            case '14':
+                $career = 'Marketing, Sales and Service';
+                break;
+            case '15':
+                $career = 'Science, Technology, Engineering and Mathematics';
+                break;
+            case '16':
+                $career = 'Transportation, Distribution and Logistics';
+                break;
+            case '17':
+                $career = 'Others';
+                break;
         }
-        else {
-            switch($number){
-                case '1':
-                    $career = 'Agriculture, Food and Natural Resources';
-                case '2':
-                    $career = 'Architecture and Construction';
-                case '3':
-                    $career = 'Arts, Audio/Video Technology and Communications';
-                case '4':
-                    $career = 'Business Management and Administration';
-                case '5':
-                    $career = 'Education and Training';
-                case '6':
-                    $career = 'Finance';
-                case '7':
-                    $career = 'Government and Public Administration';
-                case '8':
-                    $career = 'Health Science';
-                case '9':
-                    $career = 'Hospitality and Tourism';
-                case '10':
-                    $career = 'Human Services';
-                case '11':
-                    $career = 'Information Technology & Software';
-                case '12':
-                    $career = 'Law, Public Safety, Corrections and Security';
-                case '13':
-                    $career = 'Manufacturing';
-                case '14':
-                    $career = 'Marketing, Sales and Service';
-                case '15':
-                    $career = 'Science, Technology, Engineering and Mathematics';
-                case '16':
-                    $career = 'Transportation, Distribution and Logistics';
-                case '17':
-                    $career = 'Others';
-            }
 
-            $jobs = DB::table('jobs')->where('career', '=', $career)->latest()->get();
-        }
-
+        $jobs = DB::table('jobs')->where('career', '=', $career)->latest()->get();
+    
         return view('jobs.seeker.find', [
             'jobs' => $jobs,
             'career' => $career,
         ]);
+
     }
 
     public function show($id) {

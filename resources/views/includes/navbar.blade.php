@@ -13,40 +13,32 @@
                 data-target="#navb">
                 <span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navb">
+                @auth
                 <ul class="navbar-nav ml-auto mr-3">
                     <li class="nav-item mx-md-2">
-                        @auth
                         <?php if (Auth::user()->role == 'seeker') : ?>
                         <a href="/home-seeker" class="nav-link <?= (Route::currentRouteName() == 'home.seeker') ? 'active' : ''; ?>">Beranda</a>
                         <?php elseif (Auth::user()->role == 'company') : ?>
                         <a href="/home-company" class="nav-link <?= (Route::currentRouteName() == 'home.company') ? 'active' : ''; ?>">Beranda</a>
                         <?php endif ?>
-                        @endauth
                     </li>
                     <li class="nav-item mx-md-2">
-                        @auth
                         <?php if (Auth::user()->role == 'seeker') : ?>
                         <a href="/jobs" class="nav-link <?= (Route::currentRouteName() == 'jobs.index') ? 'active' : ''; ?>">Cari Pekerjaan</a>
                         <?php elseif (Auth::user()->role == 'company') : ?>
                         <a href="/jobs/create" class="nav-link <?= (Route::currentRouteName() == 'jobs.create') ? 'active' : ''; ?>">Tambah Lowongan</a>
                         <?php endif ?>
-                        @endauth
                     </li>
                     <li class="nav-item mx-md-2">
-                        @auth
                         <?php if (Auth::user()->role == 'seeker') : ?>
                         <a class="nav-link <?= (Route::currentRouteName() == 'users.show') ? 'active' : ''; ?>" href="{{ route('requests.index') }}"> Riwayar Lamaran </a>
                         <?php endif ?>
-                        @endauth
                     </li>
                     <li class="nav-item mx-md-2">
-                        @auth
                         <a class="nav-link <?= (Route::currentRouteName() == 'users.show') ? 'active' : ''; ?>" href="/users/<?= Auth::user()->id ?>"> Profil <?= Auth::user()->first_name ?> </a>
-                        @endauth
                     </li>
                 </ul>
-
-                @auth
+                
                 <!-- Mobile Button -->
                 <form action="" class="nav-button d-flex flex-column align-items-start form-inline d-sm-block d-lg-none">
                     <a href="/logout" class="btn btn-red text-white btn-block">Keluar</a>
@@ -58,6 +50,9 @@
                 @endauth
 
                 @guest
+                <ul class="navbar-nav ml-auto mr-3">
+                
+                </ul>
                 <!-- Mobile Button -->
                 <form action="" class="nav-button d-flex flex-column align-items-start form-inline d-sm-block d-lg-none">
                     <a href="/login" class="btn btn-grey btn-default ">Masuk</a> <br>

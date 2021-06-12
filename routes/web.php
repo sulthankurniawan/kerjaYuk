@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // TESTING ROUTES
-// Route::get('/', function () {
-//     return view('dashboard.company');
-// });
+Route::get('/', function () {
+    return view('users.seeker.edit_penghasilan');
+});
 
 // EXAMPLES DELETED SOON
 // Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index')->middleware('auth');
@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 // Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->name('pizzas.destroy')->middleware('auth');
 
 // WELCOMEPAGE ROUTES
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET WELCOMEPAGE
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET WELCOMEPAGE
 Route::get('/cari', [App\Http\Controllers\HomeController::class, 'welcomeCompany'])->name('cari'); // GET WELCOMEPAGE
 
 // LOGIN-LOGOUT ROUTES
@@ -51,6 +51,7 @@ Route::post('/register-company', [App\Http\Controllers\Auth\RegisterController::
 
 // JOB ROUTES
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index'); // GET ALL JOB RECORD
+Route::get('/jobs/{number}', [App\Http\Controllers\JobController::class, 'getByCareer'])->name('jobs.career'); // GET ALL JOB RECORD BY CAREER
 Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('jobs.create')->middleware('company'); // GET FORM CREATE JOB (AUTH AS COMPANY)
 Route::get('/jobs/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show')->middleware('auth'); // GET JOB BASED ON ID (AUTH)
 Route::post('/jobs', [App\Http\Controllers\JobController::class, 'store'])->name('jobs.store')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY)

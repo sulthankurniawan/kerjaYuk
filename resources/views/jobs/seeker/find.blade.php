@@ -57,8 +57,8 @@ KerjaYuk | Find Job
         </div>
 
         <div class="container results py-4">
-            <p>1-10 Pekerjaan yang cocok</p>
-            <h3 class="mt-4 mb-5">IT Software</h3>
+            <p>Terdapat {{ count($jobs) }} pekerjaan tersedia</p>
+            <h3 class="mt-4 mb-5">{{ $career }}</h3>
 
             @foreach($jobs as $job)
             <div class="card w-95">
