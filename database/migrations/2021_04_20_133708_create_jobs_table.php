@@ -33,11 +33,12 @@ class CreateJobsTable extends Migration
             $table->string('education')->nullable();
             $table->json('majors')->nullable();
             $table->string('experience')->nullable();
-            $table->string('responsibility')->nullable();
+            $table->text('responsibility')->nullable();
+            $table->text('skill')->nullable();
             $table->string('submission')->nullable();
-            $table->string('other')->nullable();
+            $table->text('other')->nullable();
             $table->date('expiration')->nullable();
-            $table->string('emergence')->nullable();
+            $table->string('display')->nullable();
             $table->string('status')->nullable();
         });
     }

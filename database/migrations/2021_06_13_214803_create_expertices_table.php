@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKebabsTable extends Migration
+class CreateExperticesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateKebabsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kebabs', function (Blueprint $table) {
+        Schema::create('expertices', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('user_id')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('start_period')->nullable();
+            $table->string('end_period')->nullable();
         });
     }
 
@@ -26,6 +30,6 @@ class CreateKebabsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kebabs');
+        Schema::dropIfExists('expertices');
     }
 }

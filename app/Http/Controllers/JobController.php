@@ -11,7 +11,7 @@ use App\Models\Request as Job_Request;
 
 class JobController extends Controller
 {
-    public function index($number = null) {
+    public function index() {
         // get data from db
         $jobs = Job::latest()->get();
     
@@ -86,6 +86,10 @@ class JobController extends Controller
 
     }
 
+    public function create() {
+        return view('jobs.company.create');
+    }
+
     public function show($id) {
         // use the $id variable to query the db for a record
 
@@ -100,8 +104,8 @@ class JobController extends Controller
         return view('jobs.company.show', ['job' => $job, 'applicants' => $applicants]);
     }
 
-    public function create() {
-        return view('jobs.company.create');
+    public function edit($id) {
+
     }
 
     public function store() {
@@ -126,10 +130,11 @@ class JobController extends Controller
         $job->majors = request('majors');
         $job->experience = request('experience');
         $job->responsibility = request('responsibility');
+        $job->skill = request('skill');
         $job->submission = request('submission');
         $job->other = request('other');
         $job->expiration = request('expiration');
-        $job->emergence = request('emergence');
+        $job->display = request('display');
         $job->status = 'active';
 
         $job->save();
@@ -137,7 +142,7 @@ class JobController extends Controller
         return redirect('/home-company')->with('mssg', 'Informasi lowongan telah tersimpan');
     }
 
-    public function edit($id) {
+    public function update($id) {
 
         $job = Job::findOrFail($id);
 
@@ -159,10 +164,11 @@ class JobController extends Controller
         $job->majors = request('majors');
         $job->experience = request('experience');
         $job->responsibility = request('responsibility');
+        $job->skill = request('skill');
         $job->submission = request('submission');
         $job->other = request('other');
         $job->expiration = request('expiration');
-        $job->emergence = request('emergence');
+        $job->display = request('display');
 
         $job->update();
 
@@ -176,12 +182,12 @@ class JobController extends Controller
         if ($job->status == 'active') {
             $job->status = 'suspended';
             $job->update();
-            return redirect('{{ route() }}')->with('mssg', '');
+            return redirect("")->with('mssg', '');
         }
         elseif ($request->wishlist == 'suspended') {
             $request->wishlist = 'active';
             $request->update();
-            return redirect('{{ route() }}')->with('mssg', '');
+            return redirect("")->with('mssg', '');
         } 
     }
 

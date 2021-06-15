@@ -19,8 +19,8 @@ class CreateRequestsTable extends Migration
             $table->string('user_id')->nullable();
             $table->string('job_id')->nullable();
             $table->string('link')->nullable();
-            $table->string('pitch')->nullable();
-            $table->string('respond')->nullable();
+            $table->text('pitch')->nullable();
+            $table->text('respond')->nullable();
             $table->string('wishlist')->nullable();
             $table->string('status')->nullable();
         });

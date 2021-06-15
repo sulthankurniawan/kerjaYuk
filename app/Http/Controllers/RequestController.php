@@ -51,12 +51,12 @@ class RequestController extends Controller
         if ($request->wishlist == '0') {
             $request->wishlist = '1';
             $request->update();
-            return redirect('{{ route(requests.show, $id) }}')->with('mssg', 'Pelamar telah ditambah ke wishlist');
+            return redirect(" route(requests.show, $id) ")->with('mssg', 'Pelamar telah ditambah ke wishlist');
         }
         elseif ($request->wishlist == '1') {
             $request->wishlist = '0';
             $request->update();
-            return redirect('{{ route(requests.show, $id) }}')->with('mssg', 'Pelamar telah dikeluarkan dari wishlist');
+            return redirect(" route(requests.show, $id) ")->with('mssg', 'Pelamar telah dikeluarkan dari wishlist');
         } 
     }
 

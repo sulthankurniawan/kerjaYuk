@@ -14,7 +14,7 @@ KerjaYuk | Detail Job
                     <h4 class="text-title mb-3">Informasi Lowongan</h4>
                     <!-- <img src="{{ url("img/illustration/company/logo-sociolla.jpg") }}" alt="Company Logo" width="150"> -->
                 </div>
-                <form action="{{ route('jobs.edit', $job->id) }}" method="POST">
+                <form action="{{ route('jobs.update', $job->id) }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="pekerjaan">Nama Pekerjaan:</label>

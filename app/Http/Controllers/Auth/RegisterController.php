@@ -75,6 +75,8 @@ class RegisterController extends Controller
         $user->education = request('education');
         $user->institution = request('institution');
         $user->major = request('major');
+        $user->min_expectation_salary = request('min_expectation_salary');
+        $user->max_expectation_salary = request('max_expectation_salary');
         $user->password = Hash::make(request('password'));
         $user->phone = request('phone');
         $user->role = 'seeker';
@@ -106,3 +108,5 @@ class RegisterController extends Controller
         return redirect('/login')->with('mssg', 'Pengguna telah terdaftar sebagai pencari lowongan');
     }
 }
+
+

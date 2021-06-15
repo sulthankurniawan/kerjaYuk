@@ -32,6 +32,10 @@ Seeker | Login
                                 <input type="email" name="email" class="form-control" placeholder="Email" required>
                             </div>
                             <div class="form-group">
+                                <label for=""><strong>Kata Sandi</strong></label>
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="edukasi"><strong>Edukasi Terakhir</strong></label>
                                 <select class="form-control" id="edukasi" name="education">
                                     <option>SD</option>
@@ -95,8 +99,17 @@ Seeker | Login
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for=""><strong>Kata Sandi</strong></label>
-                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                <label for="min_gaji">Ekspektasi Gaji:</label>
+                                <div class="form-row">
+                                    <div class="col-6">
+                                        <input type="number" class="form-control" id="min_gaji" placeholder="Minimum"
+                                            name="min_expectation_salary">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" class="form-control" id="end_kerja" placeholder="Maximum"
+                                            name="max_expectation_salary">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for=""><strong>Nomor Telepon (gunakan kode negara [+62])</strong></label>
