@@ -339,6 +339,24 @@ section {
             }
         }
     }
+
+    &.section-job-request {
+        .list-bullet-icons {
+            width: 25px;
+        }
+
+        .form-group {
+            .file-label {
+                padding: .5rem 1rem;
+                border-radius: 12px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.hr {
+    border-top: 2px solid $secondary;
 }
 
 .section-find-job {
