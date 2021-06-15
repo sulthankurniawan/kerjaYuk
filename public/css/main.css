@@ -904,6 +904,20 @@ section .owl-next i {
   }
 }
 
+.section-job-detail-seeker-v2.section-job-request .list-bullet-icons {
+  width: 25px;
+}
+
+.section-job-detail-seeker-v2.section-job-request .form-group .file-label {
+  padding: .5rem 1rem;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.hr {
+  border-top: 2px solid #9e9e9e;
+}
+
 .section-find-job {
   padding-top: 0px;
 }

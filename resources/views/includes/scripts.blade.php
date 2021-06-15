@@ -5,4 +5,5 @@
 <script src="{{ url("libraries/aos/js/aos.js") }}"></script>
 <script src="{{ url("libraries/sweetalert/js/sweetalert2.all.min.js") }}"></script>
 <script src="{{ url("js/main.js") }}"></script>
+<script src="{{ url("js/form.js") }}"></script>
 <script src="{{ url("js/alert.js") }}"></script>
