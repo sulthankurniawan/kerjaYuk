@@ -50,7 +50,7 @@ KerjaYuk | Home
                             <p class="job-company mb-2">{{ $job->company }}</p>
                             <p class="job-locations">{{ $job->location }}</p>
                             <div class="job-footer mt-auto">
-                                <span class="job-date mb-2 d-block">{{ $job->updated_at }}</span>
+                                <span class="job-date mb-2 d-block">Daftar sebelum {{ $job->expiration }}</span>
                                 <a href="/jobs/show/{{ $job->id }}"></a>
                             </div>
                         </div>
