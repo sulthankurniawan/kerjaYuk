@@ -216,6 +216,11 @@ KerjaYuk | Create Job
                             placeholder="Tuliskan tanggung jawab pekerjaan..." name="responsibility"></textarea>
                     </div>
                     <div class="form-group">
+                        <label for="kemampuan">Kemampuan yang diperlukan:</label>
+                        <textarea class="form-control" id="kemampuan" rows="4"
+                            placeholder="Tuliskan kemampuan yang diperlukan..." name="skill"></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="pengumpulan">Berkas Pendaftaran yang Diperlukan:</label>
                         <textarea class="form-control" id="pengumpulan" rows="4"
                             placeholder="Jika ingin melamar kirim CV, Resume, dan Portofolio melalui google drive pada form lamaran kerja" name="submission"></textarea>
@@ -226,12 +231,12 @@ KerjaYuk | Create Job
                             placeholder="Tuliskan informasi lainnya jika diperlukan" name="other"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="lokasi">Batas Pendaftaran:</label>
-                        <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="location" required>
+                        <label for="kadaluarsa">Batas Pendaftaran:</label>
+                        <input type="date" class="form-control" id="kadaluarsa"  name="expiration" required>
                     </div>
                     <div class="form-group">
-                        <label for="pengalaman">Penampilan Lowongan:</label>
-                        <select class="form-control" id="pengalaman" name="experience">
+                        <label for="penampilan">Penampilan Lowongan:</label>
+                        <select class="form-control" id="penampilan" name="display">
                             <option>Tampilkan</option>
                             <option>Sembunyikan</option>
                         </select>

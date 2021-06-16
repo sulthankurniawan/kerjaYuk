@@ -47,12 +47,12 @@ KerjaYuk | Home
                     data-aos-delay="300">
                     <div class="job-card card card-body h-100 w-100 d-flex flex-column position-relative">
                         <div class="job-body h-100 d-flex flex-column mt-2">
-                            <a class="job-title mb-0 stretched-link" href="#">{{$job->name}}</a>
-                            <p class="job-company mb-2">{{$job->company}}</p>
-                            <p class="job-locations">{{$job->location}}</p>
+                            <a class="job-title mb-0 stretched-link" href="/jobs/show/{{$job->id}}">{{ $job->name }}</a>
+                            <p class="job-company mb-2">{{ $job->company }}</p>
+                            <p class="job-locations">{{ $job->location }}</p>
                             <div class="job-footer mt-auto">
-                                <span class="job-date mb-2 d-block">{{$job->updated_at}}</span>
-                                <a href="#"></a>
+                                <span class="job-date mb-2 d-block">{{ $job->updated_at }}</span>
+                                <a href="/jobs/show/{{ $job->id }}"></a>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ KerjaYuk | Home
                     data-aos-delay="300">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-university"></i>
+                            <!-- <i class="fas fa-university"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 1) }}">Agriculture, Food and Natural Resources</a>
                     </div>
@@ -82,7 +82,7 @@ KerjaYuk | Home
                     data-aos-delay="600">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-laptop"></i>
+                            <!-- <i class="fas fa-laptop"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 2) }}">Architecture and Construction</a>
                     </div>
@@ -91,7 +91,7 @@ KerjaYuk | Home
                     data-aos-delay="900">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-mail-bulk"></i>
+                            <!-- <i class="fas fa-mail-bulk"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 3) }}">Arts, Audio/Video Technology and Communications</a>
                     </div>
@@ -100,7 +100,7 @@ KerjaYuk | Home
                     data-aos-delay="1200">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-palette"></i>
+                            <!-- <i class="fas fa-palette"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 4) }}">Business Management and Administration</a>
                     </div>
@@ -109,7 +109,7 @@ KerjaYuk | Home
                     data-aos-delay="1500">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="far fa-handshake"></i>
+                            <!-- <i class="far fa-handshake"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 5) }}">Education and Training</a>
                     </div>
@@ -118,7 +118,7 @@ KerjaYuk | Home
                     data-aos-delay="300">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-university"></i>
+                            <!-- <i class="fas fa-university"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 6) }}">Finance</a>
                     </div>
@@ -127,7 +127,7 @@ KerjaYuk | Home
                     data-aos-delay="600">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-laptop"></i>
+                            <!-- <i class="fas fa-laptop"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 7) }}">Government and Public Administration</a>
                     </div>
@@ -136,7 +136,7 @@ KerjaYuk | Home
                     data-aos-delay="900">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-mail-bulk"></i>
+                            <!-- <i class="fas fa-mail-bulk"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 8) }}">Health Science</a>
                     </div>
@@ -145,7 +145,7 @@ KerjaYuk | Home
                     data-aos-delay="1200">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-palette"></i>
+                            <!-- <i class="fas fa-palette"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 9) }}">Hospitality and Tourism</a>
                     </div>
@@ -154,7 +154,7 @@ KerjaYuk | Home
                     data-aos-delay="1500">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="far fa-handshake"></i>
+                            <!-- <i class="far fa-handshake"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 10) }}">Human Services</a>
                     </div>
@@ -163,7 +163,7 @@ KerjaYuk | Home
                     data-aos-delay="300">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-university"></i>
+                            <!-- <i class="fas fa-university"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 11) }}">Information Technology & Software</a>
                     </div>
@@ -172,7 +172,7 @@ KerjaYuk | Home
                     data-aos-delay="600">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-laptop"></i>
+                            <!-- <i class="fas fa-laptop"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 12) }}">Law, Public Safety, Corrections and Security</a>
                     </div>
@@ -181,7 +181,7 @@ KerjaYuk | Home
                     data-aos-delay="900">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-mail-bulk"></i>
+                            <!-- <i class="fas fa-mail-bulk"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 13) }}">Manufacturing</a>
                     </div>
@@ -190,7 +190,7 @@ KerjaYuk | Home
                     data-aos-delay="1200">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-palette"></i>
+                            <!-- <i class="fas fa-palette"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 14) }}">Marketing, Sales and Service</a>
                     </div>
@@ -199,7 +199,7 @@ KerjaYuk | Home
                     data-aos-delay="1500">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="far fa-handshake"></i>
+                            <!-- <i class="far fa-handshake"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 15) }}">Science, Technology, Engineering and Mathematics</a>
                     </div>
@@ -208,7 +208,7 @@ KerjaYuk | Home
                     data-aos-delay="300">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-university"></i>
+                            <!-- <i class="fas fa-university"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 16) }}">Transportation, Distribution and Logistics</a>
                     </div>
@@ -217,17 +217,13 @@ KerjaYuk | Home
                     data-aos-delay="600">
                     <div class="category-card border-0 p-0 d-flex flex-column align-items-center position-relative">
                         <div class="category-icon mb-2 d-flex justify-content-center align-items-center">
-                            <i class="fas fa-laptop"></i>
+                            <!-- <i class="fas fa-laptop"></i> -->
                         </div>
                         <a class="font-weight-500 text-center stretched-link" href="{{ route('jobs.career', 17) }}">Others</a>
                     </div>
                 </div>
             </div>
     </section>
-
-    
-
-    
 </main>
 <!-- End Main -->
 @endsection

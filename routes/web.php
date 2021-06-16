@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // TESTING ROUTES
-Route::get('/', function () {
-    return view('jobs.seeker.detail');
-});
+// Route::get('/', function () {
+//     return view('jobs.seeker.show');
+// });
 
 // EXAMPLES DELETED SOON
 // Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index')->middleware('auth');
@@ -26,7 +26,7 @@ Route::get('/', function () {
 // Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->name('pizzas.destroy')->middleware('auth');
 
 // WELCOMEPAGE ROUTES
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET WELCOMEPAGE *DONE
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index'); // GET WELCOMEPAGE *DONE
 Route::get('/cari', [App\Http\Controllers\HomeController::class, 'welcomeCompany'])->name('cari'); // GET WELCOMEPAGE *DONE
 
 // HOME ROUTES
@@ -51,7 +51,7 @@ Route::get('/users/{id}', [App\Http\Controllers\Auth\UserController::class, 'sho
 Route::get('/users/profile', [App\Http\Controllers\Auth\UserController::class, 'profile'])->name('users.profile')->middleware('auth'); // GET PROFILE PAGE (AUTH) FOR SEEKER AND COMPANY
 Route::get('/users/edit', [App\Http\Controllers\Auth\UserController::class, 'edit'])->name('users.edit')->middleware('auth'); // GET EDIT BIOGRAPHY FORM (AUTH) FOR SEEKER AND COMPANY
 Route::post('/users', [App\Http\Controllers\Auth\UserController::class, 'update'])->name('users.update')->middleware('auth'); // POST EDIT BIOGRAPHY (AUTH) FOR SEEKER AND COMPANY
-Route::post('/users/suspension/{id}', [App\Http\Controllers\Auth\UserController::class, 'suspension'])->name('users.suspend')->middleware('admin'); // POST SUSPEND USER (AUTH AS ADMIN)
+Route::post('/users/suspend/{id}', [App\Http\Controllers\Auth\UserController::class, 'suspend'])->name('users.suspend')->middleware('admin'); // POST SUSPEND USER (AUTH AS ADMIN)
 Route::delete('/users/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('users.destroy')->middleware('admin'); // DELETE USER BASED ON ID (AUTH AS ADMIN)
 
 // EXPERIENCE ROUTES
@@ -66,14 +66,16 @@ Route::delete('/expertise/{id}', [App\Http\Controllers\Auth\UserController::clas
 
 // JOB ROUTES
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index'); // GET ALL JOB RECORD *DONE
-Route::get('/jobs/{number}', [App\Http\Controllers\JobController::class, 'getByCareer'])->name('jobs.career'); // GET ALL JOB RECORD BY CAREER *DONE
-Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('jobs.create')->middleware('company'); // GET FORM CREATE JOB (AUTH AS COMPANY) 
-Route::get('/jobs/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show')->middleware('auth'); // GET JOB BASED ON ID (AUTH) 
-Route::get('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'edit'])->name('jobs.edit')->middleware('auth'); // GET JOB BASED ON ID (AUTH) 
-Route::post('/jobs', [App\Http\Controllers\JobController::class, 'store'])->name('jobs.store')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY) 
-Route::post('/jobs/{id}', [App\Http\Controllers\JobController::class, 'update'])->name('jobs.update')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY) 
+Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('jobs.create')->middleware('company'); // GET FORM CREATE JOB (AUTH AS COMPANY) *DONE
+Route::get('/jobs/career/{number}', [App\Http\Controllers\JobController::class, 'showByCareer'])->name('jobs.career'); // GET ALL JOB RECORD BY CAREER *DONE
+Route::get('/jobs/show/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show'); // GET JOB BASED ON ID *DONE
+Route::get('/jobs/detail/{id}', [App\Http\Controllers\JobController::class, 'detail'])->name('jobs.detail')->middleware('company'); // GET JOB BASED ON ID (AUTH AS COMPANY) *DONE
+Route::get('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'edit'])->name('jobs.edit')->middleware('auth'); // GET JOB BASED ON ID (AUTH) *DONE
+Route::post('/jobs', [App\Http\Controllers\JobController::class, 'store'])->name('jobs.store')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY) *DONE
+Route::post('/jobs/{id}', [App\Http\Controllers\JobController::class, 'update'])->name('jobs.update')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY) *DONE
+Route::post('/jobs/display/{id}', [App\Http\Controllers\JobController::class, 'display'])->name('jobs.display')->middleware('company'); // POST CHANGE JOB DISPLAY STATUS (AUTH AS COMPANY) *DONE
 Route::post('/jobs/suspend/{id}', [App\Http\Controllers\JobController::class, 'suspend'])->name('jobs.suspend')->middleware('admin'); // POST SUSPEND JOB (AUTH AS ADMIN)
-Route::delete('/jobs/{id}', [App\Http\Controllers\JobController::class, 'destroy'])->name('jobs.destroy')->middleware('company'); // DELETE JOB RECORD BASED ON ID (AUTH AS COMPANY)
+Route::delete('/jobs/destroy/{id}', [App\Http\Controllers\JobController::class, 'destroy'])->name('jobs.destroy')->middleware('company'); // DELETE JOB RECORD BASED ON ID (AUTH AS COMPANY) *DONE
 
 // REQUEST ROUTES
 Route::get('/requests', [App\Http\Controllers\RequestController::class, 'index'])->name('requests.index'); // GET ALL REQUEST RECORD
