@@ -21,6 +21,17 @@
 
         .navbar-brand {
             color: $red;
+
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            h3,
+            h5 {
+                color: $red;
+            }
         }
 
         @include extra-small {

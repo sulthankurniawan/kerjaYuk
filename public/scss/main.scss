@@ -355,9 +355,25 @@ section {
     }
 }
 
+// Customs
+
 .hr {
     border-top: 2px solid $secondary;
 }
+
+.custom-text-input {
+    border: 0;
+    border-bottom: 2px solid #bbb;
+    padding: 8px 0;
+    width: 100%;
+
+    &:focus {
+        border-color: #3377d6;
+        outline: 0;
+    }
+}
+
+// End Customs
 
 .section-find-job {
     padding-top: 0px;
@@ -407,6 +423,29 @@ section {
     }
 }
 
+.section-profile-company {
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .avatar {
+        padding: 50px 0;
+        background: #485563;
+        background: -webkit-linear-gradient(to top, #29323c 0%, #485563 90%);
+        background: linear-gradient(to top, #29323c 0%, #485563 90%);
+
+        .img-wrapper {
+            border-radius: 100%;
+        }
+
+        img {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 100%;
+            object-fit: scale-down;
+        }
+    }
+}
+
 .section-profile-seeker,
 .section-form-profile-seeker {
     padding-top: 0px;
@@ -414,15 +453,17 @@ section {
 
     .avatar {
         padding: 50px 0;
-        background-color: $red;
+        background: $red;
+        background: -webkit-linear-gradient(to right, $red, #ff4b2b);
+        background: linear-gradient(to right, $red, #ff4b2b);
 
         .img-wrapper {
             border-radius: 100%;
         }
 
         img {
-            width: 200px;
-            height: 200px;
+            width: 10rem;
+            height: 10rem;
             border-radius: 100%;
         }
     }
@@ -442,7 +483,8 @@ section {
     }
 }
 
-.section-profile-seeker {
+.section-profile-seeker,
+.section-profile-company {
     .information {
         padding-top: 50px;
         padding-bottom: 50px;
@@ -457,6 +499,22 @@ section {
             border-radius: 12px;
             padding: 20px;
         }
+    }
+}
+
+.section-home-admin {
+    .card {
+        border-radius: unset;
+    }
+}
+
+.section-manage-report,
+.section-manage-user {
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .card {
+        border-radius: 12px;
     }
 }
 
