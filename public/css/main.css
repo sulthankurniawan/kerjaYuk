@@ -329,6 +329,10 @@ header::after {
   color: #F55151;
 }
 
+.nav-container .navbar .navbar-brand a:hover {
+  text-decoration: none;
+}
+
 .nav-container .navbar .navbar-brand h3,
 .nav-container .navbar .navbar-brand h5 {
   color: #F55151;
