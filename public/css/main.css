@@ -626,6 +626,7 @@ footer {
   font-weight: 600;
   padding: 20px;
   height: 56px;
+  letter-spacing: .9px;
 }
 
 .wrapper #sidebar ul.components {
@@ -1123,6 +1124,30 @@ section .owl-next i {
   padding: 20px;
 }
 
+.section-profile-company {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.section-profile-company .avatar {
+  padding: 50px 0;
+  background: #485563;
+  background: -webkit-gradient(linear, left bottom, left top, from(#29323c), color-stop(90%, #485563));
+  background: linear-gradient(to top, #29323c 0%, #485563 90%);
+}
+
+.section-profile-company .avatar .img-wrapper {
+  border-radius: 100%;
+}
+
+.section-profile-company .avatar img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+
 .section-profile-seeker,
 .section-form-profile-seeker {
   padding-top: 0px;
@@ -1163,7 +1188,8 @@ section .owl-next i {
   }
 }
 
-.section-profile-seeker .information {
+.section-profile-seeker .information,
+.section-profile-company .information {
   padding-top: 50px;
   padding-bottom: 50px;
 }

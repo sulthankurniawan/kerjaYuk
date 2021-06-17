@@ -1,6 +1,6 @@
 <nav id="sidebar" class="bg-white border-right container d-none d-md-block">
     <div class="sidebar-header text-center">
-        <h5>KerjaYuk</h5>
+        <h5 class="font-weight-700">KerjaYuk</h5>
     </div>
 
     <ul class="list-unstyled components sidebar-items body-default border-bottom-0 mb-0">

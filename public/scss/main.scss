@@ -423,6 +423,29 @@ section {
     }
 }
 
+.section-profile-company {
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .avatar {
+        padding: 50px 0;
+        background: #485563;
+        background: -webkit-linear-gradient(to top, #29323c 0%, #485563 90%);
+        background: linear-gradient(to top, #29323c 0%, #485563 90%);
+
+        .img-wrapper {
+            border-radius: 100%;
+        }
+
+        img {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 100%;
+            object-fit: scale-down;
+        }
+    }
+}
+
 .section-profile-seeker,
 .section-form-profile-seeker {
     padding-top: 0px;
@@ -460,7 +483,8 @@ section {
     }
 }
 
-.section-profile-seeker {
+.section-profile-seeker,
+.section-profile-company {
     .information {
         padding-top: 50px;
         padding-bottom: 50px;
