@@ -95,56 +95,6 @@ KerjaYuk | Profile
                         <a href="#" class="btn btn-grey btn-block mr-2 body-default">Batal</a>
                     </div>
                 </form>
-                <!-- <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="#">Nama Depan</label>
-                            <input type="text" class="form-control" id="firstname" placeholder="Nama Depan">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="#">Nama Belakang</label>
-                            <input type="text" class="form-control" id="lastname"
-                                placeholder="Nama Belakang">
-                        </div>
-                    </div>
-                </form>
-
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Email">
-
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="#">Alamat</label>
-                            <input type="text" class="form-control" id="negara" placeholder="Negara">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="#">Provinsi</label>
-                            <input type="text" class="form-control" id="provinsi" placeholder="Provinsi">
-                        </div>
-                    </div>
-                </form>
-
-                <fieldset> Tanggal Lahir:<br>
-                    <input type="date" name="tgl_lahir" required><br>
-                </fieldset>
-
-                <label for="gender">Jenis Kelamin</label>
-                <select id="gender" name="gender">
-                    <option value="gender"></option>
-                    <option value="pria">Laki Laki</option>
-                    <option value="wanita">Wanita</option>
-                </select>
-
-                <label for="number">Nomor Telepon</label>
-                <input type="text" id="number" name="number" placeholder="Nomor Telepon">
-
-                <div class="button-controls d-block d-md-flex flex-md-row-reverse mt-3">
-                    <a href="popup_simpan.html"
-                        class="btn btn-green text-white d-block d-lgi-inline-flex mb-4 mb-md-0">Simpan</button>
-                        <a href="popup_batal.html"
-                            class="btn btn-default btn-grey d-block d-lg-inline-flex mr-0 mr-md-4">Batal</a>
-                </div> -->
             </div>
         </div>
     </div>
