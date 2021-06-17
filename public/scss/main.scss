@@ -502,6 +502,22 @@ section {
     }
 }
 
+.section-home-admin {
+    .card {
+        border-radius: unset;
+    }
+}
+
+.section-manage-report,
+.section-manage-user {
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .card {
+        border-radius: 12px;
+    }
+}
+
 @include large {
 
     .section-login,

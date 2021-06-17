@@ -1203,6 +1203,21 @@ section .owl-next i {
   padding: 20px;
 }
 
+.section-home-admin .card {
+  border-radius: unset;
+}
+
+.section-manage-report,
+.section-manage-user {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.section-manage-report .card,
+.section-manage-user .card {
+  border-radius: 12px;
+}
+
 @media screen and (min-width: 992px) {
   .section-login,
   .section-register-seeker,
