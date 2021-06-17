@@ -355,9 +355,25 @@ section {
     }
 }
 
+// Customs
+
 .hr {
     border-top: 2px solid $secondary;
 }
+
+.custom-text-input {
+    border: 0;
+    border-bottom: 2px solid #bbb;
+    padding: 8px 0;
+    width: 100%;
+
+    &:focus {
+        border-color: #3377d6;
+        outline: 0;
+    }
+}
+
+// End Customs
 
 .section-find-job {
     padding-top: 0px;
