@@ -11,9 +11,13 @@ use App\Models\Request as Job_Request;
 
 class JobController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
         // get data from db
-        $jobs = Job::latest()->get();
+        $jobs = Job::latest()
+                ->where('display', '=', 'Tampilkan')
+                ->where('status', '=', 'active')
+                ->get();
     
         return view('jobs.seeker.find', [
             'jobs' => $jobs,
@@ -21,7 +25,10 @@ class JobController extends Controller
         ]);
     }
 
-    public function getByCareer($number) {
+    public function showByCareer($number) 
+    {
+
+        $career = '';
 
         switch($number){
             case '1':
@@ -77,7 +84,10 @@ class JobController extends Controller
                 break;
         }
 
-        $jobs = DB::table('jobs')->where('career', '=', $career)->latest()->get();
+        $jobs = Job::where('career', '=', $career)
+                ->latest()->where('display', '=', 'Tampilkan')
+                ->where('status', '=', 'active')
+                ->get();;
     
         return view('jobs.seeker.find', [
             'jobs' => $jobs,
@@ -86,54 +96,77 @@ class JobController extends Controller
 
     }
 
-    public function create() {
+    public function create() 
+    {
         return view('jobs.company.create');
     }
 
-    public function show($id) {
+    public function show($id) 
+    {
         // use the $id variable to query the db for a record
+        
+        $job = Job::join('users', 'users.id', '=', 'jobs.user_id')
+                ->select('jobs.*', 'users.company', 'users.about_company')
+                ->where('jobs.id', '=', $id)
+                ->first();
 
-        $job = Job::findOrFail($id);
-        $applicants = DB::table('requests')
-                        ->join('users', 'users.id', '=', 'requests.user_id')
+        $applicants = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
+                        ->join('jobs', 'jobs.id', '=', 'requests.job_id')
+                        ->select('users.id')
+                        ->where('jobs.id', '=', $id)
+                        ->get();
+
+        return view('jobs.seeker.show', ['job' => $job, 'applicants' => $applicants]);
+    }
+
+    public function detail($id)
+    {
+        $job = Job::where('user_id', '=', Auth::user()->id)
+                    ->where('id', '=', $id)
+                    ->first();
+
+        $applicants = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
                         ->join('jobs', 'jobs.id', '=', 'requests.job_id')
                         ->select('users.id','users.first_name', 'users.email', 'users.phone', 'users.institution', 'users.major', 'requests.*')
-                        ->where('jobs.id', '=', $id)
+                        ->where('jobs.id', '=', Auth::user()->id)
                         ->get();
 
         return view('jobs.company.show', ['job' => $job, 'applicants' => $applicants]);
     }
 
     public function edit($id) {
+        $job = Job::findOrFail($id);
 
+        return view('jobs.company.edit', ['job' => $job,]);
     }
 
-    public function store() {
+    public function store() 
+    {
 
         $job = new Job();
 
         $job->user_id = Auth::user()->id;
-        $job->name = request('name');
-        $job->location = request('location');
-        $job->area = request('area');
-        $job->location_link = request('location_link');
-        $job->career = request('career');
-        $job->type = request('type');
-        $job->min_salary = request('min_salary');
-        $job->max_salary = request('max_salary');
-        $job->workhour_start = request('workhour_start');
-        $job->workhour_end = request('workhour_end');
-        $job->workday_start = request('workday_start');
-        $job->workday_end = request('workday_end');
-        $job->job_state = request('job_state');
-        $job->education = request('education');
-        $job->majors = request('majors');
-        $job->experience = request('experience');
-        $job->responsibility = request('responsibility');
-        $job->skill = request('skill');
-        $job->submission = request('submission');
-        $job->other = request('other');
-        $job->expiration = request('expiration');
+        $job->name = request('name'); 
+        $job->location = request('location'); 
+        $job->area = request('area'); 
+        $job->location_link = request('location_link'); 
+        $job->career = request('career'); 
+        $job->type = request('type'); 
+        $job->min_salary = request('min_salary'); 
+        $job->max_salary = request('max_salary'); 
+        $job->workhour_start = request('workhour_start'); 
+        $job->workhour_end = request('workhour_end'); 
+        $job->workday_start = request('workday_start'); 
+        $job->workday_end = request('workday_end'); 
+        $job->job_state = request('job_state'); 
+        $job->education = request('education'); 
+        $job->majors = request('majors'); 
+        $job->experience = request('experience'); 
+        $job->responsibility = request('responsibility'); 
+        $job->skill = request('skill'); 
+        $job->submission = request('submission'); 
+        $job->other = request('other'); 
+        $job->expiration = request('expiration'); 
         $job->display = request('display');
         $job->status = 'active';
 
@@ -142,7 +175,8 @@ class JobController extends Controller
         return redirect('/home-company')->with('mssg', 'Informasi lowongan telah tersimpan');
     }
 
-    public function update($id) {
+    public function update($id) 
+    {
 
         $job = Job::findOrFail($id);
 
@@ -175,8 +209,24 @@ class JobController extends Controller
         return redirect('/home-company')->with('mssg', 'Informasi lowongan telah diubah');
     }
 
-    public function suspension($id) {
+    public function display($id)
+    {
+        $job = Job::findOrFail($id);
 
+        if ($job->display == 'Tampilkan') {
+            $job->display = 'Sembunyikan';
+            $job->update();
+            return redirect()->route('jobs.detail', $id)->with('mssg', 'Lowongan telah disembunyikan');
+        }
+        elseif ($job->display == 'Sembunyikan') {
+            $job->display = 'Tampilkan';
+            $job->update();
+            return redirect()->route('jobs.detail', $id)->with('mssg', 'Lowongan telah ditampilkan');
+        } 
+    }
+
+    public function suspend($id) 
+    {
         $job = Job::findOrFail($id);
 
         if ($job->status == 'active') {
@@ -184,18 +234,19 @@ class JobController extends Controller
             $job->update();
             return redirect("")->with('mssg', '');
         }
-        elseif ($request->wishlist == 'suspended') {
-            $request->wishlist = 'active';
-            $request->update();
+        elseif ($job->status == 'suspended') {
+            $job->status = 'active';
+            $job->update();
             return redirect("")->with('mssg', '');
         } 
     }
 
-    public function destroy($id) {
+    public function destroy($id) 
+    {
         $job = Job::findOrFail($id);
         $job->delete();
 
-        return redirect('/');
+        return redirect('/home-company');
     }
 }
 

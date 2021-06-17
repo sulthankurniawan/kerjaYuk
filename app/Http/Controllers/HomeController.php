@@ -28,11 +28,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        // get 10 newest jobs
+        // get 10 newest jobs where display open and not suspended
         $jobs = DB::table('jobs')
                     ->join('users', 'users.id', '=', 'jobs.user_id')
                     ->select('jobs.*', 'users.company')
                     ->limit(10)
+                    ->where('jobs.status', '=', 'active')
+                    ->Where('jobs.display', '=', 'Tampilkan')
                     ->get();
 
         return view('welcome', [
@@ -47,14 +49,13 @@ class HomeController extends Controller
 
     public function seeker()
     {
-        // get 10 newest jobs
-        $jobs = DB::table('jobs')
-                    ->join('users', 'users.id', '=', 'jobs.user_id')
+        // get 10 newest jobs where display shown and not suspended
+        $jobs = Job::join('users', 'users.id', '=', 'jobs.user_id')
                     ->select('jobs.*', 'users.company')
                     ->limit(10)
+                    ->where('jobs.status', '=', 'active')
+                    ->where('jobs.display', '=', 'Tampilkan')
                     ->get();
-
-        
 
         return view('dashboard.seeker', [
             'jobs' => $jobs,
@@ -63,7 +64,9 @@ class HomeController extends Controller
 
     public function company()
     {
-        return view('dashboard.company');
+        $jobs = Job::where('user_id', '=', Auth::user()->id)
+                    ->get();
+        return view('dashboard.company', ['jobs' => $jobs]);
     }
 
     public function admin()
