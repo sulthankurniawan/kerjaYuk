@@ -21,6 +21,11 @@
 
         .navbar-brand {
             color: $red;
+
+            h3,
+            h5 {
+                color: $red;
+            }
         }
 
         @include extra-small {

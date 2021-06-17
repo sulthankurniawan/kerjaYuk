@@ -414,15 +414,17 @@ section {
 
     .avatar {
         padding: 50px 0;
-        background-color: $red;
+        background: $red;
+        background: -webkit-linear-gradient(to right, $red, #ff4b2b);
+        background: linear-gradient(to right, $red, #ff4b2b);
 
         .img-wrapper {
             border-radius: 100%;
         }
 
         img {
-            width: 200px;
-            height: 200px;
+            width: 10rem;
+            height: 10rem;
             border-radius: 100%;
         }
     }

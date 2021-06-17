@@ -329,6 +329,11 @@ header::after {
   color: #F55151;
 }
 
+.nav-container .navbar .navbar-brand h3,
+.nav-container .navbar .navbar-brand h5 {
+  color: #F55151;
+}
+
 @media screen and (max-width: 575px) {
   .nav-container .navbar {
     padding-top: .75rem;
@@ -971,7 +976,9 @@ section .owl-next i {
 .section-profile-seeker .avatar,
 .section-form-profile-seeker .avatar {
   padding: 50px 0;
-  background-color: #F55151;
+  background: #F55151;
+  background: -webkit-gradient(linear, left top, right top, from(#F55151), to(#ff4b2b));
+  background: linear-gradient(to right, #F55151, #ff4b2b);
 }
 
 .section-profile-seeker .avatar .img-wrapper,
@@ -981,8 +988,8 @@ section .owl-next i {
 
 .section-profile-seeker .avatar img,
 .section-form-profile-seeker .avatar img {
-  width: 200px;
-  height: 200px;
+  width: 10rem;
+  height: 10rem;
   border-radius: 100%;
 }
 
