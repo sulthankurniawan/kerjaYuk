@@ -26,7 +26,7 @@ KerjaYuk | Detail Job
                                 </div>
                                 <div class="col-4 d-flex justify-content-center text-center border-left">
                                     <span class="body-default font-secondary d-flex flex-column d-md-inline"><i
-                                            class="fas fa-user-friends mr-0 mr-md-2 mb-2 mb-md-0"></i>{{ count($applicants) }}</span>
+                                            class="fas fa-user-friends mr-0 mr-md-2 mb-2 mb-md-0"></i>{{ count($applicants) }} Orang Telah Mendaftarkan Diri</span>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ KerjaYuk | Detail Job
 
                     <br>
                     <div class="card">
-                        <a class="btn btn-warning text-white btn-block mb-2 mb-md-0" href="/jobs/edit/{{ $job->id }}">Edit Lowongan</a>
+                        <a class="btn btn-orange text-white btn-block mb-2 mb-md-0" href="/jobs/edit/{{ $job->id }}">Edit Lowongan</a>
                         <br>
                         <?php if ($job->display == 'Tampilkan') : ?>
                         <form action="{{ route('jobs.display', $job->id) }}" method="POST">
@@ -177,22 +177,32 @@ KerjaYuk | Detail Job
                                     data-toggle="tab">Wishlist</a>
                             </li>
                         </ul>
-
+                        
+                        
                         <!-- Tab panes -->
                         <div class="tab-content pt-2">
                             <div role="tabpanel" class="tab-pane fade-in active" id="pendaftar_content">
                                 <div class="list-group mb-2">
 
                                     @foreach ($applicants as $applicant)
-                                    @if ($applicant->requests.wishlist == '0') 
-                                    <li class="list-group-item user-list border-0 px-0 d-flex flex-row position-relative">
-                                        <!-- <img src="{{ url("img/illustration/avatars/user-1.jpg") }}" alt="Foto Profil"
-                                            class="image-cover profile-picture mr-2" style="width:50px;height:50px;"> -->
-                                        <div class="user-information">
-                                            <a class="font-size-body stretched-link text-dark" href="{{ route(requests.show, $applicant->users.id) }}">{{ $applicant->users.first_name }}</a>
-                                            <p class="font-size-sub-body mb-0">{{ $applicant->users.major }}</p>
-                                        </div>
-                                    </li>
+                                    @if ($applicant->wishlist == '0') 
+                                    <div class="card">
+                                        <li class="list-group-item user-list border-0 px-0 d-flex flex-row position-relative">
+                                            <!-- <img src="{{ url("img/illustration/avatars/user-1.jpg") }}" alt="Foto Profil"
+                                                class="image-cover profile-picture mr-2" style="width:50px;height:50px;"> -->
+                                            <i class='fas fa-user-circle' style='font-size:36px; margin-right:10px'></i>
+                                            <div class="user-information">
+                                                <a class="font-size-body text-dark" href="/requests/{{ $applicant->id }}">{{ $applicant->first_name }}</a>
+                                                <p class="font-size-sub-body mb-0">{{ $applicant->major }}</p>
+                                            </div>
+                                            <form action="/requests/wishlist/{{ $applicant->request_id }}" method="POST" style="margin:auto">
+                                                @csrf
+                                                <button type="submit" class="btn btn-orange btn-block mb-2 mb-md-0" >Tambah ke Wishlist</button>
+                                            </form>
+                                        </li>
+                                        
+                                            
+                                    </div>
                                     @endif
                                     @endforeach
                                     
@@ -202,25 +212,31 @@ KerjaYuk | Detail Job
                                 <div class="list-group mb-2">
 
                                     @foreach ($applicants as $applicant)
-                                    @if ($applicant->requests.wishlist == '1') 
-                                    <li class="list-group-item user-list border-0 px-0 d-flex flex-row position-relative">
-                                        <!-- <img src="{{ url("img/illustration/avatars/user-1.jpg") }}" alt="Foto Profil"
-                                            class="image-cover profile-picture mr-2" style="width:50px;height:50px;"> -->
-                                        <div class="user-information">
-                                            <a class="font-size-body stretched-link text-dark" href="{{ route(requests.show, $applicant->users.id) }}">{{ $applicant->users.first_name }}</a>
-                                            <p class="font-size-sub-body mb-0">{{ $applicant->users.major }}</p>
-                                        </div>
-                                    </li>
+                                    @if ($applicant->wishlist == '1') 
+                                    <div class="card">
+                                        <li class="list-group-item user-list border-0 px-0 d-flex flex-row position-relative">
+                                            <!-- <img src="{{ url("img/illustration/avatars/user-1.jpg") }}" alt="Foto Profil"
+                                                class="image-cover profile-picture mr-2" style="width:50px;height:50px;"> -->
+                                            <i class='fas fa-user-circle' style='font-size:36px; margin-right:10px'></i>
+                                            <div class="user-information">
+                                                <a class="font-size-body text-dark" href="/requests/{{ $applicant->id }}">{{ $applicant->first_name }}</a>
+                                                <p class="font-size-sub-body mb-0">{{ $applicant->major }}</p>
+                                            </div>
+                                            <form action="/requests/wishlist/{{ $applicant->request_id }}" method="POST" style="margin:auto">
+                                                @csrf
+                                                <button type="submit" class="btn btn-red btn-block mb-2 mb-md-0" href="#">Keluarkan dari Wishlist</button>
+                                            </form>
+                                        </li>
+                                    </div>
                                     @endif
                                     @endforeach
                                     
                                 </div>
                             </div>
-                            <form action="">
-                                    <button type="submit" class="btn btn-green text-white btn-block mb-2 mb-md-0">Export
-                                        Excel</button>
-                            </form>
                         </div>
+                        <form action="">
+                            <button type="submit" class="btn btn-green text-white btn-block mb-2 mb-md-0">Expor ke Excel</button>
+                        </form>
                     </div>
                     <!-- End Wishlsit Tabs -->
                 </div>

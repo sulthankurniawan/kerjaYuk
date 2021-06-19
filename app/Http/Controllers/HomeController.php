@@ -29,8 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         // get 10 newest jobs where display open and not suspended
-        $jobs = DB::table('jobs')
-                    ->join('users', 'users.id', '=', 'jobs.user_id')
+        $jobs = Job::join('users', 'users.id', '=', 'jobs.user_id')
                     ->select('jobs.*', 'users.company')
                     ->limit(10)
                     ->where('jobs.status', '=', 'active')

@@ -1,71 +1,14 @@
 @extends('layouts.main_sidebar')
 
 @section('title')
-KerjaYuk | Home
+KerjaYuk | Manage Report
 @endsection
 
 @section('content')
 <main>
-    <!-- Main -->
-    <section class="section-home-admin">
-        <div class="container">
-            <div class="row mt-2">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">
-                    <div class="card bg-light border">
-                        <div class="card-header">Kelola Seeker</div>
-                        <div class="card-body">
-                            <p>
-                                <a href="#">
-                                    <img style="max-height: 150px; max-width: 300px;"
-                                        src="{{ url("img/illustration/menu/User.jpeg") }}" class="card-img" alt="..." />
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-4">
-                    <div class="card bg-light border">
-                        <div class="card-header">Kelola Company</div>
-                        <div class="card-body">
-                            <p>
-                                <a href="#">
-                                    <img style="max-height: 150px; max-width: 300px;"
-                                        src="{{ url("img/illustration/menu/Company.jpeg") }}" class="card-img"
-                                        alt="..." />
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row mt-3">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <div class="card bg-light border">
-                        <div class="card-header">Kelola Lowongan</div>
-                        <div class="card-body">
-                            <p>
-                                <a href="#">
-                                    <img style="max-height: 150px; max-width: 300px;"
-                                        src="{{ url("img/illustration/menu/Report.jpeg") }}" class="card-img"
-                                        alt="..." />
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Main -->
-
     <section class="section-manage-report">
         <div class="container">
-            <h3 class="pt-3 font-weight-600">Laporan Pengguna</h3>
+            <h3 class="pt-3 font-weight-600">Manage Report</h3>
 
             {{-- <div class="panel panel-default panel-table">
                 <div class="panel-heading">
@@ -143,6 +86,5 @@ KerjaYuk | Home
             </div>
         </div>
     </section>
-    <br>
 </main>
 @endsection

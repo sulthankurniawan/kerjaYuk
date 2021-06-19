@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // TESTING ROUTES
 // Route::get('/', function () {
-//     return view('jobs.seeker.show');
+//     return view('dashboard.admin');
 // });
 
 // EXAMPLES DELETED SOON
@@ -55,14 +55,14 @@ Route::post('/users/suspend/{id}', [App\Http\Controllers\Auth\UserController::cl
 Route::delete('/users/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('users.destroy')->middleware('admin'); // DELETE USER BASED ON ID (AUTH AS ADMIN)
 
 // EXPERIENCE ROUTES
-Route::get('/experience', [App\Http\Controllers\Auth\UserController::class, 'create'])->name('experience.create')->middleware('auth'); // GET EDIT EXPERIENCE FORM (AUTH) FOR SEEKER AND COMPANY
-Route::post('/experience', [App\Http\Controllers\Auth\UserController::class, 'store'])->name('experience.store')->middleware('auth'); // POST EDIT EXPERIENCE (AUTH) FOR SEEKER AND COMPANY
-Route::delete('/experience/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('experience.destroy')->middleware('auth'); // DELETE EXPERIENCE (AUTH) FOR SEEKER AND COMPANY
+Route::get('/experiences', [App\Http\Controllers\Auth\UserController::class, 'create'])->name('experience.create')->middleware('auth'); // GET EDIT EXPERIENCE FORM (AUTH) FOR SEEKER AND COMPANY
+Route::post('/experiences', [App\Http\Controllers\Auth\UserController::class, 'store'])->name('experience.store')->middleware('auth'); // POST EDIT EXPERIENCE (AUTH) FOR SEEKER AND COMPANY
+Route::delete('/experiences/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('experience.destroy')->middleware('auth'); // DELETE EXPERIENCE (AUTH) FOR SEEKER AND COMPANY
 
 // EXPERTICE ROUTES
-Route::get('/expertise', [App\Http\Controllers\Auth\UserController::class, 'create'])->name('expertise.create')->middleware('auth'); // GET EDIT EXPERTISE FORM (AUTH) FOR SEEKER AND COMPANY
-Route::post('/expertise', [App\Http\Controllers\Auth\UserController::class, 'store'])->name('expertise.store')->middleware('auth'); // POST EDIT EXPERTISE (AUTH) FOR SEEKER AND COMPANY
-Route::delete('/expertise/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('expertise.destroy')->middleware('auth'); // DELETE EXPERTISE (AUTH) FOR SEEKER AND COMPANY
+Route::get('/expertises', [App\Http\Controllers\Auth\UserController::class, 'create'])->name('expertise.create')->middleware('auth'); // GET EDIT EXPERTISE FORM (AUTH) FOR SEEKER AND COMPANY
+Route::post('/expertises', [App\Http\Controllers\Auth\UserController::class, 'store'])->name('expertise.store')->middleware('auth'); // POST EDIT EXPERTISE (AUTH) FOR SEEKER AND COMPANY
+Route::delete('/expertises/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('expertise.destroy')->middleware('auth'); // DELETE EXPERTISE (AUTH) FOR SEEKER AND COMPANY
 
 // JOB ROUTES
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index'); // GET ALL JOB RECORD *DONE
@@ -78,10 +78,18 @@ Route::post('/jobs/suspend/{id}', [App\Http\Controllers\JobController::class, 's
 Route::delete('/jobs/destroy/{id}', [App\Http\Controllers\JobController::class, 'destroy'])->name('jobs.destroy')->middleware('company'); // DELETE JOB RECORD BASED ON ID (AUTH AS COMPANY) *DONE
 
 // REQUEST ROUTES
-Route::get('/requests', [App\Http\Controllers\RequestController::class, 'index'])->name('requests.index'); // GET ALL REQUEST RECORD
-Route::get('/requests/create', [App\Http\Controllers\RequestController::class, 'create'])->name('requests.create')->middleware('seeker'); // GET FORM CREATE REQUEST (AUTH AS SEEKER)
+Route::get('/requests', [App\Http\Controllers\RequestController::class, 'index'])->name('requests.index')->middleware('seeker'); // GET ALL REQUEST RECORD BY USER ID (AUTH AS SEEKER)
+Route::get('/requests/create/{job_id}', [App\Http\Controllers\RequestController::class, 'create'])->name('requests.create')->middleware('seeker'); // GET FORM CREATE REQUEST (AUTH AS SEEKER)
 Route::get('/requests/{id}', [App\Http\Controllers\RequestController::class, 'show'])->name('requests.show')->middleware('auth'); // GET REQUEST BASED ON ID (AUTH)
 Route::post('/requests', [App\Http\Controllers\RequestController::class, 'store'])->name('requests.store')->middleware('seeker'); // POST REQUEST FORM (AUTH AS SEEKER)
-Route::delete('/requests/{id}', [App\Http\Controllers\RequestController::class, 'destroy'])->name('requests.destroy')->middleware('admin'); // DELETE REQUEST BASED ON ID (AUTH AS ADMIN)
+Route::post('/requests/wishlist/{id}', [App\Http\Controllers\RequestController::class, 'wishlist'])->name('requests.wishlist')->middleware('company'); // POST REQUEST FORM (AUTH AS SEEKER)
+Route::post('/requests/respond/{id}', [App\Http\Controllers\RequestController::class, 'respond'])->name('requests.respond')->middleware('company'); // POST REQUEST FORM (AUTH AS COMPANY)
+// Route::delete('/requests/{id}', [App\Http\Controllers\RequestController::class, 'destroy'])->name('requests.destroy')->middleware('admin'); // DELETE REQUEST BASED ON ID (AUTH AS ADMIN)
 
 // REPORT ROUTES
+Route::get('/reports', [App\Http\Controllers\ReportController::class, 'index'])->name('reports.index')->middleware('admin'); // GET ALL REPORT RECORD (AUTH AS ADMIN)
+Route::get('/reports/create', [App\Http\Controllers\ReportController::class, 'create'])->name('reports.create')->middleware('auth'); // GET FORM CREATE REPORT (AUTH) FOR SEEKER AND COMPANY
+Route::get('/reports/{id}', [App\Http\Controllers\ReportController::class, 'show'])->name('reports.show')->middleware('admin'); // GET REPORT BASED ON ID (AUTH AS ADMIN)
+Route::post('/reports', [App\Http\Controllers\ReportController::class, 'store'])->name('reports.store')->middleware('auth'); // POST REPORT FORM (AUTH) FOR SEEKER AND COMPANY
+Route::post('/reports/read/{id}', [App\Http\Controllers\ReportController::class, 'read'])->name('reports.store')->middleware('admin'); // POST REPORT READ STATUS FORM (AUTH AS ADMIN) 
+Route::delete('/reports/{id}', [App\Http\Controllers\ReportController::class, 'destroy'])->name('reports.destroy')->middleware('admin'); // DELETE REPORT BASED ON ID (AUTH AS ADMIN)

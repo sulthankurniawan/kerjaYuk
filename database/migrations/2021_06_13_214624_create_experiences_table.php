@@ -17,8 +17,9 @@ class CreateExperiencesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('user_id')->nullable();
-            $table->string('tool_name')->nullable();
-            $table->string('level')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('start_period')->nullable();
+            $table->string('end_period')->nullable();
         });
     }
 

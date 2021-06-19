@@ -26,7 +26,7 @@ KerjaYuk | Job Detail
                                 </div>
                                 <div class="col-4 d-flex justify-content-center text-center border-left">
                                     <span class="body-default font-secondary d-flex flex-column d-md-inline"><i
-                                            class="fas fa-user-friends mr-0 mr-md-2 mb-2 mb-md-0"></i>{{ count($applicants) }}</span>
+                                            class="fas fa-user-friends mr-0 mr-md-2 mb-2 mb-md-0"></i>{{ count($applicants) }} Orang Telah Mendaftarkan Diri</span>
                                 </div>
                             </div>
                         </div>
@@ -141,16 +141,17 @@ KerjaYuk | Job Detail
 
                             <!-- Action Button Desktop -->
                             <div class="action-button mt-5 d-none d-md-flex justify-content-md-center">
-                                <a href="#" class="btn btn-grey mr-2 body-default">Lowongan Lainnya</a>
-                                <a class="btn btn-red body-default">Apply Pekerjaan</a>
+                                <a href="/jobs" class="btn btn-grey mr-2 body-default">Lowongan Lainnya</a>
+                                <a href="/requests/create/{{ $job->id }}" class="btn btn-red body-default">Apply Pekerjaan</a>
                             </div>
 
                             <!-- Action Button Mobile -->
                             <div class="action-button mt-5 d-block d-md-none">
-                                <a class="btn btn-red btn-block body-default">Apply Pekerjaan</a>
-                                <a href="#" class="btn btn-grey btn-block mr-2 body-default">Lowongan Lainnya</a>
+                                <a href="requests/create/{{ $job->id }}" class="btn btn-red btn-block body-default">Apply Pekerjaan</a>
+                                <a href="/jobs" class="btn btn-grey btn-block mr-2 body-default">Lowongan Lainnya</a>
                             </div>
-                            <a href="#" class="mt-3 text-center d-block body-default link-red">Laporkan
+
+                            <a href="/reports/create" class="mt-3 text-center d-block body-default link-red">Laporkan
                                 Lowongan?</a>
                             </div>
                         </div>

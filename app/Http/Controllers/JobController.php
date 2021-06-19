@@ -14,10 +14,11 @@ class JobController extends Controller
     public function index() 
     {
         // get data from db
-        $jobs = Job::latest()
-                ->where('display', '=', 'Tampilkan')
-                ->where('status', '=', 'active')
-                ->get();
+        $jobs = Job::join('users', 'users.id', '=', 'jobs.user_id')
+                    ->select('jobs.*', 'users.company')
+                    ->where('jobs.status', '=', 'active')
+                    ->Where('jobs.display', '=', 'Tampilkan')
+                    ->get();
     
         return view('jobs.seeker.find', [
             'jobs' => $jobs,
@@ -84,9 +85,12 @@ class JobController extends Controller
                 break;
         }
 
-        $jobs = Job::where('career', '=', $career)
-                ->latest()->where('display', '=', 'Tampilkan')
-                ->where('status', '=', 'active')
+        $jobs = Job::join('users', 'users.id', '=', 'jobs.user_id')
+                ->where('jobs.career', '=', $career)
+                ->where('jobs.display', '=', 'Tampilkan')
+                ->where('jobs.status', '=', 'active')
+                ->select('jobs.*', 'users.company')
+                ->latest()
                 ->get();;
     
         return view('jobs.seeker.find', [
@@ -127,8 +131,8 @@ class JobController extends Controller
 
         $applicants = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
                         ->join('jobs', 'jobs.id', '=', 'requests.job_id')
-                        ->select('users.id','users.first_name', 'users.email', 'users.phone', 'users.institution', 'users.major', 'requests.*')
-                        ->where('jobs.id', '=', Auth::user()->id)
+                        ->select('users.id','users.first_name', 'users.email', 'users.phone', 'users.institution', 'users.major', 'requests.wishlist', 'requests.id as request_id')
+                        ->where('jobs.id', '=', $id)
                         ->get();
 
         return view('jobs.company.show', ['job' => $job, 'applicants' => $applicants]);

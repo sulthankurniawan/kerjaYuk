@@ -12,26 +12,24 @@ KerjaYuk | Request Job
                 <div class="col-12 col-sm-12 col-lg-10 mx-auto">
                     <div class="card">
                         <div class="wrapper d-flex flex-column justify-content-center align-items-center">
-                            <div class="logo-wrapper">
+                            <!-- <div class="logo-wrapper">
                                 <img src="{{ url("img/illustration/company/telkom.png") }}" alt="Telkom Logo"
                                     class="w-100">
-                            </div>
-                            <h4 class="font-weight-600">Human Resource</h4>
-                            <p class="mb-3 mb-md-2">Telkom Indonesia</p>
+                            </div> -->
+                            <h4 class="font-weight-600">{{ $job->name }}</h4>
+                            <p class="mb-3 mb-md-2">{{ $job->company }}</p>
                             <div class="row w-100">
                                 <div class="col-4 d-flex justify-content-center text-center">
                                     <span class="body-default font-secondary d-flex flex-column d-md-inline"><i
-                                            class="fas fa-briefcase mr-0 mr-md-2 mb-2 mb-md-0"></i>Full-Time</span>
+                                            class="fas fa-briefcase mr-0 mr-md-2 mb-2 mb-md-0"></i>{{ $job->type }}</span>
                                 </div>
                                 <div class="col-4 d-flex justify-content-center text-center border-left">
                                     <span class="body-default font-secondary d-flex flex-column d-md-inline"><i
-                                            class="fas fa-map-marker-alt mr-0 mr-md-2 mb-2 mb-md-0"></i>
-                                        Jakarta Pusat</span>
+                                            class="fas fa-map-marker-alt mr-0 mr-md-2 mb-2 mb-md-0"></i>{{ $job->area }}</span>
                                 </div>
                                 <div class="col-4 d-flex justify-content-center text-center border-left">
                                     <span class="body-default font-secondary d-flex flex-column d-md-inline"><i
-                                            class="fas fa-user-friends mr-0 mr-md-2 mb-2 mb-md-0"></i>220
-                                        Applicant</span>
+                                            class="fas fa-user-friends mr-0 mr-md-2 mb-2 mb-md-0"></i>{{ $total_applicants }} yang telah daftar</span>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +43,7 @@ KerjaYuk | Request Job
                                             <span><i class="fas fa-user"></i></span>
                                         </div>
                                         <div class="w-100">
-                                            <p class="mb-0">Muhammad Fachrian</p>
+                                            <p class="mb-0">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
                                         </div>
                                     </div>
                                 </li>
@@ -55,7 +53,17 @@ KerjaYuk | Request Job
                                             <span><i class="fas fa-envelope"></i></span>
                                         </div>
                                         <div class="w-100">
-                                            <p class="mb-0">mfachrian04@gmail.com</p>
+                                            <p class="mb-0">{{ Auth::user()->email }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item border-0 d-flex align-items-center pl-0 pt-1">
+                                    <div class="d-flex w-100">
+                                        <div class="h-100 list-bullet-icons">
+                                            <span><i class="fas fa-phone"></i></span>
+                                        </div>
+                                        <div class="w-100">
+                                            <p class="mb-0">{{ Auth::user()->phone }}</p>
                                         </div>
                                     </div>
                                 </li>
@@ -67,17 +75,8 @@ KerjaYuk | Request Job
                                             </span>
                                         </div>
                                         <div class="w-100">
-                                            <p class="mb-0 d-block">Telkom University</p>
-                                            <p class="mb-0 d-block">Bachelor’s Degree in Computer
-                                                Science/Information</p>
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <p class="font-secondary">Lulus</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="font-secondary">Agustus 2011</p>
-                                                </div>
-                                            </div>
+                                            <p class="mb-0 d-block">{{ Auth::user()->institution }}</p>
+                                            <p class="mb-0 d-block">{{ Auth::user()->education }} {{ Auth::user()->major }}</p>
                                         </div>
                                     </div>
                                 </li>
@@ -88,34 +87,59 @@ KerjaYuk | Request Job
                                                 <i class="fas fa-briefcase"></i>
                                             </span>
                                         </div>
+                                        @foreach ($experiences as $experience)
                                         <div class="w-100">
-                                            <p class="mb-0 d-block">Witel Bogor</p>
+                                            <p class="mb-0 d-block">$experience->company_name</p>
                                             <div class="row">
                                                 <div class="col-auto">
-                                                    <p class="font-secondary">Lulus</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="font-secondary">Jan 2008 - Des 2020</p>
+                                                    <p class="font-secondary">{{ $experience->start_period }} - {{ $experience->end_period }}</p>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
+                                    </div>
+                                </li>
+                                <li class="list-group-item border-0 d-flex align-items-center pl-0 pt-1 w-100">
+                                    <div class="d-flex w-100">
+                                        <div class="h-100 list-bullet-icons">
+                                            <span>
+                                                <i class="fas fa-shapes"></i>
+                                            </span>
+                                        </div>
+                                        @foreach ($expertices as $expertice)
+                                        <div class="w-100">
+                                            <p class="mb-0 d-block">{{ $expertice->tool_name }}</p>
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <p class="font-secondary">{{ $expertice->level }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
                                     </div>
                                 </li>
                             </ul>
 
-                            <form action="">
-                                <p align="center">Masukkan nomor telepon anda agar pihak perusahaan dapat
-                                    menghubungi
-                                </p>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control text-center" id="exampleFormControlInput1"
-                                        placeholder="Masukkan Nomor Telepon">
-                                </div>
+                            <form action="/requests" method="POST">
+                            @csrf
 
                                 <hr class="hr my-4">
 
                                 <div class="form-group">
-                                    <h5 class="body-default font-weight-600">Resume / CV</h5>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control text-center" id="exampleFormControlInput1" placeholder="Tautan Google Drive" name="job_id" value="{{ $job->id }}" hidden>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 class="body-default font-weight-600">Tautan Google Drive Menuju Berkas Yang dapat Dilihat Perusahaan</h5>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control text-center" id="exampleFormControlInput1" placeholder="Tautan Google Drive" name="link">
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group">
+                                    <h5 class="body-default font-weight-600">Link Google Drive Menuju Berkas</h5>
                                     <input type="file" id="actual-btn" accept=".pdf, .doc, .docx" hidden
                                         maxlength="10000" />
                                     <label for="actual-btn" class="file-label btn btn-red mr-1"><i
@@ -126,12 +150,11 @@ KerjaYuk | Request Job
                                         RTF.
                                         Max
                                         file size is 10 MB.</p>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group">
-                                    <label for="promosi">Buat promosi Anda (Rekomendasi)</label>
-                                    <textarea class="form-control" id="promosi" rows="5"
-                                        placeholder="Beri tahu mengapa Anda paling cocok untuk peran ini. Tunjukkan keterampilan khusus dan cara Anda berkontribusi"></textarea>
+                                    <label for="promosi">Promosikan Diri Anda (Rekomendasi)</label>
+                                    <textarea class="form-control" id="promosi" rows="5" name="pitch" placeholder="Beri tahu mengapa Anda paling cocok untuk peran ini. Tunjukkan keterampilan khusus dan cara Anda berkontribusi"></textarea>
                                 </div>
 
                                 <div class="button-controls d-block d-lg-none">
