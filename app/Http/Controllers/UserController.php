@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Experience;
+use App\Models\Expertice;
 
 class UserController extends Controller
 {
@@ -34,17 +37,19 @@ class UserController extends Controller
         if (Auth::user()->role == 'seeker')
         {
             $user = User::findOrFail(Auth::user()->id);
-            $experience = 'something';
-            $expertice = 'something';
+            $experiences = Experience::where('user_id', '=', Auth::user()->id)->get();
+            $expertices = Expertice::where('user_id', '=', Auth::user()->id)->get();
+
             return view('users.profile.seeker.index', [
                 'user' => $user,
-                'experience' => $experience,
-                'expertice' => $expertice,
+                'experiences' => $experiences,
+                'expertices' => $expertices,
             ]);
         }
-        elseif (Auth::user()->role = 'company')
+        elseif (Auth::user()->role == 'company')
         {
             $user = User::findOrFail(Auth::user()->id);
+
             return view('users.profile.company.index', [
                 'user' => $user,
             ]);
@@ -54,9 +59,20 @@ class UserController extends Controller
     public function edit()
     {
         $user = User::findOrFail(Auth::user()->id);
-        return view('users.profile.seeker.edit.biography', [
-            'user' => $user,
-        ]);
+
+        if (Auth::user()->role == 'seeker')
+        {
+            return view('users.profile.seeker.edit.biography', [
+                'user' => $user,
+            ]);
+        }
+        elseif (Auth::user()->role == 'company')
+        {
+            return view('users.profile.company.edit', [
+                'user' => $user,
+            ]);
+        }
+        
     }
 
     public function update()
@@ -68,14 +84,13 @@ class UserController extends Controller
             $user->first_name = request('first_name');
             $user->last_name = request('last_name');
             $user->email = request('email');
+            $user->phone = request('phone');
             $user->education = request('education');
             $user->institution = request('institution');
             $user->major = request('major');
             $user->min_expectation_salary = request('min_expectation_salary');
             $user->max_expectation_salary = request('max_expectation_salary');
-            $user->password = Hash::make(request('password'));
-            $user->phone = request('phone');
-
+            
             $user->update();
 
             return redirect('/users/profile')->with('mssg', 'Informasi telah diperbarui');
@@ -86,17 +101,32 @@ class UserController extends Controller
 
             $user->first_name = request('first_name');
             $user->last_name = request('last_name');
+            $user->email = request('email');
+            $user->phone = request('phone');
             $user->company = request('company');
             $user->industry = request('industry');
             $user->about_company = request('about_company');
-            $user->email = request('email');
-            $user->password = Hash::make(request('password'));
-            $user->phone = request('phone');
-    
+            
             $user->update();
     
-            return redirect('/login')->with('mssg', 'Informasi telah diperbarui');
+            return redirect('/users/profile')->with('mssg', 'Informasi telah diperbarui');
         }
+    }
+
+    public function suspend($id) 
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->status == 'active') {
+            $user->status = 'suspended';
+            $user->update();
+            return redirect("/home-admin")->with('mssg', 'Pengguna telah di suspend');
+        }
+        elseif ($user->status == 'suspended') {
+            $user->status = 'active';
+            $user->update();
+            return redirect("/home-admin")->with('mssg', 'Pengguna telah di aktifkan');
+        } 
     }
 
     public function destroy($id)

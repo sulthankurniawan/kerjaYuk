@@ -16,12 +16,12 @@ class RequestController extends Controller
         // get requests by user id
 
         $requests = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
-                        ->join('jobs', 'jobs.id', '=', 'requests.user_id')
-                        ->select('jobs.*', 'users.company')
+                        ->join('jobs', 'jobs.id', '=', 'requests.job_id')
+                        ->select('jobs.*', 'jobs.id as job_id', 'users.company', 'requests.*', 'requests.id as request_id')
                         ->where('requests.user_id', '=', Auth::user()->id)
                         ->get();
 
-        return view('requests.display', ['requests' => $requests]);
+        return view('requests.history', ['requests' => $requests]);
     }
 
     public function create($job_id) {
@@ -53,7 +53,7 @@ class RequestController extends Controller
         // use the $id variable to query the db for a record
 
         $request = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
-                        ->select('users.first_name', 'users.last_name', 'users.email', 'users.phone', 'requests.link')
+                        ->select('users.first_name', 'users.last_name', 'users.email', 'users.phone', 'requests.link', 'requests.id')
                         ->where('requests.id', '=', $id)
                         ->first();
 
@@ -73,6 +73,15 @@ class RequestController extends Controller
             'request' => $request,
             'experiences' => $experiences,
             'expertices' => $expertices,
+        ]);
+    }
+
+    public function detail($id)
+    {
+        $request = Job_Request::findOrFail($id);
+
+        return view('requests.detail', [
+            'request' => $request,
         ]);
     }
 

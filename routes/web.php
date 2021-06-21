@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // TESTING ROUTES
 // Route::get('/', function () {
-//     return view('dashboard.admin');
+//     return view('users.profile.seeker-v2.index');
 // });
 
 // EXAMPLES DELETED SOON
@@ -46,29 +46,29 @@ Route::post('/register-seeker', [App\Http\Controllers\Auth\RegisterController::c
 Route::post('/register-company', [App\Http\Controllers\Auth\RegisterController::class, 'createCompany'])->name('register.createSeeker'); // POST REGISTER FORM FOR COMPANY *DONE
 
 // USER ROUTES
-Route::get('/users', [App\Http\Controllers\Auth\UserController::class, 'index'])->name('users.index')->middleware('admin'); // GET ALL USER RECORD (AUTH AS ADMIN)
-Route::get('/users/{id}', [App\Http\Controllers\Auth\UserController::class, 'show'])->name('users.show')->middleware('auth'); // GET USER BASED ON ID (AUTH) FOR ADMIN AND COMPANY
-Route::get('/users/profile', [App\Http\Controllers\Auth\UserController::class, 'profile'])->name('users.profile')->middleware('auth'); // GET PROFILE PAGE (AUTH) FOR SEEKER AND COMPANY
-Route::get('/users/edit', [App\Http\Controllers\Auth\UserController::class, 'edit'])->name('users.edit')->middleware('auth'); // GET EDIT BIOGRAPHY FORM (AUTH) FOR SEEKER AND COMPANY
-Route::post('/users', [App\Http\Controllers\Auth\UserController::class, 'update'])->name('users.update')->middleware('auth'); // POST EDIT BIOGRAPHY (AUTH) FOR SEEKER AND COMPANY
-Route::post('/users/suspend/{id}', [App\Http\Controllers\Auth\UserController::class, 'suspend'])->name('users.suspend')->middleware('admin'); // POST SUSPEND USER (AUTH AS ADMIN)
-Route::delete('/users/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('users.destroy')->middleware('admin'); // DELETE USER BASED ON ID (AUTH AS ADMIN)
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index')->middleware('admin'); // GET ALL USER RECORD (AUTH AS ADMIN)
+Route::get('/users/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('users.profile')->middleware('auth'); // GET PROFILE PAGE (AUTH) FOR SEEKER AND COMPANY
+Route::get('/users/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit')->middleware('auth'); // GET EDIT BIOGRAPHY FORM (AUTH) FOR SEEKER AND COMPANY
+Route::get('/users/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show')->middleware('auth'); // GET USER BASED ON ID (AUTH) FOR ADMIN AND COMPANY
+Route::post('/users', [App\Http\Controllers\UserController::class, 'update'])->name('users.update')->middleware('auth'); // POST EDIT BIOGRAPHY (AUTH) FOR SEEKER AND COMPANY
+Route::post('/users/suspend/{id}', [App\Http\Controllers\UserController::class, 'suspend'])->name('users.suspend')->middleware('admin'); // POST SUSPEND USER (AUTH AS ADMIN)
+Route::delete('/users/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy')->middleware('admin'); // DELETE USER BASED ON ID (AUTH AS ADMIN)
 
 // EXPERIENCE ROUTES
-Route::get('/experiences', [App\Http\Controllers\Auth\UserController::class, 'create'])->name('experience.create')->middleware('auth'); // GET EDIT EXPERIENCE FORM (AUTH) FOR SEEKER AND COMPANY
-Route::post('/experiences', [App\Http\Controllers\Auth\UserController::class, 'store'])->name('experience.store')->middleware('auth'); // POST EDIT EXPERIENCE (AUTH) FOR SEEKER AND COMPANY
-Route::delete('/experiences/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('experience.destroy')->middleware('auth'); // DELETE EXPERIENCE (AUTH) FOR SEEKER AND COMPANY
+Route::get('/experiences', [App\Http\Controllers\ExperienceController::class, 'create'])->name('experience.create')->middleware('seeker'); // GET EDIT EXPERIENCE FORM (AUTH) FOR SEEKER AND COMPANY
+Route::post('/experiences', [App\Http\Controllers\ExperienceController::class, 'store'])->name('experience.store')->middleware('seeker'); // POST EDIT EXPERIENCE (AUTH) FOR SEEKER AND COMPANY
+Route::delete('/experiences/{id}', [App\Http\Controllers\ExperienceController::class, 'destroy'])->name('experience.destroy')->middleware('seeker'); // DELETE EXPERIENCE (AUTH) FOR SEEKER AND COMPANY
 
 // EXPERTICE ROUTES
-Route::get('/expertises', [App\Http\Controllers\Auth\UserController::class, 'create'])->name('expertise.create')->middleware('auth'); // GET EDIT EXPERTISE FORM (AUTH) FOR SEEKER AND COMPANY
-Route::post('/expertises', [App\Http\Controllers\Auth\UserController::class, 'store'])->name('expertise.store')->middleware('auth'); // POST EDIT EXPERTISE (AUTH) FOR SEEKER AND COMPANY
-Route::delete('/expertises/{id}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('expertise.destroy')->middleware('auth'); // DELETE EXPERTISE (AUTH) FOR SEEKER AND COMPANY
+Route::get('/expertices', [App\Http\Controllers\ExperticeController::class, 'create'])->name('expertise.create')->middleware('seeker'); // GET EDIT EXPERTISE FORM (AUTH) FOR SEEKER AND COMPANY
+Route::post('/expertices', [App\Http\Controllers\ExperticeController::class, 'store'])->name('expertise.store')->middleware('seeker'); // POST EDIT EXPERTISE (AUTH) FOR SEEKER AND COMPANY
+Route::delete('/expertices/{id}', [App\Http\Controllers\ExperticeController::class, 'destroy'])->name('expertise.destroy')->middleware('seeker'); // DELETE EXPERTISE (AUTH) FOR SEEKER AND COMPANY
 
 // JOB ROUTES
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index'); // GET ALL JOB RECORD *DONE
 Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('jobs.create')->middleware('company'); // GET FORM CREATE JOB (AUTH AS COMPANY) *DONE
 Route::get('/jobs/career/{number}', [App\Http\Controllers\JobController::class, 'showByCareer'])->name('jobs.career'); // GET ALL JOB RECORD BY CAREER *DONE
-Route::get('/jobs/show/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show'); // GET JOB BASED ON ID *DONE
+Route::get('/jobs/show/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show')->middleware('seeker'); // GET JOB BASED ON ID *DONE
 Route::get('/jobs/detail/{id}', [App\Http\Controllers\JobController::class, 'detail'])->name('jobs.detail')->middleware('company'); // GET JOB BASED ON ID (AUTH AS COMPANY) *DONE
 Route::get('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'edit'])->name('jobs.edit')->middleware('auth'); // GET JOB BASED ON ID (AUTH) *DONE
 Route::post('/jobs', [App\Http\Controllers\JobController::class, 'store'])->name('jobs.store')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY) *DONE
@@ -78,12 +78,13 @@ Route::post('/jobs/suspend/{id}', [App\Http\Controllers\JobController::class, 's
 Route::delete('/jobs/destroy/{id}', [App\Http\Controllers\JobController::class, 'destroy'])->name('jobs.destroy')->middleware('company'); // DELETE JOB RECORD BASED ON ID (AUTH AS COMPANY) *DONE
 
 // REQUEST ROUTES
-Route::get('/requests', [App\Http\Controllers\RequestController::class, 'index'])->name('requests.index')->middleware('seeker'); // GET ALL REQUEST RECORD BY USER ID (AUTH AS SEEKER)
-Route::get('/requests/create/{job_id}', [App\Http\Controllers\RequestController::class, 'create'])->name('requests.create')->middleware('seeker'); // GET FORM CREATE REQUEST (AUTH AS SEEKER)
-Route::get('/requests/{id}', [App\Http\Controllers\RequestController::class, 'show'])->name('requests.show')->middleware('auth'); // GET REQUEST BASED ON ID (AUTH)
-Route::post('/requests', [App\Http\Controllers\RequestController::class, 'store'])->name('requests.store')->middleware('seeker'); // POST REQUEST FORM (AUTH AS SEEKER)
-Route::post('/requests/wishlist/{id}', [App\Http\Controllers\RequestController::class, 'wishlist'])->name('requests.wishlist')->middleware('company'); // POST REQUEST FORM (AUTH AS SEEKER)
-Route::post('/requests/respond/{id}', [App\Http\Controllers\RequestController::class, 'respond'])->name('requests.respond')->middleware('company'); // POST REQUEST FORM (AUTH AS COMPANY)
+Route::get('/requests', [App\Http\Controllers\RequestController::class, 'index'])->name('requests.index')->middleware('seeker'); // GET ALL REQUEST RECORD BY USER ID (AUTH AS SEEKER) *DONE
+Route::get('/requests/create/{job_id}', [App\Http\Controllers\RequestController::class, 'create'])->name('requests.create')->middleware('seeker'); // GET FORM CREATE REQUEST (AUTH AS SEEKER) *DONE
+Route::get('/requests/{id}', [App\Http\Controllers\RequestController::class, 'show'])->name('requests.show')->middleware('company'); // GET REQUEST BASED ON ID (AUTH AS COMPANY) *DONE
+Route::get('/requests/detail/{id}', [App\Http\Controllers\RequestController::class, 'detail'])->name('requests.detail')->middleware('seeker'); // GET REQUEST BASED ON ID (AUTH AS SEEKER) *DONE
+Route::post('/requests', [App\Http\Controllers\RequestController::class, 'store'])->name('requests.store')->middleware('seeker'); // POST REQUEST FORM (AUTH AS SEEKER) *DONE
+Route::post('/requests/wishlist/{id}', [App\Http\Controllers\RequestController::class, 'wishlist'])->name('requests.wishlist')->middleware('company'); // POST REQUEST FORM (AUTH AS SEEKER) *DONE
+Route::post('/requests/respond/{id}', [App\Http\Controllers\RequestController::class, 'respond'])->name('requests.respond')->middleware('company'); // POST REQUEST FORM (AUTH AS COMPANY) *DONE
 // Route::delete('/requests/{id}', [App\Http\Controllers\RequestController::class, 'destroy'])->name('requests.destroy')->middleware('admin'); // DELETE REQUEST BASED ON ID (AUTH AS ADMIN)
 
 // REPORT ROUTES

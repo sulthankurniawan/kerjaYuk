@@ -109,12 +109,13 @@ KerjaYuk | Info Pendaftar
                     </li>
                 </ul>
 
-                <form action="" method="POST">
+                <form action="/requests/respond/{{ $request->id }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="respond">Berikan Balasan Kepada Pelamar:</label>
                         <textarea type="text" class="form-control" id="respond" rows="4" name="respond"> </textarea>
                     </div>
-                    <button type="submit" class="btn btn-red btn-block mb-2 mb-md-0 btn-confirm">Kirim</button>
+                    <button type="submit" class="btn btn-red btn-block mb-2 mb-md-0">Kirim</button>
                 </form>
 
             </div>

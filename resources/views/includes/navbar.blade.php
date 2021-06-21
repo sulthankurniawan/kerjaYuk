@@ -53,13 +53,13 @@
                     </li>
                     <li class="nav-item mx-md-2">
                         <?php if (Auth::user()->role == 'seeker') : ?>
-                        <a class="nav-link <?= (Route::currentRouteName() == 'users.show') ? 'active' : ''; ?>"
+                        <a class="nav-link <?= (Route::currentRouteName() == 'requests.index') ? 'active' : ''; ?>"
                             href="{{ route('requests.index') }}"> Riwayar Lamaran </a>
                         <?php endif ?>
                     </li>
                     <li class="nav-item mx-md-2">
-                        <a class="nav-link <?= (Route::currentRouteName() == 'users.show') ? 'active' : ''; ?>"
-                            href="/users/<?= Auth::user()->id ?>"> Profil <?= Auth::user()->first_name ?> </a>
+                        <a class="nav-link <?= (Route::currentRouteName() == 'users.profile') ? 'active' : ''; ?>"
+                            href="/users/profile"> Profil <?= Auth::user()->first_name ?> </a>
                     </li>
                 </ul>
 

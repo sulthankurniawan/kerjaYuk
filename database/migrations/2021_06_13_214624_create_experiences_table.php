@@ -18,8 +18,9 @@ class CreateExperiencesTable extends Migration
             $table->timestamps();
             $table->string('user_id')->nullable();
             $table->string('company_name')->nullable();
-            $table->string('start_period')->nullable();
-            $table->string('end_period')->nullable();
+            $table->string('job_name')->nullable();
+            $table->date('start_period')->nullable();
+            $table->date('end_period')->nullable();
         });
     }
 

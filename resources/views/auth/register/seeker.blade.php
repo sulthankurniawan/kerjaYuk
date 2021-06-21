@@ -99,7 +99,7 @@ Seeker | Login
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="min_gaji">Ekspektasi Gaji:</label>
+                                <label for="min_gaji"><strong>Ekspektasi Gaji:</strong></label>
                                 <div class="form-row">
                                     <div class="col-6">
                                         <input type="number" class="form-control" id="min_gaji" placeholder="Minimum"

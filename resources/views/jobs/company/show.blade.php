@@ -234,9 +234,9 @@ KerjaYuk | Detail Job
                                 </div>
                             </div>
                         </div>
-                        <form action="">
+                        <!-- <form action="">
                             <button type="submit" class="btn btn-green text-white btn-block mb-2 mb-md-0">Expor ke Excel</button>
-                        </form>
+                        </form> -->
                     </div>
                     <!-- End Wishlsit Tabs -->
                 </div>

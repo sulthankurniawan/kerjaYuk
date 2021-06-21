@@ -236,12 +236,12 @@ class JobController extends Controller
         if ($job->status == 'active') {
             $job->status = 'suspended';
             $job->update();
-            return redirect("")->with('mssg', '');
+            return redirect("/home-admin")->with('mssg', 'Lowongan telah di suspend');
         }
         elseif ($job->status == 'suspended') {
             $job->status = 'active';
             $job->update();
-            return redirect("")->with('mssg', '');
+            return redirect("/home-admin")->with('mssg', 'Lowongan telah di aktifkan');
         } 
     }
 

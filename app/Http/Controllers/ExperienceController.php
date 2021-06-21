@@ -3,61 +3,49 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Experience;
+use App\Models\Expertice;
 
 class ExperienceController extends Controller
 {
     
-
-    
-
-    public function editExperience()
+    public function create()
     {
         $user = User::findOrFail(Auth::user()->id);
-        $experience = 'something';
-        $expertice = 'something';
+        $experiences = Experience::where('user_id', '=', Auth::user()->id)->get();
+        $expertices = Expertice::where('user_id', '=', Auth::user()->id)->get();
+
         return view('users.profile.seeker.edit.experience', [
             'user' => $user,
-            'experience' => $experience,
-            'expertice' => $expertice,
+            'experiences' => $experiences,
+            'expertices' => $expertices,
         ]);
     }
 
-    public function editExpertice()
+    public function store()
     {
-        $user = User::findOrFail(Auth::user()->id);
-        $experience = 'something';
-        $expertice = 'something';
-        return view('users.profile.seeker.edit.expertice', [
-            'user' => $user,
-            'experience' => $experience,
-            'expertice' => $expertice,
-        ]);
-    }
+            $experience = new Experience;
 
-    
+            $experience->user_id = Auth::user()->id;
+            $experience->company_name = request('company_name');
+            $experience->job_name = request('job_name');
+            $experience->start_period = request('start_period');
+            $experience->end_period = request('end_period');
 
-    public function updateExpirience()
-    {
-            $user = User::findOrFail(Auth::user()->id);
-
-            $user->first_name = request('first_name');
-            $user->last_name = request('last_name');
-            $user->email = request('email');
-            $user->education = request('education');
-            $user->institution = request('institution');
-            $user->major = request('major');
-            $user->min_expectation_salary = request('min_expectation_salary');
-            $user->max_expectation_salary = request('max_expectation_salary');
-            $user->password = Hash::make(request('password'));
-            $user->phone = request('phone');
-
-            $user->update();
+            $experience->save();
 
             return redirect('/users/profile')->with('mssg', 'Informasi telah diperbarui');
     }
 
-    public function updateExpertise()
+    public function destroy($id)
     {
-        //
+        $experience = Experience::findOrFail($id);
+        $experience->delete();
+
+        return redirect('/users/profile')->with('mssg', 'Pengalaman kerja telah dihapus');;
     }
 }
