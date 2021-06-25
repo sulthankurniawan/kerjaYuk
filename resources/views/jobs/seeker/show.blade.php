@@ -139,6 +139,7 @@ KerjaYuk | Job Detail
                             <h5 class="body-default font-weight-600">Berkas yang Perlu Dikumpulkan</h5>
                             <p>{{ $job->submission }}</p>
 
+                            @if (Auth::user()->role == 'seeker')
                             <!-- Action Button Desktop -->
                             <div class="action-button mt-5 d-none d-md-flex justify-content-md-center">
                                 <a href="/jobs" class="btn btn-grey mr-2 body-default">Lowongan Lainnya</a>
@@ -151,9 +152,10 @@ KerjaYuk | Job Detail
                                 <a href="/jobs" class="btn btn-grey btn-block mr-2 body-default">Lowongan Lainnya</a>
                             </div>
 
-                            <a href="/reports/create" class="mt-3 text-center d-block body-default link-red">Laporkan
+                            <a href="/reports/jobs/{{ $job->id }}" class="mt-3 text-center d-block body-default link-red">Laporkan
                                 Lowongan?</a>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

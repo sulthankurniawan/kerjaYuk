@@ -13,17 +13,28 @@ class JobController extends Controller
 {
     public function index() 
     {
-        // get data from db
-        $jobs = Job::join('users', 'users.id', '=', 'jobs.user_id')
+        if (Auth::user()->role == 'admin')
+        {
+            $jobs = Job::join('users', 'users.id', '=', 'jobs.user_id')
+                    ->select('jobs.*', 'users.company')
+                    ->get();
+            return view('jobs.manage', [
+                'jobs' => $jobs,
+            ]);
+        }
+        else 
+        {
+            $jobs = Job::join('users', 'users.id', '=', 'jobs.user_id')
                     ->select('jobs.*', 'users.company')
                     ->where('jobs.status', '=', 'active')
                     ->Where('jobs.display', '=', 'Tampilkan')
                     ->get();
-    
-        return view('jobs.seeker.find', [
-            'jobs' => $jobs,
-            'career' => '',
-        ]);
+            return view('jobs.seeker.find', [
+                'jobs' => $jobs,
+                'career' => '',
+            ]);
+        }
+        
     }
 
     public function showByCareer($number) 
@@ -117,7 +128,7 @@ class JobController extends Controller
         $applicants = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
                         ->join('jobs', 'jobs.id', '=', 'requests.job_id')
                         ->select('users.id')
-                        ->where('jobs.id', '=', $id)
+                        ->where('requests.job_id', '=', $id)
                         ->get();
 
         return view('jobs.seeker.show', ['job' => $job, 'applicants' => $applicants]);

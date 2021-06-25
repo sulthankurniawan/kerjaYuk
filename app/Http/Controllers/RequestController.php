@@ -53,20 +53,20 @@ class RequestController extends Controller
         // use the $id variable to query the db for a record
 
         $request = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
-                        ->select('users.first_name', 'users.last_name', 'users.email', 'users.phone', 'requests.link', 'requests.id')
-                        ->where('requests.id', '=', $id)
+                        ->select('users.id as user_id' ,'users.first_name', 'users.last_name', 'users.email', 'users.phone', 'users.institution', 'users.education', 'users.major', 'requests.link', 'requests.id')
+                        ->where('requests.user_id', '=', $id)
                         ->first();
 
         $experiences = Experience::join('users', 'users.id', '=', 'experiences.user_id')
                         ->join('requests', 'requests.user_id', '=', 'experiences.user_id')
                         ->select('experiences.*')
-                        ->where('requests.user_id', '=', 'experiences.user_id')
+                        ->where('experiences.user_id', '=', $id)
                         ->get();
 
         $expertices = Expertice::join('users', 'users.id', '=', 'expertices.user_id')
                         ->join('requests', 'requests.user_id', '=', 'expertices.user_id')
                         ->select('expertices.*')
-                        ->where('requests.user_id', '=', 'expertices.user_id')
+                        ->where('expertices.user_id', '=', $id)
                         ->get();
 
         return view('requests.show', [

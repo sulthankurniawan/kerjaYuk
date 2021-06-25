@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Job;
 use App\Models\Request as Job_Request;
+use App\Models\Report;
 
 class HomeController extends Controller
 {
@@ -63,13 +64,16 @@ class HomeController extends Controller
 
     public function company()
     {
-        $jobs = Job::where('user_id', '=', Auth::user()->id)
-                    ->get();
+        $jobs = Job::where('user_id', '=', Auth::user()->id)->get();
         return view('dashboard.company', ['jobs' => $jobs]);
     }
 
     public function admin()
     {
-        
+        $reports = Report::join('users', 'users.id', 'reports.whistleblower_id')
+                    ->select('reports.*', 'users.first_name', 'users.role', 'users.email', 'users.phone')
+                    ->latest()
+                    ->get();
+        return view('dashboard.admin', ['reports' => $reports]);
     }
 }

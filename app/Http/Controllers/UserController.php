@@ -13,12 +13,20 @@ use App\Models\Expertice;
 class UserController extends Controller
 {
     
-    public function index()
+    public function seeker()
     {
-        // get data from db
-        $users = User::latest()->get();
+        $users = User::where('role', '=', 'seeker')->latest()->get();
     
-        return view('users.manage.index', [
+        return view('users.manage.seeker', [
+            'users' => $users,
+        ]); 
+    }
+
+    public function company()
+    {
+        $users = User::where('role', '=', 'company')->latest()->get();
+    
+        return view('users.manage.company', [
             'users' => $users,
         ]);
     }

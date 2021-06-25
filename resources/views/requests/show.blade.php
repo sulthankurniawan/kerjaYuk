@@ -68,10 +68,10 @@ KerjaYuk | Info Pendaftar
                             </div>
                             @foreach ($experiences as $experience)
                             <div class="w-100">
-                                <p class="mb-0 d-block">{{ $experience->company_name }}</p>
+                                <p class="mb-0 d-block">{{ $experience->company_name }} {{ $experience->job_name }}</p>
                                 <div class="row">
                                     <div class="col-auto">
-                                        <p class="font-secondary">{{ $experience->start_period }} - {{ $experience->end_period }}</p>
+                                        <p class="font-secondary">{{ $experience->start_period }} sampai {{ $experience->end_period }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -118,6 +118,10 @@ KerjaYuk | Info Pendaftar
                     <button type="submit" class="btn btn-red btn-block mb-2 mb-md-0">Kirim</button>
                 </form>
 
+            </div>
+            <br>
+            <div class="card card-body">
+                <a href="/reports/users/{{$request->user_id}}" class="btn btn-orange btn-block mb-2 mb-md-0">Laporkan Pengguna</a>
             </div>
         </div>
     </section>

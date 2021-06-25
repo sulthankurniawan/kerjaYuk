@@ -16,7 +16,7 @@ KerjaYuk | Home
                         <div class="card-header">Kelola Seeker</div>
                         <div class="card-body">
                             <p>
-                                <a href="#">
+                                <a href="/users/seeker">
                                     <img style="max-height: 150px; max-width: 300px;"
                                         src="{{ url("img/illustration/menu/User.jpeg") }}" class="card-img" alt="..." />
                                 </a>
@@ -30,7 +30,7 @@ KerjaYuk | Home
                         <div class="card-header">Kelola Company</div>
                         <div class="card-body">
                             <p>
-                                <a href="#">
+                                <a href="/users/company">
                                     <img style="max-height: 150px; max-width: 300px;"
                                         src="{{ url("img/illustration/menu/Company.jpeg") }}" class="card-img"
                                         alt="..." />
@@ -49,7 +49,7 @@ KerjaYuk | Home
                         <div class="card-header">Kelola Lowongan</div>
                         <div class="card-body">
                             <p>
-                                <a href="#">
+                                <a href="/jobs">
                                     <img style="max-height: 150px; max-width: 300px;"
                                         src="{{ url("img/illustration/menu/Report.jpeg") }}" class="card-img"
                                         alt="..." />
@@ -67,76 +67,53 @@ KerjaYuk | Home
         <div class="container">
             <h3 class="pt-3 font-weight-600">Laporan Pengguna</h3>
 
-            {{-- <div class="panel panel-default panel-table">
-                <div class="panel-heading">
-                    <div class="form-inline my-2 my-lg-0">
-                        <div class="form-outline">
-                            <input type="search" id="form1" class="form-control" placeholder="Search..."
-                                aria-label="Search" />
-                        </div>
-                        <div class="col col-xs-6 text-right">
-                            <a href="#" class="btn btn-sm btn-primary btn-create">Tambah User</a>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
             <div class="card card-body">
-                <div class="row mb-4">
-                    <div class="col-3">
-                        <form action="" class="d-flex align-items-center h-100">
-                            <div class="form-group mb-0">
-                                <input type="search" name="search" id="search" placeholder="Search..."
-                                    class="form-control">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-9 text-right">
-                        <a href="#" class="btn btn-sm btn-primary btn-create">Tambah User</a>
-                    </div>
-                </div>
 
                 <div class="table-responsive">
                     <table class="table table-striped">
+                        
                         <thead>
                             <tr>
                                 <th>Nama Pelapor</th>
-                                <th>Perusahaan yang dilaporkan</th>
+                                <th>Peran</th>
+                                <th>Email Pelapor</th>
+                                <th>Nomor Telepon Pelapor</th>
+                                <th>Kategori</th>
                                 <th>Alasan Pelapor</th>
-                                <th>Tanggal</th>
+                                <th>Tanggal Pelaporan</th>
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($reports as $report)
                             <tr>
-                                <td>Nama</td>
-                                <td>PT. Espay Debit Indonesia</td>
-                                <td>This is a fake account</td>
-                                <td>17/01/21</td>
+                                <td>{{ $report->first_name }}</td>
+                                <td>{{ $report->role }}</td>
+                                <td><a href="mailto: {{ $report->email }}" style="color:black">{{ $report->email }}</a></td>
+                                <td><a href="https://api.whatsapp.com/send?phone={{ $report->phone }}" style="color:black">{{ $report->phone }}</a></td>
+                                <td>{{ $report->category }}</td>
+                                <td>{{ $report->description }}</td>
+                                <td>{{ $report->created_at }}</td>
                                 <td>
-                                    <a href="#" class="btn text-success btn-flat btn-xs" data-toggle="modal"><i
-                                            class="fas fa-check"></i></a>
+                                    @if ($report->reported_job_id != null)
+                                    <a href="/reports/jobs/{{ $report->id }}/{{ $report->whistleblower_id }}/{{ $report->reported_job_id }}" class="btn text-primary btn-flat btn-xs"><i
+                                            class="	fa fa-align-justify"></i>Detail</a>
+                                    @endif
+                                    @if ($report->reported_user_id != null)
+                                    <a href="/reports/users/{{ $report->id }}/{{ $report->whistleblower_id }}/{{ $report->reported_user_id }}" class="btn text-primary btn-flat btn-xs"><i
+                                            class="	fa fa-align-justify"></i>Detail</a>
+                                    @endif
                                 </td>
                                 <td>
-                                    <a href="#" class="btn text-danger btn-flat btn-xs" data-toggle="modal"><i
-                                            class="fa fa-trash"></i></a>
+                                    <form action="/reports/destroy/{{ $report->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                        <button class="btn text-danger btn-flat btn-xs"><i class="fa fa-trash"></i>Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Nama</td>
-                                <td>PT. Espay Debit Indonesia</td>
-                                <td>This is a fake account</td>
-                                <td>17/01/21</td>
-                                <td>
-                                    <a href="#" class="btn text-success btn-flat btn-xs" data-toggle="modal"><i
-                                            class="fas fa-check"></i></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="btn text-danger btn-flat btn-xs" data-toggle="modal"><i
-                                            class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

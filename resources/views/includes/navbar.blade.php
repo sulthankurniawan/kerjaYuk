@@ -38,6 +38,9 @@
                         <?php elseif (Auth::user()->role == 'company') : ?>
                         <a href="/home-company"
                             class="nav-link <?= (Route::currentRouteName() == 'home.company') ? 'active' : ''; ?>">Beranda</a>
+                        <?php elseif (Auth::user()->role == 'admin') : ?>
+                        <a href="/home-admin"
+                            class="nav-link <?= (Route::currentRouteName() == 'home.admin') ? 'active' : ''; ?>">Beranda</a>
                         <?php endif ?>
                     </li>
                     <li class="nav-item mx-md-2">

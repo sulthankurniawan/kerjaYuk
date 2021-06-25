@@ -46,7 +46,8 @@ Route::post('/register-seeker', [App\Http\Controllers\Auth\RegisterController::c
 Route::post('/register-company', [App\Http\Controllers\Auth\RegisterController::class, 'createCompany'])->name('register.createSeeker'); // POST REGISTER FORM FOR COMPANY *DONE
 
 // USER ROUTES
-Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index')->middleware('admin'); // GET ALL USER RECORD (AUTH AS ADMIN)
+Route::get('/users/seeker', [App\Http\Controllers\UserController::class, 'seeker'])->name('users.seeker')->middleware('admin'); // GET SEEKER USER RECORD (AUTH AS ADMIN)
+Route::get('/users/company', [App\Http\Controllers\UserController::class, 'company'])->name('users.company')->middleware('admin'); // GET COMPANY USER RECORD (AUTH AS ADMIN)
 Route::get('/users/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('users.profile')->middleware('auth'); // GET PROFILE PAGE (AUTH) FOR SEEKER AND COMPANY
 Route::get('/users/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit')->middleware('auth'); // GET EDIT BIOGRAPHY FORM (AUTH) FOR SEEKER AND COMPANY
 Route::get('/users/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show')->middleware('auth'); // GET USER BASED ON ID (AUTH) FOR ADMIN AND COMPANY
@@ -68,7 +69,7 @@ Route::delete('/expertices/{id}', [App\Http\Controllers\ExperticeController::cla
 Route::get('/jobs', [App\Http\Controllers\JobController::class, 'index'])->name('jobs.index'); // GET ALL JOB RECORD *DONE
 Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('jobs.create')->middleware('company'); // GET FORM CREATE JOB (AUTH AS COMPANY) *DONE
 Route::get('/jobs/career/{number}', [App\Http\Controllers\JobController::class, 'showByCareer'])->name('jobs.career'); // GET ALL JOB RECORD BY CAREER *DONE
-Route::get('/jobs/show/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show')->middleware('seeker'); // GET JOB BASED ON ID *DONE
+Route::get('/jobs/show/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show')->middleware('auth'); // GET JOB BASED ON ID (AUTH) FOR ADMIN AND SEEKER *DONE
 Route::get('/jobs/detail/{id}', [App\Http\Controllers\JobController::class, 'detail'])->name('jobs.detail')->middleware('company'); // GET JOB BASED ON ID (AUTH AS COMPANY) *DONE
 Route::get('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'edit'])->name('jobs.edit')->middleware('auth'); // GET JOB BASED ON ID (AUTH) *DONE
 Route::post('/jobs', [App\Http\Controllers\JobController::class, 'store'])->name('jobs.store')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY) *DONE
@@ -85,12 +86,12 @@ Route::get('/requests/detail/{id}', [App\Http\Controllers\RequestController::cla
 Route::post('/requests', [App\Http\Controllers\RequestController::class, 'store'])->name('requests.store')->middleware('seeker'); // POST REQUEST FORM (AUTH AS SEEKER) *DONE
 Route::post('/requests/wishlist/{id}', [App\Http\Controllers\RequestController::class, 'wishlist'])->name('requests.wishlist')->middleware('company'); // POST REQUEST FORM (AUTH AS SEEKER) *DONE
 Route::post('/requests/respond/{id}', [App\Http\Controllers\RequestController::class, 'respond'])->name('requests.respond')->middleware('company'); // POST REQUEST FORM (AUTH AS COMPANY) *DONE
-// Route::delete('/requests/{id}', [App\Http\Controllers\RequestController::class, 'destroy'])->name('requests.destroy')->middleware('admin'); // DELETE REQUEST BASED ON ID (AUTH AS ADMIN)
+Route::delete('/requests/{id}', [App\Http\Controllers\RequestController::class, 'destroy'])->name('requests.destroy')->middleware('admin'); // DELETE REQUEST BASED ON ID (AUTH AS ADMIN)
 
 // REPORT ROUTES
-Route::get('/reports', [App\Http\Controllers\ReportController::class, 'index'])->name('reports.index')->middleware('admin'); // GET ALL REPORT RECORD (AUTH AS ADMIN)
-Route::get('/reports/create', [App\Http\Controllers\ReportController::class, 'create'])->name('reports.create')->middleware('auth'); // GET FORM CREATE REPORT (AUTH) FOR SEEKER AND COMPANY
-Route::get('/reports/{id}', [App\Http\Controllers\ReportController::class, 'show'])->name('reports.show')->middleware('admin'); // GET REPORT BASED ON ID (AUTH AS ADMIN)
-Route::post('/reports', [App\Http\Controllers\ReportController::class, 'store'])->name('reports.store')->middleware('auth'); // POST REPORT FORM (AUTH) FOR SEEKER AND COMPANY
-Route::post('/reports/read/{id}', [App\Http\Controllers\ReportController::class, 'read'])->name('reports.store')->middleware('admin'); // POST REPORT READ STATUS FORM (AUTH AS ADMIN) 
-Route::delete('/reports/{id}', [App\Http\Controllers\ReportController::class, 'destroy'])->name('reports.destroy')->middleware('admin'); // DELETE REPORT BASED ON ID (AUTH AS ADMIN)
+Route::get('/reports/{object}/{id}', [App\Http\Controllers\ReportController::class, 'index'])->name('reports.index')->middleware('auth'); // GET ALL REPORT RECORD (AUTH) FOR SEEKER AND COMPANY *DONE
+Route::get('/reports/jobs/{report_id}/{whistleblower_id}/{reported_job_id}', [App\Http\Controllers\ReportController::class, 'showJob'])->name('reports.show.jobs')->middleware('admin'); // GET JOBS REPORT BASED ON ID (AUTH AS ADMIN)
+Route::get('/reports/users/{report_id}/{whistleblower_id}/{reported_user_id}', [App\Http\Controllers\ReportController::class, 'showUser'])->name('reports.show.users')->middleware('admin'); // GET USERS REPORT BASED ON ID (AUTH AS ADMIN)
+Route::post('/reports/{object}', [App\Http\Controllers\ReportController::class, 'store'])->name('reports.store')->middleware('auth'); // POST REPORT FORM (AUTH) FOR SEEKER AND COMPANY *DONE
+Route::post('/reports/read/{id}', [App\Http\Controllers\ReportController::class, 'read'])->name('reports.read')->middleware('admin'); // POST REPORT READ STATUS FORM (AUTH AS ADMIN) 
+Route::delete('/reports/destroy/{id}', [App\Http\Controllers\ReportController::class, 'destroy'])->name('reports.destroy')->middleware('admin'); // DELETE REPORT BASED ON ID (AUTH AS ADMIN)
