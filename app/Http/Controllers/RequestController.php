@@ -49,30 +49,33 @@ class RequestController extends Controller
         ]);
     }
 
-    public function show($id) {
+    public function show($id, $user_id) {
         // use the $id variable to query the db for a record
 
         $request = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
-                        ->select('users.id as user_id' ,'users.first_name', 'users.last_name', 'users.email', 'users.phone', 'users.institution', 'users.education', 'users.major', 'requests.link', 'requests.id')
-                        ->where('requests.user_id', '=', $id)
+                        ->select('users.id as user_id' ,'users.first_name', 'users.last_name', 'users.email', 'users.phone', 'users.institution', 'users.education', 'users.major', 'requests.link', 'requests.id', 'requests.respond')
+                        ->where('requests.id', '=', $id)
                         ->first();
 
         $experiences = Experience::join('users', 'users.id', '=', 'experiences.user_id')
-                        ->join('requests', 'requests.user_id', '=', 'experiences.user_id')
+                        ->join('requests', 'requests.user_id', '=', 'users.id')
                         ->select('experiences.*')
-                        ->where('experiences.user_id', '=', $id)
+                        ->where('experiences.user_id', '=', $user_id)
+                        ->where('requests.id', '=', $id)
                         ->get();
 
         $expertices = Expertice::join('users', 'users.id', '=', 'expertices.user_id')
-                        ->join('requests', 'requests.user_id', '=', 'expertices.user_id')
+                        ->join('requests', 'requests.user_id', '=', 'users.id')
                         ->select('expertices.*')
-                        ->where('expertices.user_id', '=', $id)
+                        ->where('expertices.user_id', '=', $user_id)
+                        ->where('requests.id', '=', $id)
                         ->get();
 
         return view('requests.show', [
             'request' => $request,
             'experiences' => $experiences,
             'expertices' => $expertices,
+        
         ]);
     }
 

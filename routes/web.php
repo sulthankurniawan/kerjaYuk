@@ -73,6 +73,7 @@ Route::get('/jobs/show/{id}', [App\Http\Controllers\JobController::class, 'show'
 Route::get('/jobs/detail/{id}', [App\Http\Controllers\JobController::class, 'detail'])->name('jobs.detail')->middleware('company'); // GET JOB BASED ON ID (AUTH AS COMPANY) *DONE
 Route::get('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'edit'])->name('jobs.edit')->middleware('auth'); // GET JOB BASED ON ID (AUTH) *DONE
 Route::post('/jobs', [App\Http\Controllers\JobController::class, 'store'])->name('jobs.store')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY) *DONE
+Route::post('/jobs/search', [App\Http\Controllers\JobController::class, 'search'])->name('jobs.search')->middleware('auth'); // POST JOB FORM (AUTH) FOR SEEKER AND COMPANY
 Route::post('/jobs/{id}', [App\Http\Controllers\JobController::class, 'update'])->name('jobs.update')->middleware('company'); // POST JOB FORM (AUTH AS COMPANY) *DONE
 Route::post('/jobs/display/{id}', [App\Http\Controllers\JobController::class, 'display'])->name('jobs.display')->middleware('company'); // POST CHANGE JOB DISPLAY STATUS (AUTH AS COMPANY) *DONE
 Route::post('/jobs/suspend/{id}', [App\Http\Controllers\JobController::class, 'suspend'])->name('jobs.suspend')->middleware('admin'); // POST SUSPEND JOB (AUTH AS ADMIN)
@@ -81,7 +82,7 @@ Route::delete('/jobs/destroy/{id}', [App\Http\Controllers\JobController::class, 
 // REQUEST ROUTES
 Route::get('/requests', [App\Http\Controllers\RequestController::class, 'index'])->name('requests.index')->middleware('seeker'); // GET ALL REQUEST RECORD BY USER ID (AUTH AS SEEKER) *DONE
 Route::get('/requests/create/{job_id}', [App\Http\Controllers\RequestController::class, 'create'])->name('requests.create')->middleware('seeker'); // GET FORM CREATE REQUEST (AUTH AS SEEKER) *DONE
-Route::get('/requests/{id}', [App\Http\Controllers\RequestController::class, 'show'])->name('requests.show')->middleware('company'); // GET REQUEST BASED ON ID (AUTH AS COMPANY) *DONE
+Route::get('/requests/{id}/{user_id}', [App\Http\Controllers\RequestController::class, 'show'])->name('requests.show')->middleware('company'); // GET REQUEST BASED ON ID (AUTH AS COMPANY) *DONE
 Route::get('/requests/detail/{id}', [App\Http\Controllers\RequestController::class, 'detail'])->name('requests.detail')->middleware('seeker'); // GET REQUEST BASED ON ID (AUTH AS SEEKER) *DONE
 Route::post('/requests', [App\Http\Controllers\RequestController::class, 'store'])->name('requests.store')->middleware('seeker'); // POST REQUEST FORM (AUTH AS SEEKER) *DONE
 Route::post('/requests/wishlist/{id}', [App\Http\Controllers\RequestController::class, 'wishlist'])->name('requests.wishlist')->middleware('company'); // POST REQUEST FORM (AUTH AS SEEKER) *DONE

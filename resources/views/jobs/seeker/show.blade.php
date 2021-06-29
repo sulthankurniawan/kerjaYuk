@@ -143,12 +143,20 @@ KerjaYuk | Job Detail
                             <!-- Action Button Desktop -->
                             <div class="action-button mt-5 d-none d-md-flex justify-content-md-center">
                                 <a href="/jobs" class="btn btn-grey mr-2 body-default">Lowongan Lainnya</a>
+                                <?php if (count($requests) > 0) : ?>
+                                <a href="/requests/create/{{ $job->id }}" class="btn btn-red body-default disabled">Anda sudah mendaftarkan diri</a>
+                                <?php elseif (count($requests) == 0) : ?>
                                 <a href="/requests/create/{{ $job->id }}" class="btn btn-red body-default">Apply Pekerjaan</a>
+                                <?php endif ?>
                             </div>
 
                             <!-- Action Button Mobile -->
                             <div class="action-button mt-5 d-block d-md-none">
-                                <a href="requests/create/{{ $job->id }}" class="btn btn-red btn-block body-default">Apply Pekerjaan</a>
+                                <?php if (count($requests) > 0) : ?>
+                                <a href="/requests/create/{{ $job->id }}" class="btn btn-red body-default disabled">Anda sudah mendaftarkan diri</a>
+                                <?php elseif (count($requests) == 0) : ?>
+                                <a href="/requests/create/{{ $job->id }}" class="btn btn-red body-default">Apply Pekerjaan</a>
+                                <?php endif ?>
                                 <a href="/jobs" class="btn btn-grey btn-block mr-2 body-default">Lowongan Lainnya</a>
                             </div>
 

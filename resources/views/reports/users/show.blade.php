@@ -53,7 +53,7 @@ KerjaYuk | Info Pendaftar
                     <li class="list-group-item border-0 d-flex align-items-center pl-0 pt-1">
                         <div class="d-flex w-100">
                             <div class="h-100 list-bullet-icons">
-                                <span style="margin-right:5px">Pekerjaan: </span>
+                                <span style="margin-right:5px">Nama: </span>
                             </div>
                             <div class="w-100">
                                 <p class="mb-0">{{ $reported_user->first_name }}</p>

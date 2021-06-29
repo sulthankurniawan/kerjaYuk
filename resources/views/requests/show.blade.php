@@ -66,16 +66,19 @@ KerjaYuk | Info Pendaftar
                                     <i class="fas fa-briefcase"></i>
                                 </span>
                             </div>
-                            @foreach ($experiences as $experience)
-                            <div class="w-100">
+
+                            <ul class="w-100">
+                                @foreach ($experiences as $experience)
+                                <li>
                                 <p class="mb-0 d-block">{{ $experience->company_name }} {{ $experience->job_name }}</p>
                                 <div class="row">
                                     <div class="col-auto">
                                         <p class="font-secondary">{{ $experience->start_period }} sampai {{ $experience->end_period }}</p>
                                     </div>
                                 </div>
-                            </div>
-                            @endforeach
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </li>
                     <li class="list-group-item border-0 d-flex align-items-center pl-0 pt-1 w-100">
@@ -85,16 +88,19 @@ KerjaYuk | Info Pendaftar
                                     <i class="fas fa-shapes"></i>
                                 </span>
                             </div>
-                            @foreach ($expertices as $expertice)
-                            <div class="w-100">
-                                <p class="mb-0 d-block"> {{ $expertice->tool_name }}</p>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <p class="font-secondary"> {{ $expertice->level }}</p>
+                            
+                            <ul class="w-100">
+                                @foreach ($expertices as $expertice)
+                                <li>
+                                    <p class="mb-0 d-block"> {{ $expertice->tool_name }}</p>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <p class="font-secondary"> {{ $expertice->level }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            @endforeach
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </li>
                     <li class="list-group-item border-0 d-flex align-items-center pl-0 pt-1">
@@ -113,7 +119,7 @@ KerjaYuk | Info Pendaftar
                     @csrf
                     <div class="form-group">
                         <label for="respond">Berikan Balasan Kepada Pelamar:</label>
-                        <textarea type="text" class="form-control" id="respond" rows="4" name="respond"> </textarea>
+                        <textarea type="text" class="form-control" id="respond" rows="4" name="respond">{{ $request->respond }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-red btn-block mb-2 mb-md-0">Kirim</button>
                 </form>

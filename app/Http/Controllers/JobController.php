@@ -131,7 +131,39 @@ class JobController extends Controller
                         ->where('requests.job_id', '=', $id)
                         ->get();
 
-        return view('jobs.seeker.show', ['job' => $job, 'applicants' => $applicants]);
+        $requests = Job_Request::where('user_id', '=', Auth::user()->id)
+                        ->where('job_id', '=', $id)
+                        ->select('id')
+                        ->get();
+
+        return view('jobs.seeker.show', ['job' => $job, 'applicants' => $applicants, 'requests' => $requests]);
+    }
+
+    public function search()
+    {
+        // if (request('min_salary') == '')
+        //     $min_salary = 0;
+        // else
+        //     $min_salary = request('min_salary');
+
+        // if (request('max_salary') == '')
+        //     $max_salary = 999999999999999;
+        // else
+        //     $max_salary = request('max_salary');
+
+        $jobs = Job::where('area', '=', request('area'))
+                    // ->where('min_salary', '<', $min_salary)
+                    // ->where('max_salary', '>', $max_salary)
+                    ->where('type', '=', request('type'))
+                    ->where('education', '=', request('education'))
+                    // ->where('majors', 'LIKE', request('major'))
+                    ->select('*')
+                    ->get();
+
+        return view('jobs.seeker.find', [
+            'jobs' => $jobs,
+            'career' => '',
+        ]); 
     }
 
     public function detail($id)
@@ -142,7 +174,7 @@ class JobController extends Controller
 
         $applicants = Job_Request::join('users', 'users.id', '=', 'requests.user_id')
                         ->join('jobs', 'jobs.id', '=', 'requests.job_id')
-                        ->select('users.id','users.first_name', 'users.email', 'users.phone', 'users.institution', 'users.major', 'requests.wishlist', 'requests.id as request_id')
+                        ->select('users.id as user_id','users.first_name', 'users.email', 'users.phone', 'users.institution', 'users.major', 'requests.wishlist', 'requests.id as request_id')
                         ->where('jobs.id', '=', $id)
                         ->get();
 

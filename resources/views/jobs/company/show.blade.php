@@ -192,7 +192,7 @@ KerjaYuk | Detail Job
                                                 class="image-cover profile-picture mr-2" style="width:50px;height:50px;"> -->
                                             <i class='fas fa-user-circle' style='font-size:36px; margin-right:10px'></i>
                                             <div class="user-information">
-                                                <a class="font-size-body text-dark" href="/requests/{{ $applicant->id }}">{{ $applicant->first_name }}</a>
+                                                <a class="font-size-body text-dark" href="/requests/{{ $applicant->request_id }}/{{ $applicant->user_id }}">{{ $applicant->first_name }}</a>
                                                 <p class="font-size-sub-body mb-0">{{ $applicant->major }}</p>
                                             </div>
                                             <form action="/requests/wishlist/{{ $applicant->request_id }}" method="POST" style="margin:auto">
@@ -219,7 +219,7 @@ KerjaYuk | Detail Job
                                                 class="image-cover profile-picture mr-2" style="width:50px;height:50px;"> -->
                                             <i class='fas fa-user-circle' style='font-size:36px; margin-right:10px'></i>
                                             <div class="user-information">
-                                                <a class="font-size-body text-dark" href="/requests/{{ $applicant->id }}">{{ $applicant->first_name }}</a>
+                                                <a class="font-size-body text-dark" href="/requests/{{ $applicant->request_id }}">{{ $applicant->first_name }}</a>
                                                 <p class="font-size-sub-body mb-0">{{ $applicant->major }}</p>
                                             </div>
                                             <form action="/requests/wishlist/{{ $applicant->request_id }}" method="POST" style="margin:auto">

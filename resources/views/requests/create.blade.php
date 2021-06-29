@@ -89,7 +89,7 @@ KerjaYuk | Request Job
                                         </div>
                                         @foreach ($experiences as $experience)
                                         <div class="w-100">
-                                            <p class="mb-0 d-block">$experience->company_name</p>
+                                            <p class="mb-0 d-block">{{ $experience->company_name }}</p>
                                             <div class="row">
                                                 <div class="col-auto">
                                                     <p class="font-secondary">{{ $experience->start_period }} - {{ $experience->end_period }}</p>
